@@ -1,0 +1,45 @@
+<div class="row">
+  <div class="col-md-12">
+    <div class="row" style="margin-top:10px;">
+      <div style="width:100%;text-align:center;">
+        <div id="picture_container_avatar" style="min-height:155px;margin-top:5px;width:100%;margin:0px auto;">
+          <img class="picture_avatar" style="max-width:120px;width:120px;height:auto;margin-top:12px;" id="picture_avatar" src=''>
+         </div>
+
+      </div>
+     </div>
+     <div class="row">
+      <div class="col-md-12" id="croppie_container_avatar" style="display:none;min-height:150px;margin:10px auto;">
+         <div class="text-center" style="width:100%;">
+          <div id="upload_avatar"></div>
+         </div>
+      </div>
+     </div>
+     <div class="row" style="margin-top: 10px;">
+      <div class="btn-group" style="margin:0px auto;min-width:100%;text-align:center;display:flex;justify-content:center;">
+          <input type="file" accept=".gif,.png,.jpg,.jpeg" style="display:none;" id="images_avatar" />
+          <button type="button" id="setAvatarCamera" onclick="$('#images_avatar').attr('src','');loadedPages.sp_profile.uploadCamera();" class="btn btn-image" style="margin-bottom:0px;margin-top:0px;"><img style="width:60px;height:60px;" src="images/camera.jpg" /></button>
+          <button type="button" id="setAvatarBrowse" onclick="$('#images_avatar').attr('src','');loadedPages.sp_profile.uploadBrowse();" class="btn btn-image" style="margin-bottom:0px;margin-top:0px;"><img style="width:60px;height:60px;" src="images/browse.png" /></button>
+
+          <button type="button" id="resetAvatar" onclick="loadedPages.sp_profile.resetAvatar();" class="btn btn-image" style="margin-bottom:0px;margin-top:0px;"><img style="margin-left:5px;width:60px;height:60px;" src="images/reset.jpg" /></button>
+          <button type="button" id="saveAvatar" style="display:none;" class="btn btn-image"><img style="margin-left:5px;width:60px;height:60px;" src="images/ok.png" /></button>
+          <button type="button" id="cancelAvatar" onclick="loadedPages.sp_profile.cancelAvatar();" class="btn btn-image" style="display:none;margin-bottom:0px;margin-top:0px;"><img style="margin-left:5px;width:60px;height:60px;" src="images/cancel.png" /></button>
+         </div>
+     </div>
+     <form style="width:75%;margin : 5px auto;" id="changePassword">
+
+       <div class="form-group">
+         <label for="oldPwd">Old password:</label>
+         <input type="password" class="form-control" id="oldPwd" name="oldPwd">
+       </div>
+       <div class="form-group">
+         <label for="newPwd">New password:</label>
+         <input type="password" class="form-control" id="newPwd" name="newPwd">
+       </div>
+       <div class="form-group">
+         <label for="cnfPwd">Confirm New password:</label>
+         <input type="password" class="form-control" id="cnfPwd" name="cnfPwd">
+       </div>
+       <button  type="button" onclick="$('#changePassword').submit();return false;" style="float:right;" class="btn btn-primary">SET Password</button>
+     </form>
+ </div>

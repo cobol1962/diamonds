@@ -1,0 +1,55 @@
+<div style="display:none;"  id="fullshoppingcart">
+  <div style="text-align:center;width;100%;">
+    <img onclick="loadedPages.shoppingCart.discountClickedFired();" style="height:100px;margin:20px auto;" src="/images/cart_icon_full.png" />
+  </div>
+  <div id="items" style="width:100%;padding-right:10px;"></div>
+  <div style="text-align:center;width;100%;margin-top:10px;">
+    <span><b>Summary</b></span>
+    <br />
+    <select id="countries" class="form-control" style="margin-left:10px;min-width:100%;margin-right:10px;">
+      <option></option>
+    </select>
+    <div refundcontainer id="refundContainer" class="pretty p-switch p-fill" style="margin-left:10px;display:none;font-size:17px;float:left;margin-top:10px;clear:both;">
+      <input type="checkbox" checked id="directRefund" onchange="loadedPages.shoppingCart.calculateRefund();"/>
+      <div class="state p-success">
+          <label></label>
+       </div>
+
+      </div>
+      <label refundcontainer id="dfw" style="display:none;float:left;margin-left:5px;margin-top:10px;" onclick="loadedPages.shoppingCart.checkCode();" id="dRefund">VAT Refund</label>
+
+      <br />
+    <div id="total_div" style="width:100px;min-width:100%;float:right;text-align:right;background:white;padding:10px;font-size:15px;">
+      <table style="margin-right:0px;width:220px;table-layout:auto;float:right;">
+        <tr><td style="text-align:left;"><span id="subtotal">Subtotal: </span></td><td style="text-align:right;"><span style="min-width:75px;width:75px;"></span></td></tr>
+        <tr><td style="text-align:left;"><span spdiscount1 style="">Discount: </span></td><td style="text-align:right;"><input type="text" onchange="loadedPages.shoppingCart.drawCart();" class="form-control" style="display:none;clear:both;float:right;text-align:right;width:100px;" spdiscount1 placeholder="Discount" id="masterdiscount"></input></td></tr>
+        <tr spdiscount1 afterdiscount style="display:none;"><td  style="text-align:left;"><span id="total">Total: </span></td><td style="text-align:right;"><input type="text" onchange="loadedPages.shoppingCart.drawCart();" class="form-control" style="display:none;clear:both;float:right;text-align:right;width:100px;" spdiscount1 placeholder="Discount" id="masterdiscount"></input></td></tr>
+        <tr norefund><td  style="text-align:left;"><span style="width:100px;min-width:100%;float:right;opacity:0.7" id="vatexcluded">Excluding VAT: </span></td><td style="text-align:right;"><span style="min-width:75px;"></span></td></tr>
+        <tr norefund><td  style="text-align:left;"><span style="width:100px;min-width:100%;float:right;opacity:0.7" id="vat">Vat 21%: </span></td><td style="text-align:right;"><span style="min-width:75px;"></span></td></tr>
+        <tr style="display:none;" refund><td  style="text-align:left;"><span id="admincharge">Admin Charge: </span></td><td style="text-align:right;"><span style="min-width:75px;"></span></td></tr>
+        <tr style="display:none;" refundddd><td  style="text-align:left;"><span id="withcharge">With charge: </span></td><td style="text-align:right;"><span style="min-width:75px;"></span></td></tr>
+        <tr style="display:none;opacity:0.7;" refund><td  style="text-align:left;"><span id="vatchargeexcl">Excluding VAT: </span></td><td style="text-align:right;"><span style="min-width:75px;"></span></td></tr>
+        <tr style="display:none;opacity:0.7;" ><td  style="text-align:left;"><span id="vatcharge">Vat: </span></td><td style="text-align:right;"><span style="min-width:75px;"></span></td></tr>
+        <tr style="display:none;" refund><td  style="text-align:left;"><span id="torefund">VAT (refund): </span></td><td style="text-align:right;"><span style="min-width:75px;"></span></td></tr>
+
+      </table>
+    </div><br />
+    <div style="text-align:center;width;100%;margin-top:10px;">
+      <span>To be paid</span>
+    </div>
+    <div style="height:40px;vertical-align:middle;width:100px;min-width:100%;padding:10px;font-size:18px;background-color:#ececec;font-weight:bold;">
+      <input nrfnd id="cartToPay" style="display:none;" class="norefund" type="text" style="text-align:center;" />
+      <input rfnd id="cartToPay" style="display:none;" class="refund"  type="text" style="text-align:center;" />
+    </div>
+  </div>
+    <button style="margin-top:10px;top:0px;position:relative;min-width:60%;width:60%;left:20%;margin:10px auto;" class="btn-black rounded" onclick="loadedPages.shoppingCart.checkIsLogged();">Continue checkout</button>
+</div>
+
+
+
+<div style="display:none;width:100%;text-align:center;padding-left:40px;padding-right:40px;" id="emptyshoppingcart">
+
+  <img style="height:100px;margin-top:20px;" src="/images/cart_icon_empty.png" /><br />
+  <span style="top:20px;position:relative;font-size:20px;"><b>There are no items in your bag</b></span>
+  <button style="margin-top:10px;top:40px;position:relative;" class="btn-black rounded" onclick="loadPage('invoice');">Browse catalog</button>
+  <div>

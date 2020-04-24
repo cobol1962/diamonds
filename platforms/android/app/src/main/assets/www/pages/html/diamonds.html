@@ -1,0 +1,219 @@
+
+<style>
+
+</style>
+<div step stepid="1">
+    <table class="table-striped table-bordered">
+        <tr style="display:none;">
+            <td>
+                <input type="text" onchange="" onkeyup="" style="width:90%;" class="form-control" id="serial" placeholder="Enter serial No">
+            </td>
+            <td style="font-size: 17px;width: 100px;max-width:100px;text-align:left;padding-left:5px;">
+                <button disabled onclick="loadedPages.invoice.get();" style="font-size: 15px;width:100%;" class="btn  btn-success">OK</button>
+            </td>
+        </tr>
+    </table>
+    <table class="table-striped table-bordered">
+        <tr style="display:none;">
+            <td style="width:50%;">
+                <button disabled onclick="loadedPages.invoice.scan();" style="font-size: 15px;width:100%;" class="btn  btn-primary"><i class="fa fa-barcode"></i> Scan</button>
+            </td>
+            <td style="width:50%;">
+                <button disabled onclick="$('#catalog_container').toggle();$('#main').toggle();" style="font-size: 15px;width:100%;" class="btn  btn-primary">Show/hide catalog</button>
+            </td>
+        </tr>
+        <tr style="display:none;">
+            <td colspan="3">
+                <input type="text" confirmed="no" style="width:100%;" class="typeahead form-control" data-provide="typeahead" id="salesperson" placeholder="Sales Person">
+            </td>
+        </tr>
+        <tr style="display:none;">
+            <td colspan="3">
+                <input type="text" confirmed="no" data-provide="typeahead" id="showroom" style="width:100%;" class="form-control" id="showroom" placeholder="Showroom">
+            </td>
+        </tr>
+        <tr style="display:none;">
+            <td colspan="3">
+                <div class="row">
+                    <div class="col-xs-6" style="display:none;">
+                        <div class="form-group">
+                            <label>Invoice language</label>
+                            <input type="hidden" id="invoice_country_code" name="invoice_country_code" />
+                            <input id="invoice_country" type="text" class="form-control" />
+                        </div>
+                    </div>
+                    <div class="col-xs-12">
+                        <div class="form-group">
+                            <label>Currency</label>
+                            <select id="currency_removed" class="form-control">
+                                <option value="EUR" rate="1">Euro</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+            </td>
+        </tr>
+    </table>
+
+    <div id="catalog_container">
+        <iframe id="diamonds" frameborder="0" src="/diamonds?invoice=1" style="position:fixed;top:50px;overflow: hidden;width:100%;height: 100vh;"></iframe>
+    </div>
+</div>
+<div step stepid="2" style="display:none;">
+    <div style="width:100%;float:left;max-width:100%;" id="tours"></div>
+    <div style="min-width:100%;text-align:center;">
+        <button class="btn btn-primary" onclick="loadedPages.invoice.goToPrevious();">Back</button>
+        <button class="btn btn-primary" onclick="loadedPages.invoice.tryTours();">Continue</button>
+    </div>
+</div>
+<div step stepid="3" style="display:none;">
+    <form id="customerForm" confirmed="no">
+        <input type="hidden" id="customerid" value="-1" />
+        <input type="hidden" id="tourNo" name="tourNo" value="1" />
+        <input type="hidden" id="cshowroom" value="1" />
+        <input type="hidden" id="salesPerson" value="1" />
+        <div class="row" style="padding-left:15px;padding-right:15px;">
+            <div class="col-lg-6 col-sm-12">
+                <div class="form-group">
+                    <input placeholder="First Name" id="firstName" type="text" name="firstName" class="form-control" />
+                </div>
+            </div>
+            <div class="col-lg-6 col-sm-12">
+                <div class="form-group">
+                    <input id="lastName" placeholder="Last Name" type="text" name="lastName" class="form-control" />
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+
+            <input placeholder="Hotel" id="hotel" type="text" name="hotel" class="form-control" />
+        </div>
+        <div class="form-group">
+            <input placeholder="Email" id="email" type="text" name="email" class="form-control" />
+        </div>
+        <div class="form-group">
+            <input type="hidden" id="country_code" name="country" />
+            <input id="country" type="text" class="form-control" />
+        </div>
+        <div class="form-group">
+            <input placeholder="Address line 1" id="address1" type="text" name="address1" class="form-control" />
+        </div>
+        <div class="form-group">
+            <input id="address2" placeholder="Address line 2" type="text" name="address2" class="form-control" />
+        </div>
+        <div class="form-group">
+            <input placeholder="Telephone" id="telephone" type="text" name="telephone" class="form-control" />
+        </div>
+        <div class="row">
+            <div class="col-xs-3 col-lg-3">
+                <div class="form-group">
+                    <input placeholder="Zip/Post code" id="zip" type="text" name="zip" class="form-control" />
+                </div>
+            </div>
+            <div class="col-xs-6 col-lg-6">
+                <div class="form-group">
+                    <input placeholder="City" id="city" type="text" name="city" class="form-control" />
+                </div>
+            </div>
+            <div class="col-xs-3 col-lg-3">
+                <div class="form-group">
+                    <input placeholder="Ring size" id="ringsize" type="text" name="ringsize" class="form-control" />
+                </div>
+            </div>
+
+        </div>
+        <div class="row">
+            <div class="col-xs-6 col-lg-6">
+                <div class="form-group">
+                    <input placeholder="Personal ID" id="personalid" type="text" name="personalid" class="form-control" />
+                </div>
+            </div>
+            <div class="col-xs-6 col-lg-6">
+                <div class="form-group">
+                    <input placeholder="Passport No" id="passport" type="text" name="passport" class="form-control" />
+                </div>
+            </div>
+        </div>
+    </form>
+
+    <div style="min-width:100%;text-align:center;">
+        <button class="btn btn-primary" onclick="loadedPages.invoice.goToPrevious();">Back</button>
+        <button class="btn btn-primary" onclick="$('#customerForm').submit();">Continue</button>
+    </div>
+</div>
+<div step stepid="4" style="display:none;">
+    <div id="showInvoice"></div>
+    <table id="paymentsTable" class="table-striped table-bordered" style="width:100%">
+        <thead>
+            <tr>
+                <th style="text-align: right;">Payment type</th>
+                <th style="text-align: right;">Currency</th>
+                <th style="text-align: right;">Amount</th>
+                <th>Action</th>
+                <tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td colspan="4" style="text-align:center">
+                    <button class="btn btn-primary" onclick="loadedPages.invoice.toogleVAT();">Toggle VAT refund</button>
+                    <button class="btn btn-primary" onclick="loadedPages.invoice.addPayment();">Add payment</button>
+                </td>
+            </tr>
+            <tr>
+                <td style="text-align: right;">
+                    <select class="form-control" currency>
+
+                    </select>
+                </td>
+                <td style="text-align: right;">
+                    <select class="form-control" style="display:none;" currency>
+                        <option>€</option>
+
+                    </select>
+                </td>
+                <td style="text-align: right;">
+                    <input type="text" class="form-control" />
+                </td>
+                <td onclick='loadedPages.invoice.deletePayment(this);'><a href='#'><i class='fa fa-trash fa-2x m-r-5'></i></a></td>
+                <tr>
+        </tbody>
+    </table>
+    <table style="display:none;">
+        <tr id="master">
+            <td style="text-align: right;">
+                <select class="form-control" id="paymentMethods" currency>
+
+                </select>
+            </td>
+            <td style="text-align: right;">
+                <select class="form-control" currency>
+                    <option>€</option>
+                    <option>&#x20bd;</option>
+                    <option>&pound;</option>
+                </select>
+            </td>
+            <td style="text-align: right;">
+                <input type="text" class="form-control" />
+            </td>
+            <td onclick='loadedPages.invoice.deletePayment(this);'><a href='#'><i class='fa fa-trash fa-2x m-r-5'></i></a></td>
+            <tr>
+    </table>
+    <div style="min-width:100%;text-align:center;">
+        <button class="btn btn-primary" onclick="loadedPages.invoice.goToPrevious();">Back</button>
+        <button class="btn btn-primary" onclick="">To Imvoice</button>
+    </div>
+    <style>
+        .table-bordered > thead > tr > th,
+        .table-bordered > tbody > tr > th,
+        .table-bordered > tfoot > tr > th,
+        .table-bordered > thead > tr > td,
+        .table-bordered > tbody > tr > td,
+        .table-bordered > tfoot > tr > td {
+            padding: 5px;
+        }
+
+        .typeahead {
+            z-index: 1051;
+        }
+    </style>
+</div>

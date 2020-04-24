@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <!--
     Copyright (c) 2012-2016 Adobe Systems Incorporated. All rights reserved.
@@ -26,32 +27,518 @@
     <meta name="format-detection" content="telephone=no" />
     <meta name="msapplication-tap-highlight" content="no" />
     <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width" />
+
     <!-- This is a wide open CSP declaration. To lock this down for production, see below. -->
-    <meta http-equiv="Content-Security-Policy" content="default-src * 'unsafe-inline' gap:; style-src 'self' 'unsafe-inline'; media-src *" />
     <!-- Good default declaration:
     * gap: is required only on iOS (when using UIWebView) and is needed for JS->native communication
     * https://ssl.gstatic.com is required only on Android and is needed for TalkBack to function properly
     * Disables use of eval() and inline scripts in order to mitigate risk of XSS vulnerabilities. To change this:
         * Enable inline JS: add 'unsafe-inline' to default-src
         * Enable eval(): add 'unsafe-eval' to default-src
-    * Create your own at http://cspisawesome.com
-    -->
-    <!-- <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: 'unsafe-inline' https://ssl.gstatic.com; style-src 'self' 'unsafe-inline'; media-src *" /> -->
+    * Create your own at http://cspisawesome.com -->
+    <meta http-equiv="Content-Security-Policy" content="frame-src * http://cbdevserver.com http://cbdevserver.com/catalog;
+ default-src * data: gap: https://ssl.gstatic.com 'unsafe-eval'
+  'unsafe-inline'; media-src *; img-src * http://cbdevserver.com/catalog/images http://cbdevserver.com http://cbdevserver.com:5000 data: content:;">
+     <!-- This is a wide open CSP declaration. To lock this down for production, see below. -->
+  <script src="https://code.jquery.com/jquery-3.5.0.js" integrity="sha256-r/AaFHrszJtwpe+tHyNi/XCfMxYpbsRg2Uqn0x3s2zc=" crossorigin="anonymous"></script>
+    <link href="https://fonts.googleapis.com/css?family=Merriweather&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans&display=swap" rel="stylesheet">
 
-  
-    <link rel="stylesheet" type="text/css" href="css/style.css" />
-    <title>Hello World</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" crossorigin="anonymous">
+
+    <link rel="stylesheet" type="text/css" href="/css/jquery.dataTables.yadcf.css" />
+
+    <link rel="stylesheet" type="text/css" href="/css/font-awesome.css" />
+    <link rel="stylesheet" type="text/css" href="/css/countrySelect.css" />
+    <link rel="stylesheet"  type="text/css" href="/css/jquery-ui.css">
+    <link rel="stylesheet" type="text/css" href="DataTables/datatables.min.css" />
+
+    <link rel="stylesheet" type="text/css" href="/css/croppie.css" />
+    <link rel="stylesheet" type="text/css" href="/css/select2.css" />
+      <link rel="stylesheet" type="text/css" href="/css/style.css" />
+    <link rel="stylesheet" type="text/css" href="/css/pretty-checkbox.css" />
+    <title>Coster Diamonds</title>
 </head>
+<script type="text/javascript">
 
+function hideCatalog() {
+  $(".app").hide(300);
+  $("body").LoadingOverlay("hide");
+
+}
+</script>
 <body>
-    <div class="app">
 
+
+    <div class="container" style="padding: 0;background: white;position:fixed; top: 0px;width:100%;z-index: 1000;">
+  <div class="app">
+ghfhfhfhfhfhfhfhfhfhfhfhfhfhfhfhfhfhfhfhfhfhfhfhfhfhfhfhf
+  </div>
+        <nav class="navbar navbar-default navgeneral" style="background-color:white;border:none;" role="navigation">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header" style="min-width:100%;width:100%;">
+                <table id="navigationTable" style="position:absolute;top:0px;background-color:white;">
+                    <tr>
+
+                        <td>
+                            <img onclick="resetLocalStorage();loadPage('homepage')" src="http://85.214.165.56:81/coster/www/images/crown.png" style="cursor:pointer;margin-left:5px;margin-top:5px;" width="35" height="auto" alt="">
+                        </td>
+                        <td style="min-width:100%;width:100%;text-align:right;">
+                            <img onclick="$('#searchbackdrop').toggle();$('#search_div').toggle()" src="http://85.214.165.56:81/coster/www/images/search.png" style="position:absolute;top:10px;right:92px;float:right;cursor:pointer;margin-left:5px;" width="30" height="auto" alt="">
+                            <div id="search_div" style="width:100%;float:left;display:none;position:absolute;z-index:100001;top:50px;right:2px;">
+                              <table style="width:100%;background-color:white;"><tr><td><input placeholder="Type Item ID or Serial No." id="search"  class="form-control" type="text" /></td>
+                              <td>&nbsp;&nbsp;<button onclick="doSearch();" style="padding:0;margin-top:-20px;float:right;height:35px;margin-left:5px;" class="btn-black" >Search</button></td>
+                              <tr></table></div>
+                            <div id="toggleShoppigCart" onclick="loadPage('shoppingCart');" class="shoppingCart empty">
+                                <span class='badge badge-warning' id='lblCartCount'>0</span>
+                            </div>
+                            <!--   <img style="float:right;margin-right:63px;" src="/images/search.png" width="30" height="auto" alt="">-->
+                        </td>
+
+                        </td>
+                    </tr>
+                </table>
+                <img id="scanButton" onclick="startScan()" src="/images/scan.png" style="cursor:pointer;position:absolute;left:calc(50vw - 20px);width: 40px;margin-top:5px;" height="auto" alt="">
+                <button type="button" style="margin-right:5px;margin-top:9px;" class="navbar-toggle" data-toggle="collapse" data-target="#mainNavbar" onclick="$('#navbackdrop').toggle();$('#tt').toggle()">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+            </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+
+        </nav>
+        <div onclick="$('#navbackdrop').toggle();$('#tt').toggle()" id="navbackdrop">
+        </div>
+        <div onclick="$('#searchbackdrop').toggle();$('#search_div').toggle()" id="searchbackdrop">
+        </div>
+        <ul onclick="$('#navbackdrop').toggle();$('#tt').toggle()" id="tt">
+            <li navigation login>
+                <a style="height:75px;background: white;font-size:15px;text-transform: capitalize;" href="#">
+                    <div style="width:100%;text-align:center;">
+                        <span onclick="$('#login').modal('show');">Login with your Royal coster pin code</span>
+                        <br />
+                        <span onclick="noPinCode();" style="font-size:13px;position:relative;top:-10px;color:#BAB086;">NO PIN CODE? CLICK HERE</span>
+                    </div>
+                </a>
+            </li>
+            <li navigation logout><a style="color:red;" href="javascript: $('#spf')[0].reset();delete localStorage.sp;checkLogin();$([login]).show();$([logout]).hide()">
+              <span style="color:black;text-transform: capitalize;">Welcome, </span><span style="text-transform: capitalize;color:black;" id='ename'></span>
+              <br />Logout</a></li>
+            <li navigation currency_select>
+                <a style="background-image:unset;" href="#">
+                    <span>Switch currency</span>
+                    <img src="http://85.214.165.56:81/coster/www/images/currency.png" style="cursor:pointer;margin-left:5px;" width="30" height="auto" alt="">
+                    <span style="font-size:14px;margin-left:5px;" id="ccurenncy">Euro</span>
+                    <select class="form-control" id="currency" class="currency" style="width:100%;">
+                        <option value="EUR" rate="1">Euro</option>
+                    </select>
+                </a>
+            </li>
+            <li navigation><a href="javascript:loadPage('invoice');">Browse catalog</a></li>
+            <li navigation><a href="javascript: $('#mainNavbar').removeClass('in');if (currentPage != 'invoice') {loadPage('invoice')};setTimeout(function() {var iframeWin = document.getElementById('catalog').contentWindow;iframeWin.postMessage('setWatches#','*');}, 2000);">Browse Coster watches</a></li>
+            <li navigation logout><a href="javascript:loadPage('diamonds');">Browse diamondlist</a></li>
+            <li navigation><a href="javascript:loadPage('tours');">Browse tours</a></li>
+            <li navigation salespersons><a href="javascript:checkIsLogged('customers');">Browse My Customer</a></li>
+            <li navigation salespersons><a href="javascript:checkIsLogged('invoices');">Browse My Invoices</a></li>
+            <li navigation salespersons><a href="#">Help</a></li>
+        </ul>
+        <div id="blue" style="display:none !important;background-color:#0174be;width:100%;min-width:100%;display:none;padding:5px;">
+            <img avatar src="images/profile.png" style="height:40px;float:left;" />
+            <strong><span style="color:white;position:relative;top:20px;margin-left: 5px;;float:left;" fullname></span></strong>
+            <a style="float:right;" href="javascript: logout();"><img src="images/logout.png" style="height:40px;float:right:margin:right: 5px;" /></a>
+        </div>
     </div>
-    <script type="text/javascript" src="cordova.js"></script>
-    <script type="text/javascript" src="js/index.js"></script>
+
+    <div id="content"></div>
+    <div class="modal" id="discountApproved" tabindex="-1" role="dialog">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Discount approved by</h5>
+                </div>
+                <div class="modal-body">
+                    <form id="addRoom" type="post">
+                        <div class="form-group">
+                          <div class="form-group">
+                              <label>Approved by</label>
+                              <input type="text" style="width:100%;" class="typeahead form-control" data-provide="typeahead" id="dapproved" placeholder="Name" />
+
+                          </div>
+
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button disabled id="showDiscount" data-backdrop="static" data-keyboard="false"
+                     onclick="$('#discountApproved').modal('hide');$('[spdiscount1]').show();$('#masterdiscount').show();" type="button" class="btn btn-primary">Save</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal" id="mainModal" tabindex="-1" role="dialog">
+      <div class="modal-dialog" role="document">
+          <div class="modal-content">
+              <div class="modal-header" id="m_header" style="border:none;padding:0;height:60px;background-size:50px 50px;background-repeat: no-repeat;background-position: center 5px;">
+              </div>
+              <p id="m_title" style="margin-top:10px;margin-bottom:10px;font-size:20px;text-align:center;">LOGIN TO YOUR <b>ROYAL COSTER</b> SALES ACCOUNT</p>
+
+              <div id="m_content" style="padding-left:60px;padding-right:60px;">
+
+              </div>
+              <div class="modal-footer" id="m_footer">
+                <div style="width: 100%;display: flex;align-items:flex-end;">
+                    <button id="m_cancel" class="btn-red" >CANCEL</button>
+                    <button id="m_confirm" class="btn-black">CONFIRM</button>
+                </div>
+              </div>
+          </div>
+
+      </div>
+    </div>
+
+
+    <div class="modal" id="login" tabindex="-1" role="dialog" style="position:relative;z-index: 30000;">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header" style="border:none;padding:0;background-image:url(http://85.214.165.56:81/coster/www/images/crown.png);height:50px;background-size:30px 30px;background-repeat: no-repeat;background-position: center 5px;">
+
+                </div>
+
+                <div id="sp" loginform style="padding-left:60px;padding-right:60px;">
+                    <p style="margin-top:-10px;margin-bottom:5px;font-size:17px;text-align:center;">LOGIN TO YOUR <b>ROYAL COSTER</b> SALES ACCOUNT</p>
+                    <form id="spf">
+                        <input type="hidden" id="salepersonid" />
+                        <input type="hidden" id="salepersonname" />
+                        <input type="hidden" id="dpersonid" />
+                        <input type="hidden" id="dpersonname" />
+                        <input type="hidden" id="showroomid" />
+                        <input type="hidden" id="showroomname" />
+                        <div class="form-group">
+                            <input type="text" style="width:100%;" class="typeahead form-control" data-provide="typeahead" id="spersons" name="spersons" placeholder="Name" />
+                        </div>
+                        <div class="form-group">
+                            <input type="text" style="width:100%;" class="typeahead form-control" data-provide="typeahead" id="pin" name="pin" placeholder="Pin code" />
+                        </div>
+                        <div class="form-group">
+                            <input type="text" style="width:100%;" class="typeahead form-control" data-provide="typeahead" name="srooms" id="srooms" placeholder="Showroom" />
+                        </div>
+                        <p style="display:none;width:100%;margin-bottom:5px;margin-top:-5px;width:100%;text-align:center;font-size:11px;color:#B8B8B8;">Forget your Pin code or don't have one?</p>
+
+                    </form>
+                    <button class="btn-black" onclick="$('#spf').submit();">LOG IN</button>
+                </div>
+                <div class="modal-footer">
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <div class="modal" id="editShowroom" tabindex="-1" role="dialog">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Edit Showroom</h5>
+                </div>
+                <div class="modal-body">
+                    <div class="form-group">
+                        <label>Room Name</label>
+                        <input id="nameedit" type="text" name="nameedit" class="form-control" />
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button onclick="loadedPages.showrooms.update();" type="button" class="btn btn-primary">Save changes</button>
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal" id="addSalesPerson" tabindex="-1" role="dialog">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Add Sales Person</h5>
+                </div>
+                <div class="modal-body">
+                    <form id="addRoom" type="post">
+                        <div class="form-group">
+                            <label>Slaes Person Name</label>
+                            <input id="salespersonname" type="text" class="form-control" />
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button onclick="try { loadedPages.salespersons.save(); } catch(e) { loadedPages.invoice.saveSP(); }" type="button" class="btn btn-primary">Save changes</button>
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal" id="editSalesperson" tabindex="-1" role="dialog">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Edit Showroom</h5>
+                </div>
+                <div class="modal-body">
+                    <div class="form-group">
+                        <label>Sales Person Name</label>
+                        <input id="snameedit" type="text" name="snameedit" class="form-control" />
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button onclick="loadedPages.salespersons.update();" type="button" class="btn btn-primary">Save changes</button>
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal" id="shoppingCart" tabindex="-1" role="dialog">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Cart</h5>
+                </div>
+                <div class="modal-body">
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal" tabindex="-1" id="afterScan" role="dialog">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header" style="height:50px;border:none;padding:0;background-image:url(http://85.214.165.56:81/coster/www/images/green_ok.png);background-repeat:no-repeat;background-size:29px 23px;background-position: 10px 10px;">
+                    <span style="position:relative;top:14px;margin-left:50px;font-size:16px;"><b>Scanned succesfully</b></span>
+                </div>
+                <div class="modal-body" style="border:none;" id="asc_body">
+                    <p>Modal body text goes here.</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" onclick="addToInvoice(currentScanned);" data-dismiss="modal" style="" class="btn-bigblack"><span style="width:100%;text-align:left;margin-top:5px;">ADD TO BAG</span></button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal" id="paymentsModal" tabindex="-1" role="dialog">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Customer</h5>
+                </div>
+                <div class="modal-body">
+                    <div id="showInvoice"></div>
+
+                    <div style="min-width:100%;text-align:center;">
+                        <button type="button" class="btn btn-secondary" onclick="$('#paymentsModal').modal('hide');$('#shoppingCart').modal('show');">Close</button>
+                        <button class="btn btn-primary" onclick="$('#4')[0].checked=true;$('#paymentsModal').attr('confirmed','yes');$('#paymentsModal').modal('hide');$('#shoppingCart').modal('show')">Confirm</button>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <table style="display:none;">
+        <tr id="master">
+            <td style="text-align: right;">
+                <select class="form-control" id="paymentMethods" currency>
+
+                </select>
+            </td>
+            <td style="text-align: right;">
+                <select class="form-control" currency>
+                    <option>€</option>
+                    <option>&#x20bd;</option>
+                    <option>&pound;</option>
+                </select>
+            </td>
+            <td style="text-align: right;">
+                <input type="text" class="form-control" />
+            </td>
+            <td onclick='loadedPages.invoice.deletePayment(this);'><a href='#'><i class='fa fa-trash fa-2x m-r-5'></i></a></td>
+            <tr>
+    </table>
     <script type="text/javascript">
-        app.initialize();
+
+        var app = document.URL.indexOf( 'http://' ) === -1 && document.URL.indexOf( 'https://' ) === -1;
+
+        if ( app ) {
+           // PhoneGap application
+        } else {
+           // Web page
+        }
     </script>
+    <script type="text/javascript" src="cordova.js"></script>
+      <script type="text/javascript" src="/js/index.js"></script>
+  <script type="text/javascript" src="/js/SocialSharing.js"></script>
+
+    <script type="text/javascript" src="/js/exif.js"></script>
+    <script type="text/javascript" src="/js/bootstrap.js"></script>
+    <script type="text/javascript" src="/js/api.js"></script>
+    <script type="text/javascript" src="/js/api_csv.js"></script>
+    <script type="text/javascript" src="/js/SocialSharing.js"></script>
+    <script type="text/javascript" src="/js/jsbarcode.js"></script>
+
+    <script type="text/javascript" src="/js/jquery.dataTables.yadcf.js"></script>
+    <script type="text/javascript" src="/js/jquery.validate.js"></script>
+    <script type="text/javascript" src="/js/countrySelect.js"></script>
+    <script type="text/javascript" src="/js/jquery.ui.js"></script>
+    <script type="text/javascript" src="/DataTables/datatables.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gasparesganga-jquery-loading-overlay@2.1.6/dist/loadingoverlay.min.js"></script>
+
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.36/pdfmake.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.36/vfs_fonts.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/select2@4.0.12/dist/js/select2.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gasparesganga-jquery-loading-overlay@2.1.6/dist/loadingoverlay.min.js"></script>
+    <script type="text/javascript" src="/js/croppie.js"></script>
+    <script type="text/javascript" src="/js/underscore.js"></script>
+    <script type="text/javascript" src="/js/Utilities.js"></script>
+    <script type="text/javascript" src="/js/typeahead.js"></script>
+  <script type="text/javascript" src="/js/mainScript.js"></script>
+    <script type="text/javascript" src="/js/plugins.js"></script>
+    <script type="text/javascript" src="/js/moment.js"></script>
+
+    <script type="text/javascript">
+    var onSuccess = function(result) {
+    //    alert("Share completed? " + result.completed); // On Android apps mostly return false even while it's true
+        console.log("Shared to app: " + result.app); // On Android result.app since plugin version 5.4.0 this is no longer empty. On iOS it's empty when sharing is cancelled (result.completed=false)
+      };
+
+      var onError = function(msg) {
+        alert("Sharing failed with message: " + msg);
+      };
+        $(document).ready(function() {
+
+            checkLogin();
+            var app = document.URL.indexOf( 'http://' ) === -1 && document.URL.indexOf( 'https://' ) === -1;
+    
+            if (!app) {
+              $("#scanButton").remove();
+            }
+        });
+        if (localStorage.sp !== undefined) {
+          $("#ename").html($.parseJSON(localStorage.sp).Employee);
+        }
+        window.addEventListener("message", receiveMessage, false);
+
+        function receiveMessage(event) {
+
+            var a = (event.data).split("#");
+
+            if (a[0] == "downloadImage") {
+              var app = document.URL.indexOf( 'http://' ) === -1 && document.URL.indexOf( 'https://' ) === -1;
+              if (app) {
+                DownloadToDevice(a[1]);
+              }
+            }
+            if (a[0] == "share") {
+              var app = document.URL.indexOf( 'http://' ) === -1 && document.URL.indexOf( 'https://' ) === -1;
+            //  alert(app);
+          //    alert(a[1]);
+              if (app) {
+                var html = "";
+                var el = $(a[1]);
+                html = "<span>This is really something for you:</span><br />";
+                html += "<span>" + el.find("[productname]").text() + "</span><br />";
+                if (el.find("[colordescdiv]").html() != "") {
+                  html += "<span>Available in:</span><br />";
+                  html += el.find("[colordescdiv]").html();
+                }
+                html += "<div>" + el.find("[compname]").html() + "</div>";
+                html += "<div>" + el.find("[money]").html() + "</div>";
+              //  html += "<br /><span>Visit " + "http://85.214.165.56:81/catalog?share=" + el.attr("itemid") + " to see details</span>";
+                try {
+                  var lnk = "http://85.214.165.56:81/catalog/" + $(a[1]).find("img").attr("src");
+                  $(a[1]).find("img").remove();
+                window.plugins.socialsharing.shareViaEmail(
+                    html, // can contain HTML tags, but support on Android is rather limited:  http://stackoverflow.com/questions/15136480/how-to-send-html-content-with-image-through-android-default-email-client
+                    'Coster Diamonds Special Offer',
+                    null, // TO: must be null or an array
+                    null, // CC: must be null or an array
+                    null, // BCC: must be null or an array
+                    [lnk], // FILES: can be null, a string, or an array
+                    onSuccess, // called when sharing worked, but also when the user cancelled sharing via email. On iOS, the callbacks' boolean result parameter is true when sharing worked, false if cancelled. On Android, this parameter is always true so it can't be used). See section "Notes about the successCallback" below.
+                    onError // called when sh*t hits the fan
+                  );
+                } catch(err) {
+                }
+              }
+            }
+            if (a[0] == "addToInvoice") {
+                addToInvoice($.parseJSON(a[1]));
+            }
+
+            if (a[0] == "openPage") {
+             loadPage(a[1]);
+           }
+
+           if (a[0] == "openPage") {
+            loadPage(a[1]);
+          }
+        }
+function addToInvoiceFromCatalog(id) {
+    loadedPages[currentPage].fromCatalog(id);
+}
+
+
+
+function startScan() {
+    scan();
+}
+
+function DownloadToDevice(fileurl) {
+  var blob = null;
+  var xhr = new XMLHttpRequest();
+  xhr.open("GET", fileurl);
+  xhr.responseType = "blob";//force the HTTP response, response-type header to be blob
+  xhr.onload = function()
+  {
+      blob = xhr.response;//xhr.response is now a blob object
+
+    var storageLocation = "";
+     storageLocation = 'file:///storage/emulated/0/';
+     var folderpath = storageLocation + "Download";
+     var filename = fileurl.split("/").pop();
+     var DataBlob = blob;
+      window.resolveLocalFileSystemURL(folderpath, function(dir) {
+        dir.getFile(filename, {create:true}, function(file) {
+                file.createWriter(function(fileWriter) {
+                    fileWriter.write(DataBlob);
+                    swal({
+                      type: "success",
+                      confirmButtonText: "Continue",
+                      text: "Image successfully saved."
+                    })
+                }, function(err){
+                  // failed
+              //    console.log(err);
+                });
+        });
+      });
+  }
+  xhr.send();
+}
+function checkIsLogged(nextpage) {
+
+  if (localStorage.sp === undefined) {
+    $("#login").attr("nextpage", nextpage);
+    $("#login").modal("show");
+    return false;
+  } else {
+    loadPage(nextpage);
+  }
+}
+</script>
 </body>
 
 </html>
