@@ -31,7 +31,7 @@ function resetLocalStorage() {
 
 }
 function checkLogin() {
-  alert("check login")
+  
     if (localStorage.sp !== undefined) {
         $("[login]").hide();
         $("[logout]").show();
