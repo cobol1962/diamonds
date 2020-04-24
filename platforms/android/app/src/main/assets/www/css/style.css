@@ -42,7 +42,7 @@ html, body {
   z-index: 2000;
   min-width: 100vw;
   min-height: 100vh;
-  background-image: url(/images/splash_animated2.gif);
+  background-image: "../images/splash_animated2.gif");
   background-size: 100%;
   background-origin: content-box;
   background-repeat: no-repeat;
@@ -64,7 +64,7 @@ header {
   padding: 5px;
   background-color: white;
   z-index: 1000;
-  background-image: url(/images/logo.png);
+  background-image: url("../images/logo.png");
   background-origin: content-box;
   background-size: contain;
   background-repeat: no-repeat;
@@ -314,7 +314,7 @@ div.project.selected {
   background-repeat:no-repeat;
   background-position: center 0px;
   background-size:30px 30px;
-  background-image:url(/images/cart_icon_full.png);
+  background-image:url("../images/cart_icon_full.png");
 }
 .shoppingCart.empty {
   cursor:pointer;
@@ -327,7 +327,7 @@ div.project.selected {
   background-repeat:no-repeat;
   background-size:30px 30px;
   background-position: center 0px;
-  background-image:url(/images/cart_icon_empty.png);
+  background-image:url("../images/cart_icon_empty.png");
 }
 .shoppingCart.empty #lblCartCount {
   display:none;
@@ -639,7 +639,7 @@ font-size:14px;
   width:100%;
 }
 #tt > li:not([login]) > a {
-  background-image: url(/images/gt.png);
+  background-image: url("../images/gt.png");
   background-position: 95% center;
   background-repeat: no-repeat;
   background-size: 10px 10px;
@@ -817,7 +817,7 @@ font-size:14px;
   position:relative;
   top:-38px;
   right:-20px;
-    content: url(/images/cart_icon_empty.png);
+    content: url("../images/cart_icon_empty.png");
 
 }
 .modal {
@@ -871,7 +871,7 @@ overflow: auto;
  justify-content: left;
 }
 .div-black.checked {
-  background-image: url(/images/green_checkbox_only.png);
+  background-image: url("../images/green_checkbox_only.png");
   background-position: center left;
   background-repeat: no-repeat;
   background-size: 30px 30px;
