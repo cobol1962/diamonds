@@ -1,0 +1,1222 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="msapplication-tap-highlight" content="no" />
+    <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width" />
+    <script type="text/javascript" src="/js/jquery.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Merriweather&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" type="text/css" href="/css/bootstrap.css" />
+    <link rel="stylesheet" type="text/css" href="/css/sweetalert.css" />
+
+
+    <link rel="stylesheet" type="text/css" href="/css/font-awesome.min.css"/>
+    <link rel="stylesheet" type="text/css" href="/css/countrySelect.css"/>
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <link rel="stylesheet" type="text/css" href="/DataTables/datatables.min.css"/>
+    <link rel="stylesheet" type="text/css" href="/css/jquery.dataTables.yadcf.css"/>
+    <link rel="stylesheet" type="text/css" href="/css/croppie.css"/>
+    <link rel="stylesheet" type="text/css" href="/css/select2.css"/>
+    <link rel="stylesheet" type="text/css" href="/css/chosen.css"/>
+    <link href="https://cdn.jsdelivr.net/npm/select2@4.0.12/dist/css/select2.min.css" rel="stylesheet" />
+    <link rel="stylesheet" type="text/css" href="/css/style.css" />
+    <link rel="stylesheet" type="text/css" href="/css/pretty-checkbox.css" />
+    <title>Coster Diamonds</title>
+    <script type="text/javascript">
+
+
+    </script>
+    <style>
+
+    div.productDetail * {
+      font-size:18px;
+      font-weight: bold;
+    }
+    .yadcf-filter-range-number.yadcf-filter-range {
+      width:100px !important;
+    }
+    div.productDetail span {
+      font-size:14px;
+      font-weight: bold;
+    }
+    #products_wrapper {
+      margin-top:30px;
+    }
+    #mainNavbar {
+      position: absolute;
+      right: 0px;
+    }
+    #navigationTable {
+      width:100%;
+      max-width:100%;
+    }
+    #products td:nth-of-type(3),#products td:nth-of-type(11),#products td:nth-of-type(12),
+    #products td:nth-of-type(5),#products td:nth-of-type(6),
+    #products td:nth-of-type(7),#products td:nth-of-type(8) {
+      display:none !important;
+    }
+    #products_temp td:nth-of-type(3),#products_temp td:nth-of-type(11),#products_temp td:nth-of-type(12),
+    #products_temp td:nth-of-type(5),#products_temp td:nth-of-type(6),
+    #products_temp td:nth-of-type(7),#products_temp td:nth-of-type(8) {
+      display:none !important;
+    }
+    #navigationTable td {
+      vertical-align: center;
+    }
+      table.dataTable tbody tr {
+        /* min-height: 70px; */
+      }
+      table.dataTable tbody tr td img {
+        width:150px !important;
+      }
+      .dataTables_length, .dataTables_filter {
+        display:none!important;
+      }
+      td:nth-of-type(3n) {
+        vertical-align: bottom;
+      }
+      .dataTables_scrollHeadInner {
+        width:100%;
+      }
+    /*  #products td:nth-of-type(1),#products td:nth-of-type(2),#products td:nth-of-type(3),#products td:nth-of-type(5n),
+      #products td:nth-of-type(6n),#products td:nth-of-type(7n),#products td:nth-of-type(8),F(10) td:nth-of-type(9),
+      #products td:nth-of-type(10),#products td:nth-of-type(11), #products td:nth-of-type(12),#products td:nth-of-type(13) {
+        display:none !important;
+      }*/
+      .yadcf-filter-reset-button  {
+         display: none !important;
+      }
+      #filter-name {
+        clear:both;
+      }
+      #yadcf-filter--products-2 {
+        min-width: 300px !important;
+      }
+      #yadcf-filter--products-from-5,#yadcf-filter--products-to-5 {
+        width: 100px;
+      }
+      .filter-div {
+        width: 100%;
+        padding-top: 10px;
+        padding-bottom: 10px;
+        border-bottom: 1px solid black;
+      }
+      .select2-selection.select2-selection--multiple {
+        max-width:50% !important;
+      }
+#currency {
+  display:none !important;
+}
+    </style>
+    <script type="text/javascript">
+        $.urlParam = function(name){
+        var results = new RegExp('[\?&]' + name + '=([^&#]*)').exec(window.location.href);
+        if (results==null) {
+           return null;
+        }
+        return decodeURI(results[1]) || 0;
+      }
+    </script>
+</head>
+
+<body style="overflow-y: hidden;max-height:100vh;">
+  <nav style="display:none;" class="navbar navbar-default navgeneral" role="navigation">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header" >
+      <table id="navigationTable"><tr>
+        <td>
+            <img src="/images/scan.png" style="margin-left:5px;" width="40" height="auto" alt="">
+        </td>
+    <td style="min-width:100%;width:100%;background-image:url(/coster/www/images/crown.png);background-size:35px 35px;background-repeat:no-repeat;background-position:center center;">
+      <div style="position:absolute;float:right;top:5px;right:55px;min-width:65px;min-height:80px;background-repeat:no-repeat;background-image:url(/coster/www/images/cart_icon_empty.png);"></div>
+      <img style="float:right;margin-right:63px;" src="/coster/www/images/search.png" width="30" height="auto" alt="">
+    </td>
+    <td>
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#mainNavbar">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+    </td></tr></table>
+    </div>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse navbar-ex1-collapse" id="mainNavbar">
+
+      <ul class="nav navbar-nav" id="tn">
+        <li salespersons><a href="javascript:loadPage('salespersons');">Sales Persons</a></li>
+        <li showrooms><a href="javascript:loadPage('showrooms');">Showrooms</a></li>
+        <li tours><a href="javascript:loadPage('tours');">Tours</a></li>
+        <li privatetours><a href="javascript:loadPage('privatetours');">Private Tours</a></li>
+        <li customers><a href="javascript:loadPage('customers');">Customers</a></li>
+        <li invoices><a href="javascript:loadPage('invoices');">Invoices</a></li>
+        <li invoice><a href="javascript:loadPage('invoice');">New Invoice</a></li>
+      </ul>
+    </div><!-- /.navbar-collapse -->
+  </nav>
+  <div style="margin:-1px auto;height:35px;background-color: white;position:relative;">
+    <span style="font-size:32px;position:absolute;left:10px;margin-top:5px;">Diamonds</span>
+    <div id="selectedFilters" style="position:relative;top:35px;left:13px;font-size:11px;padding-top: 5px;width:100%;min-width:100%;padding-bottom:5px;">
+    </div>
+  <!--    <img style="cursor:pointer;position:absolute;top:20px;right:45px;width:20px;" data-toggle="modal" data-target="#filters" src="/coster/www/images/filtericon.png" /> -->
+          <img main style="cursor:pointer;position:fixed;top:20px;right:18px;width:20px;"  onclick="toggleFilters();" src="/images/filtericon.png" />
+  </div>
+  <div style="display:none">
+  <select class="form-control" id="currency" style="display:none;margin-top:-50px;">
+    <option value="EUR" rate="1">Euro</option>
+  </select>
+</div>
+<div id="items_div" style="margin-top:30px;">
+
+</div>
+  <table id="products" class="display" style="display:none;min-width:100%;">
+    <thead>
+      <tr>
+        <th>Serial No</th>
+        <th>Loc.</th>
+        <th style="display:none;">ArticleNo</th>
+        <th>Name</th>
+        <th style="display:none;">Weight</th>
+        <th style="display:none;">Color</th>
+        <th style="display:none;">Clarity</th>
+        <th style="display:none;">Cut</th>
+        <th>Price</th>
+        <th>Qty</th>
+        <th style="display:none;">SerialName</th>
+        <th style="display:none;">SerialName</th>
+      </tr>
+    </thead>
+    <tbody>
+    </tbody>
+  </table>
+
+<div class="modal" tabindex="-1" role="dialog" id="productDetail">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title"><strong id="title">Modal title</strong></h5>
+      </div>
+
+      <div class="modal-footer" >
+        <button type="button" id="ati" data-dismiss="modal" style="display:none;" onclick="checkAddToInvoice(this);"
+          class="btn-bigblack"><span style="width:100%;text-align:left;margin-top:5px;">ADD TO BAG</span></button>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="modal" tabindex="-1" role="dialog" id="filters">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title"><strong id="title">Filters</strong></h5>
+      </div>
+      <div class="modal-body" id="filters_body">
+
+      </div>
+      <div class="modal-footer" >
+        <button type="button" class="btn btn-primary" data-dismiss="modal">Set</button>
+      </div>
+    </div>
+  </div>
+</div>
+<div id="filters_temp" style="visibility:hidden;">
+  <form>
+    <div class="row">
+      <div class="col-xs-12 filter-div"  style="float:left;">
+        <strong>Name</strong>
+        <div id="filter_name" ></div>
+      </div>
+
+    </div>
+    <div class="row">
+      <div class="col-xs-12 filter-div"  style="float:left;">
+        <strong>Item ID</strong>
+        <div id="filter_itemid" ></div>
+      </div>
+
+    </div>
+    <div class="row">
+      <div class="col-xs-12 filter-div"  style="float:left;">
+        <strong>Price</strong>
+        <div id="filter_price" ></div>
+      </div>
+
+    </div>
+    <div class="row">
+      <div class="col-xs-12 filter-div"  style="float:left;">
+        <strong>Weight</strong>
+        <div id="filter_weight" ></div>
+      </div>
+
+    </div>
+        <div class="row">
+          <div class="col-xs-12 filter-div"  style="float:left;">
+            <strong>Cut</strong>
+            <div id="filter_cut" ></div>
+          </div>
+
+        </div>
+        <div class="row">
+          <div class="col-xs-12 filter-div"  style="float:left;">
+            <strong>Color</strong>
+            <div id="filter_color" ></div>
+          </div>
+
+        </div>
+        <div class="row">
+          <div class="col-xs-12 filter-div"  style="float:left;">
+            <strong>Clarity</strong>
+            <div id="filter_clarity" ></div>
+          </div>
+
+        </div>
+
+  </form>
+</div>
+
+<div id="div_filter" style="display:none;text-align:center;font-family:'Open Sans'";>
+   <div showfilters id="filters_container">
+     <div style="min-width:100%;width:100%;color:black;font-size:18px;text-align:left;padding:7%;">
+       <div class="filters" style="margin-top:10px;">
+         <table style="width:100%;"><tr>
+            <td style="width:25px;"><img src="http://85.214.165.56:81/coster/www/images/x.png" style="float:left;width:15px;" onclick="toggleFilters();" /></td>
+            <td style="text-align:left;vertical-align:bottom;"><span style="font-size:14px;float:left;">FILTER AND SORT RESULTS<span></td>
+            <td><span onclick="$('.all').trigger('click');toggleFilters();selectedFilters();" style="float:left;font-size:14px;margin-top:0px;">Reset</span></td>
+            <td><span onclick="yadcf.exFilterExternallyTriggered(oTable);toggleFilters();selectedFilters();" style="float:right;font-size:14px;margin-top:0px;">Apply</span></td></tr></table>
+
+        </div>
+
+
+        <div class="filters border">
+          <div style="padding-top:5px;padding-bottom:5px;margin-top:30px;">
+           <span onclick="showFilters('itemid','Item ID');" style="float:left;">Item ID</span>
+           <span onclick="$('#flitemid').val('');$('#itemidSelected').html('');yadcf.exResetFilters(oTable, [2]);" class="all">All</span>
+         </div>
+         <span id="itemidSelected" style="float:left;font-size:10px;opacity:0.6;"></span>
+       </div>
+
+        <div class="filters border">
+            <div style="padding-top:5px;padding-bottom:5px;">
+              <span onclick="showFilters('price','Price');" style="float:left;">Price</span>
+              <span onclick="$('#prfrom').val('');$('#prto').val('');$('#priceSelected').html('');yadcf.exResetFilters(oTable, [8]);" class="all">All</span>
+            </div>
+          <span id="priceSelected" style="float:left;font-size:10px;opacity:0.6;"></span>
+        </div>
+
+        <div class="filters border">
+           <div style="padding-top:5px;padding-bottom:5px;">
+             <span onclick="showFilters('weight','Weight');" style="float:left;">Carat</span>
+            <span onclick="$('#wgfrom').val('');$('#wgto').val('');$('#weightsSelected').html('');yadcf.exResetFilters(oTable, [4]);" class="all">All</span>
+          </div>
+          <span id="weightsSelected" style="float:left;font-size:10px;opacity:0.6;"></span>
+        </div>
+
+        <div class="filters border">
+          <div style="padding-top:5px;padding-bottom:5px;">
+            <span onclick="showFilters('cut','Cut');" style="float:left;">Cut</span>
+            <span onclick="uncheckOptions('cut_options');$('#cutSelected').html('');yadcf.exResetFilters(oTable, [7]);" class="all">All</span>
+          </div>
+          <span id="cutSelected" style="float:left;font-size:10px;opacity:0.6;"></span>
+        </div>
+
+        <div class="filters border">
+           <div style="padding-top:5px;padding-bottom:5px;">
+           <span onclick="showFilters('clarity','Clarity');" style="float:left;">Clarity</span>
+           <span onclick="uncheckOptions('clarity_options');$('#claritySelected').html('');yadcf.exResetFilters(oTable, [6]);" class="all">All</span>
+         </div>
+          <span id="claritySelected" style="float:left;font-size:10px;opacity:0.6;"></span>
+        </div>
+
+
+        <div class="filters border">
+           <div style="padding-top:5px;padding-bottom:5px;">
+           <span onclick="showFilters('colour','Colour');" style="float:left;">Colour</span>
+           <span onclick="uncheckOptions('colour_options');$('#colourSelected').html('');yadcf.exResetFilters(oTable, [5]);" class="all">All</span>
+         </div>
+          <span id="colourSelected" style="float:left;font-size:10px;opacity:0.6;"></span>
+        </div>
+
+        <button onclick="yadcf.exFilterExternallyTriggered(oTable);toggleFilters();" class="btn-black" style="display:none;left:5%;position:absolute;bottom:20px;min-width:90%;width:90%;">CONFIRM</button>
+
+     </div>
+   </div>
+
+
+
+
+ </div>
+
+ <div class="executefilters" id="itemid" style="display:none;">
+     <div  class="filter_group">
+         <div onclick="closeFilter('itemid');" class="arrow_left"></div>
+         <span onclick="closeFilter('itemid');">Item ID</span>
+     </div>
+     <div class="options" id="itemid_options">
+       <div class="row">
+         <div class="col-xs-12 col-md-12 col-lg-12">
+           <input id="flitemid" onclick="fireItemID();" placeholder="From"  class="form-control" />
+         </div>
+
+       </div>
+       <button class="btn-black" onclick="fireItemID(true);" style="margin-top:10px;margin-left:5%;margin-bottom:10px;min-width:90%;width:90%;">CONFIRM</button>
+
+     </div>
+  </div>
+   <div class="executefilters" id="price" style="display:none;">
+       <div  class="filter_group">
+             <div onclick="closeFilter('price');" class="arrow_left"></div>
+           <span onclick="closeFilter('price');">Price</span>
+         <!--  <div class="pretty p-fill p-switch" style="float:right;margin-top:5px;font-size:15px;">
+             <input onchange="" type="checkbox" />
+             <div class="state p-success">
+                 <label>All</label>
+             </div>
+         </div> -->
+       </div>
+       <div class="options" id="price_options">
+         <div class="row">
+           <div class="col-xs-6 col-md-6 col-lg-6">
+             <input id="prfrom" onchange="firePrice();" placeholder="From" type="number" class="form-control" />
+           </div>
+           <div class="col-xs-6 col-md-6 col-lg-6">
+             <input id="prto" onchange="firePrice();" type="number" placeholder="To"  class="form-control" />
+           </div>
+         </div>
+         <button class="btn-black" onclick="firePrice(true);" style="margin-top:10px;margin-left:5%;margin-bottom:10px;min-width:90%;width:90%;">CONFIRM</button>
+
+       </div>
+   </div>
+
+   <div class="executefilters" id="cut" style="display:none;">
+       <div  class="filter_group">
+             <div onclick="closeFilter('cut');" class="arrow_left"></div>
+           <span onclick="closeFilter('cut');">Cut</span>
+           <div class="pretty p-fill p-switch" style="float:right;margin-top:5px;font-size:15px;">
+             <input onchange="selectDeselect(this);" type="checkbox" />
+             <div class="state p-success">
+                 <label>All</label>
+             </div>
+         </div>
+       </div>
+       <div class="options" id="cut_options">
+         <button class="btn-black" onclick="fireCut(true);" style="margin-top:10px;margin-left:5%;margin-bottom:10px;min-width:90%;width:90%;">CONFIRM</button>
+
+       </div>
+   </div>
+
+   <div class="executefilters" id="weight" style="display:none;">
+       <div  class="filter_group">
+             <div onclick="closeFilter('weight');" class="arrow_left"></div>
+           <span onclick="closeFilter('weight');">Carat</span>
+       </div>
+       <div class="options" id="weight_options">
+         <div class="row">
+           <div class="col-xs-6 col-md-6 col-lg-6">
+             <input id="wgfrom" onchange="fireWeight();" placeholder="From" type="number" class="form-control" />
+           </div>
+           <div class="col-xs-6 col-md-6 col-lg-6">
+             <input id="wgto" onchange="fireWeight();" type="number" placeholder="To"  class="form-control" />
+           </div>
+         </div>
+         <button class="btn-black" onclick="fireWeight(true);" style="margin-top:10px;margin-left:5%;margin-bottom:10px;min-width:90%;width:90%;">CONFIRM</button>
+
+       </div>
+    </div>
+    <div class="executefilters" id="clarity" style="display:none;">
+        <div  class="filter_group">
+              <div onclick="closeFilter('clarity');" class="arrow_left"></div>
+            <span onclick="closeFilter('clarity');">Clarity</span>
+            <div class="pretty p-fill p-switch" style="float:right;margin-top:5px;font-size:15px;">
+              <input onchange="selectDeselect(this);" type="checkbox" />
+              <div class="state p-success">
+                  <label>All</label>
+              </div>
+          </div>
+        </div>
+        <div class="options" id="clarity_options">
+          <button class="btn-black" onclick="fireClarity(true);" style="margin-left:5%;margin-bottom:10px;min-width:90%;width:90%;">CONFIRM</button>
+        </div>
+    </div>
+
+    <div class="executefilters" id="colour" style="display:none;">
+        <div  class="filter_group">
+              <div onclick="closeFilter('colour');" class="arrow_left"></div>
+            <span onclick="closeFilter('colour');">Colour</span>
+            <div class="pretty p-fill p-switch" style="float:right;margin-top:5px;font-size:15px;">
+              <input onchange="selectDeselect(this);" type="checkbox" />
+              <div class="state p-success">
+                  <label>All</label>
+              </div>
+          </div>
+        </div>
+        <div class="options" id="colour_options">
+          <button class="btn-black" onclick="fireColour(true);" style="margin-left:5%;margin-bottom:10px;min-width:90%;width:90%;">CONFIRM</button>
+
+        </div>
+    </div>
+ <div id="navbackdrop" style="z-index:1;"></div>
+</body>
+
+<script type="text/javascript" src="/js/bootstrap.js"></script>
+<script type="text/javascript" src="/js/chosen.jquery.js"></script>
+<script type="text/javascript" src="/js/api.js"></script>
+<script type="text/javascript" src="/js/Utilities.js"></script>
+<script type="text/javascript" src="/DataTables/datatables.min.js"></script>
+<script type="text/javascript" src="/js/jquery.dataTables.yadcf.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.36/pdfmake.min.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.36/vfs_fonts.js"></script>
+<script type="text/javascript" src="/js/api.js"></script>
+<script type="text/javascript" src="/js/mainScript.js"></script>
+
+
+<script src="https://cdn.jsdelivr.net/npm/select2@4.0.12/dist/js/select2.min.js"></script>
+<script type="text/javascript">
+var firstDraw = true;
+var loadStart = false;
+var scrollTimeout = null;
+function onScroll() {
+
+  if (($("#items_div")[0].scrollTop + $("#items_div").height()) >= ($("#items_div")[0].scrollHeight - 50)) {
+    loadMore();
+  }
+  if (($("#items_div")[0].scrollTop == 0)) {
+    loadMore(false);
+  }
+}
+function loadMore(next = true) {
+    $("#items_div").unbind('scroll');
+    clearTimeout(scrollTimeout);
+    if (next) {
+      oTable.page('next').draw('page');
+      $('#items_div').scrollTop(100);
+    } else {
+      oTable.page('previous').draw('page');
+//        $('#items_div').scrollTop(250);
+    }
+
+}
+    $(document).ready(function() {
+
+      $.each($(".modal-content"), function() {
+        $('<button type="button" class="close" style="position:absolute;top:10px;right:15px;" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">X</span></button>').appendTo($(this));
+      });
+
+      $("#products").clone().appendTo($("#items_div"));
+      $("#items_div").find("#products").attr("id", "products_temp");
+    //  $('<button id="loadMore" class="btn-black" onclick="loadMore();" >Load more</button>').appendTo($("#items_div"));
+      $("#products_temp").show();
+      $("#items_div").attr("sheight", $(window).height());
+      $("#items_div").css({
+          height: $(window).height(),
+          minHeight: $(window).height()
+      })
+      var ithg = $("#items_div").height();
+      $("#items_div").bind('scroll', function() {
+
+        if (scrollTimeout == null) {
+          scrollTimeout = setTimeout(onScroll, 500);
+        } else {
+          clearTimeout(scrollTimeout);
+          scrollTimeout = null;
+          scrollTimeout = setTimeout(onScroll, 500);
+        }
+      });
+      window.addEventListener("message", receiveMessage, false);
+      if ( window.location !== window.parent.location ) {
+        if ($.urlParam("invoice") == 1) {
+          $("nav").hide();
+          $("#ati").show();
+
+        }
+      } else {
+
+        $("#ati").hide();
+        $("#currency_div").show();
+
+        $("nav").show();
+      }
+
+      oTable = $('#products').DataTable({
+             dom: 'Bfrtip',
+             "info": false,
+            "scrollX": true,
+            "pageLength": 24,
+             "processing": true,
+             "serverSide": true,
+             "ajax": {
+                 "url": "http://85.214.165.56:81/api/diamonds.php",
+                 "type": "POST"
+             },
+             "language": {
+                 "infoFiltered": " - filtered from _MAX_ records"
+             },
+             buttons: [
+
+             ],
+             "drawCallback": function(settings) {
+               if (settings.aoData.length == "0" && !$("#div_filter").is(":visible")) {
+                 parent.showModal({
+                   type: "error",
+                   title: "No results",
+                   showCancelButton: false,
+                   confirmButtonText: "ADJUST SEARCH"
+                 })
+                 return false;
+               }
+               $("#products_temp").find("tbody").find("tr").remove();
+               $.each($("#products").find("tbody").find("tr"), function(ind) {
+                 var tr = oTable.row($(this));
+                 $(this).attr("data", JSON.stringify(tr.data()));
+                  $(this).appendTo($("#products_temp").find("tbody"));
+                })
+                $("#items_div").scrollTop(0);
+                setTimeout(function() {
+                  $("#items_div").bind('scroll', function() {
+
+                    if (scrollTimeout == null) {
+                      scrollTimeout = setTimeout(onScroll, 500);
+                    } else {
+                      clearTimeout(scrollTimeout);
+                      scrollTimeout = null;
+                      scrollTimeout = setTimeout(onScroll, 500);
+                    }
+                  });
+                }, 1000);
+              },
+             "columns": [
+                 { data: "SerialNo" },
+                 { data: "WarehouseID" },
+                 { data: "ItemID" },
+                 {data: "productName",
+                     "render": function ( data, type, row ) {
+                      return row["ItemID"] + "<br />" + data;
+                     }
+                  },
+                 {data: "TotalWeight"},
+                 {data: "ColourID"},
+                 {data: "ClarityID"},
+                 {data: "CutID"},
+                {data: "SalesPrice",
+                  "render": function ( data, type, row ) {
+                    var cc = $("#currency").find("option:selected").val();
+                    var pr = (parseFloat(row["SalesPrice"])) * (parseFloat($("#currency").find("option:selected").attr("rate")));
+                    return parseFloat(pr).toLocaleString("nl-NL",{ style: 'currency', currency: $("#currency").val() });
+                  }
+                },
+                 {data: "Qty"},
+                 {data: "SerialName"},
+                 {data: "Discount"}
+             ],
+
+             "order": [[ 7, "asc" ], [9, "desc"]],
+             "stateSave":  true,
+         })
+         oTable.on('search.dt', function() {
+
+            $("#items_div").attr("sheight", $("#items_div").height());
+            $("#products_temp").find("tbody").find("tr").remove();
+         });
+         var cuts = [];
+
+         api.call("getCuts", function(res) {
+             $.each(res, function() {
+               if (this.CutID != null && this.CutID != "") {
+                 $("<div class='options_item'><span vl='" + this.CutID + "`'" + " style='float:left;'>" + this.CutID + "<span><span  style='float:right;font-size:12px;margin-top:0px;margin-left:10px;'><div class='pretty p-switch p-fill' style='float:right;margin-top:5px;'><input opt  disabled type='checkbox'  /><div class='state p-success' style='width:30px;'> <label></label></div></div></span></div>").appendTo($("#cut_options"));
+                 cuts.push({
+                   value: this.CutID + "`",
+                   label: this.CutID
+                 })
+               }
+             });
+         }, {table: "diamonds"}, {}, {});
+
+
+         var colors = [];
+         $.ajax({
+           url: "http://85.214.165.56:81/api/index.php?request=getColors",
+           type: "GEt",
+           dataType: "JSON",
+           data: {
+             table: "diamonds"
+           },
+           success: function(res) {
+
+             $.each(res, function() {
+               if (this.ColourID != null && this.ColourID != "") {
+                 $("<div class='options_item'><span vl='" + this.ColourID + "`'" + " style='float:left;'>" + this.ColourID + "<span><span  style='float:right;font-size:12px;margin-top:0px;margin-left:10px;'><div class='pretty p-switch p-fill' style='float:right;margin-top:5px;'><input opt  disabled type='checkbox'  /><div class='state p-success' style='width:30px;'> <label></label></div></div></span></div>").appendTo($("#colour_options"));
+                 colors.push({
+                   value: this.ColourID + "`",
+                   label: this.ColourID
+                 })
+               }
+             });
+
+           }
+         })
+         var clarity = [];
+         $.ajax({
+           url: "http://85.214.165.56:81/api/index.php?request=getClarity",
+           type: "GEt",
+           dataType: "JSON",
+           data: {
+             table: "diamonds"
+           },
+           success: function(res) {
+
+             $.each(res, function() {
+               if (this.ClarityID != null && this.ClarityID != "") {
+                 $("<div class='options_item'><span vl='" + this.ClarityID + "`'" + " style='float:left;'>" + this.ClarityID + "<span><span  style='float:right;font-size:12px;margin-top:0px;margin-left:10px;'><div class='pretty p-switch p-fill' style='float:right;margin-top:5px;'><input opt  disabled type='checkbox'  /><div class='state p-success' style='width:30px;'> <label></label></div></div></span></div>").appendTo($("#clarity_options"));
+                 clarity.push({
+                   value: this.ClarityID + "`",
+                   label: this.ClarityID
+                 })
+               }
+             });
+
+           }
+         })
+         var types = [];
+         $.ajax({
+           url: "http://85.214.165.56:81/api/index.php?request=getTypes",
+           type: "GEt",
+           dataType: "JSON",
+           success: function(res) {
+
+             $.each(res, function() {
+               if (this.TypeID != null && this.TypeID != "") {
+                 types.push({
+                   value: this.TypeID + "`",
+                   label: this.TypeID
+                 })
+               }
+             });
+
+           }
+         })
+
+         var mgroups = [];
+         $.ajax({
+           url: "http://85.214.165.56:81/api/index.php?request=getExcangeRates",
+           type: "GEt",
+           dataType: "JSON",
+           success: function(res) {
+             $.each(res, function() {
+               $('<option value="' + this.CurrencyCode + '" rate="' + (parseFloat(this.ExchangeRate) / 100) + '">' + this.Currency +'</option>').appendTo($("#currency"));
+             })
+             $("#currency").bind("change", function() {
+
+               oTable.draw();
+             })
+
+           }
+         })
+
+
+      setTimeout(function() {
+
+        try {
+          window.parent.hideCatalog();
+
+       } catch(err) {
+         alert(err)
+       }
+     }, 2000);
+         setTimeout(function() {
+         yadcf.init(oTable, [
+         {
+
+            filter_container_id: "filter_price",
+            column_number: 8,
+             filter_type: "range_number",
+             filter_delay: 500
+         },
+         {
+
+            filter_container_id: "filter_weight",
+            column_number: 4,
+             filter_type: "range_number",
+             filter_delay: 500
+         },
+         {
+           style_class: "form-control",
+            filter_container_id: "filter_name",
+            filter_type: "text",
+             column_number: 3,
+         },
+         {
+           style_class: "form-control",
+            filter_container_id: "filter_itemid",
+            filter_type: "text",
+             column_number: 2,
+         },
+            {
+              style_class: "form-control",
+                filter_container_id: "filter_cut",
+                column_number: 7,
+                 data: cuts,
+                filter_type: "multi_select",
+                select_type: 'select2'
+            },
+            {
+              style_class: "form-control",
+                filter_container_id: "filter_color",
+                column_number: 5,
+                 data: colors,
+                filter_type: "multi_select",
+                select_type: 'select2'
+            },
+            {
+              style_class: "form-control",
+                filter_container_id: "filter_clarity",
+                column_number: 6,
+                 data: clarity,
+                filter_type: "multi_select",
+                select_type: 'select2'
+            },
+          ]
+         );
+           $("#yadcf-filter--products-5").find("option").eq(0).text("Discount yes/np");
+           $("#filters_temp").appendTo($("#filters_body"));
+           $("#filters_temp").css({
+             visibility: "visible"
+           })
+
+          collectFilters();
+           $.each($(".options_item"), function() {
+             var dv = $(this);
+             dv.bind("click", function() {
+               var dv = $(this).closest(".options_item");
+               dv.find("[opt]")[0].checked = !dv.find("[opt]")[0].checked;
+               if (dv.find("[opt]")[0].checked) {
+                 dv.find("[opt]").addClass("checked");
+               } else {
+                 dv.find("[opt]").removeClass("checked");
+               }
+             //  alert($(this).find("[opt]")[0].onchange);
+             })
+           })
+         }, 2000);
+         function receiveMessage(event) {
+
+           var a = event.data.split("#");
+           if (a[0] == "changeCurrency") {
+             $("#currency").val(a[1]);
+            oTable.draw();
+           }
+
+           if (a[0] == "findID") {
+
+           }
+         }
+         $('#products_temp').on('click', 'tbody tr', function() {
+
+            var node = this;
+            var data = $.parseJSON($(this).attr("data"));
+            console.log(data);
+            $("#product_image").attr("src", $(node).find("img").eq(0).attr("src"));
+            $("#title").html(data["productName"] + " " + parseFloat(data["SalesPrice"]).toLocaleString("nl-NL",{ style: 'currency', currency: "EUR" }));
+            $("#productDetail").attr("itemid", data["ItemID"]);
+            $("#productDetail").modal("show");
+          })
+    });
+    function collectFilters() {
+      var vals = yadcf.exGetColumnFilterVal(oTable, 2);
+      $("#itemidSelected").html(vals);
+
+
+      var vals = yadcf.exGetColumnFilterVal(oTable, 8);
+      $("#prfrom").val(vals.from);
+      $("#prto").val(vals.to);
+      if (vals.from != "" || vals.to != "") {
+        $("#priceSelected").html(vals.from + " - " + vals.to);
+      }
+
+      var vals = yadcf.exGetColumnFilterVal(oTable, 4);
+      $("#wgfrom").val(vals.from);
+      $("#wgto").val(vals.to);
+      if (vals.from != "" || vals.to != "") {
+        $("#weightsSelected").html(vals.from + " - " + vals.to);
+      }
+
+      var vals = yadcf.exGetColumnFilterVal(oTable, 7);
+      if (vals.length > 0) {
+        var vv = [];
+        $.each(vals, function() {
+          vv.push(this.replace("`", ""));
+        });
+        $("#cutSelected").html(vv.join(","));
+        $.each($("#cut_options").find("input"), function() {
+          if (vals.indexOf($(this).closest("[vl]").attr("vl")) > -1) {
+            this.checked = true;
+            $(this).addClass("checked");
+          }
+        })
+      }
+
+      var vals = yadcf.exGetColumnFilterVal(oTable, 6);
+      if (vals.length > 0) {
+        var vv = [];
+        $.each(vals, function() {
+          vv.push(this.replace("`", ""));
+        });
+        $("#claritySelected").html(vv.join(","));
+        $.each($("#clarity_options").find("input"), function() {
+          if (vals.indexOf($(this).closest("[vl]").attr("vl")) > -1) {
+            this.checked = true;
+            $(this).addClass("checked");
+          }
+        })
+      }
+
+      var vals = yadcf.exGetColumnFilterVal(oTable, 5);
+
+      if (vals.length > 0) {
+        var vv = [];
+        $.each(vals, function() {
+          vv.push(this.replace("`", ""));
+        });
+        $("#colourSelected").html(vv.join(","));
+        $.each($("#colour_options").find("input"), function() {
+          if (vals.indexOf($(this).closest("[vl]").attr("vl")) > -1) {
+            this.checked = true;
+            $(this).addClass("checked");
+          }
+        })
+      }
+      setTimeout(function() {
+        toggleFilters();
+        toggleFilters();
+     }, 500);
+    }
+    function checkAddToInvoice(itemid) {
+      setTimeout(function() {
+            //  var row = oTable.row('#' + $("#productDetail").attr("itemid"));
+              var row = $("#products_temp").find("#" + $("#productDetail").attr("itemid"));
+              var data = $.parseJSON(row.attr("data"));
+
+              var obj = {
+                imageURL: "",
+                SerialNo: data.SerialNo,
+                Discount: data.Discount,
+                productName:  data.SerialNo + " " + data.SerialName,
+                SalesPrice: data["SalesPrice"],
+                Discount: data["Discount"],
+              }
+              window.parent.addToInvoice(obj);
+          }, 1);
+    }
+
+      function selectedFilters(mm = "") {
+          if (mm != "") {
+            $("#mainGroupSelected").html(mm);
+          }
+            var str = [];
+            $.each($(".filters"), function() {
+              if ($(this).find("span").eq(2).html() != "" && $(this).find("span").eq(2).html() != "Reset") {
+                str.push($(this).find("span").eq(2).text());
+              }
+            })
+          //  alert(str.join(","))
+            if (str.length > 0) {
+              $("#selectedFilters").html(str.join(" "));
+            } else {
+              $("#selectedFilters").html("");
+            }
+
+      }
+
+    function toggleFilters() {
+
+      $('#navbackdrop').toggle();
+      $("#div_filter").toggle();
+      selectedFilters();
+
+        //maingroup end
+
+
+  //    fireMainGroups(false);
+    }
+
+    function uncheckOptions(optid) {
+      $.each($('#' + optid).find("input"), function() {
+        this.checked = false;
+        $(this).removeClass("checked");
+      })
+    }
+    function showFilters(group) {
+      if (group == "maingroup") {
+        var vals = yadcf.exGetColumnFilterVal(oTable,4);
+        $.each($("#maingroup_options").find("input"), function() {
+          var txt = $(this).closest(".options_item").find("span").eq(0).attr("vl");
+          if (vals.indexOf(txt) > -1) {
+            this.checked = true;
+            $(this).addClass("checked");
+          }
+        })
+      }
+      if (group == "discount") {
+          var vals = yadcf.exGetColumnFilterVal(oTable,6);
+        //  alert(JSON.stringify(vals))
+      }
+      $("#div_filter").hide();
+      $("#filters_container").hide();
+      $("#" + group).show();
+    }
+    function closeFilter(group) {
+      $("#div_filter").show();
+      $("#filters_container").show();
+      $("#" + group).hide();
+    }
+    function selectDeselect(obj) {
+      var dv = $(obj).closest(".executefilters").attr("id") + "_options";
+      $.each($("#" + dv).find("input"), function() {
+        if (obj.checked) {
+          $(this).addClass("checked");
+        } else {
+          $(this).removeClass("checked");
+        }
+        this.checked = obj.checked;
+      });
+    }
+    function fireItemID(fire = false) {
+      if (fire) {
+        yadcf.exResetFilters(oTable, [2]);
+        yadcf.exFilterColumn(oTable, [[2, $("#flitemid").val()]]);
+        closeFilter("itemid");
+      }
+      $("#itemidSelected").html($("#flitemid").val());
+    //
+    }
+    function firePrice(fire = false) {
+      var obj = {
+        from: $("#prfrom").val(),
+        to: $("#prto").val()
+      }
+      if (fire) {
+        yadcf.exResetFilters(oTable, [8]);
+        yadcf.exFilterColumn(oTable, [[8, obj]]);
+        closeFilter("price");
+      }
+      $("#priceSelected").html($("#prfrom").val() + " - " + $("#prto").val());
+    //
+    }
+    function fireColour(fire = false) {
+      $("#colourSelected").html("");
+      var sctd = [];
+      var sctd_ex = [];
+      $.each($("#colour_options").find(".options_item").find("[opt]"), function() {
+       if ($(this).hasClass("checked")) {
+          var txt = $(this).closest(".options_item").find("span").eq(0).text();
+          sctd.push(txt);
+          sctd_ex.push($(this).closest(".options_item").find("span").eq(0).attr("vl"));
+        }
+      })
+
+      $("#colourSelected").html(sctd.join(","));
+      if (fire) {
+        yadcf.exResetFilters(oTable, [5]);
+        yadcf.exFilterColumn(oTable, [[5, sctd_ex]]);
+        closeFilter("colour");
+      }
+  //    yadcf.exFilterColumn(oTable, [[4, ['Rings`']]]);
+    //  closeFilter("colour");
+    }
+    function fireWeight(fire = false) {
+      var obj = {
+        from: $("#wgfrom").val(),
+        to: $("#wgto").val()
+      }
+      if (fire) {
+        yadcf.exResetFilters(oTable, [4]);
+        yadcf.exFilterColumn(oTable, [[4, obj]]);
+        closeFilter("weight");
+      }
+      $("#weightsSelected").html($("#wgfrom").val() + " - " + $("#wgto").val());
+    //  closeFilter("weight");
+    }
+    function fireCut(fire = false) {
+      $("#cutSelected").html("");
+      var sctd = [];
+      var sctd_ex = [];
+      $.each($("#cut_options").find(".options_item").find("[opt]"), function() {
+       if ($(this).hasClass("checked")) {
+          var txt = $(this).closest(".options_item").find("span").eq(0).text();
+          sctd.push(txt);
+          sctd_ex.push($(this).closest(".options_item").find("span").eq(0).attr("vl"));
+        }
+      })
+
+
+      $("#cutSelected").html(sctd.join(","));
+      if (fire) {
+        yadcf.exResetFilters(oTable, [7]);
+        yadcf.exFilterColumn(oTable, [[7, sctd_ex]]);
+        closeFilter("cut");
+      }
+  //    yadcf.exFilterColumn(oTable, [[4, ['Rings`']]]);
+    //
+    }
+    function fireClarity(fire = false) {
+      $("#claritySelected").html("");
+      var sctd = [];
+      var sctd_ex = [];
+      $.each($("#clarity_options").find(".options_item").find("[opt]"), function() {
+       if ($(this).hasClass("checked")) {
+          var txt = $(this).closest(".options_item").find("span").eq(0).text();
+          sctd.push(txt);
+          sctd_ex.push($(this).closest(".options_item").find("span").eq(0).attr("vl"));
+        }
+      })
+
+      $("#claritySelected").html(sctd.join(","));
+      if (fire) {
+        yadcf.exResetFilters(oTable, [6]);
+        yadcf.exFilterColumn(oTable, [[6, sctd_ex]]);
+        closeFilter("clarity");
+      }
+  //    yadcf.exFilterColumn(oTable, [[4, ['Rings`']]]);
+      //
+    }
+    function fireClosest(obj) {
+      $(obj).closest(".executefilters").find(".btn-black").trigger("click");
+    }
+    function changeCurrency(v) {
+      $("#currency").val(v);
+      oTable.draw();
+    }
+    function reset() {
+      $('.all').trigger('click');
+    }
+    function findID(id) {
+     if (id == "*") {
+       yadcf.exResetFilters(oTable, [2]);
+       $("itemidSelected").html("");
+        selectedFilters();
+       return;
+     }
+      $('.all').trigger('click');
+      $("#flitemid").val(id);
+      yadcf.exResetFilters(oTable, [2]);
+      yadcf.exFilterColumn(oTable, [[2, $("#flitemid").val()]]);
+      $("#itemidSelected").html($("#flitemid").val());
+       selectedFilters();
+    }
+</script>
+<style>
+ td.dataTables_empty {
+  text-align: center;
+  font-size: 18px;
+  margin-top:40px;
+}
+  span.all {
+
+    float:right;
+    font-size: 13px;
+  }
+  #div_filter {
+    z-index: 2;
+    min-width:100%;
+    width: 100%;
+    padding-left: 8px;
+    padding-right: 10px;
+    min-height: calc(100vh - 40px);
+    position:absolute;
+    top:0px;
+    display: none;
+    font-family: 'Open Sans';
+  }
+  #filters_container {
+    font-family: 'Open Sans';
+    background: white;
+    position:relative;
+    top: 0px;
+    min-width:calc(100% - 33px);
+    min-height: calc(100vh - 40px);
+  }
+  .filters {
+    width:100%;
+    min-width:100%;
+    display:grid;
+  }
+  .options {
+    width:100%;
+    font-family: 'Open Sans';
+    padding-top: 5px;
+    padding-bottom: 5px;
+    border-bottom: 1px solid #e2e2e2;
+    font-size: 17px;
+    min-width:100%;
+    max-height: calc(100vh - 157px);
+    overflow: auto;
+    display:grid;
+    overflow-x: hidden;
+  }
+  .options_item {
+    width:100%;
+    font-family: 'Open Sans';
+    padding-top: 5px;
+    padding-bottom: 5px;
+    border-bottom: 1px solid #e2e2e2;
+    font-size: 17px;
+    min-width:100%;
+    display:grid;
+  }
+  .filters.border {
+    padding-top:2px;
+    padding-bottom:2px;
+    border-bottom: 1px solid #DFDFDF;
+  }
+  .executefilters {
+    padding: 10px;
+    z-index: 2;
+    display:none;
+    position: fixed;
+     font-size:17px;
+     left: 50%;
+     -webkit-transform: translate(-50%, -0%);
+     transform: translate(-50%, -0%);
+     top: 10px;
+    min-width:95%;
+    width:95%;
+    background:white;
+  }
+  .arrow_left {
+    min-width:30px;
+    float:left;
+    background-image:url(/images/arrow_left.png);
+    background-repeat:no-repeat;
+    background-position: left center;
+    min-height:30px;
+    background-size:contain;
+  }
+  .filter_group {
+    margin-bottom: 10px;
+    font-size:21px;
+    width:100%;
+
+  }
+  .dataTables_paginate.paging_simple_numbers {
+    display: none;
+  }
+  #products_wrapper {
+    display: none;
+  }
+  #items_div {
+        padding-left: 3px;
+        padding-right: 7px;
+        overflow: auto;
+  }
+  #products_temp tr td {
+  padding: 3px;
+  }
+  #products_temp tr.odd {
+    background-color: #f6f6f6;
+  }
+</style>
+</html>

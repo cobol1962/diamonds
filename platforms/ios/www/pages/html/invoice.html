@@ -1,0 +1,69 @@
+<style>
+
+</style>
+<div step stepid="1">
+    <table class="table-striped table-bordered">
+        <tr style="display:none;">
+            <td>
+                <input type="text" onchange="" onkeyup="" style="width:90%;" class="form-control" id="serial" placeholder="Enter serial No">
+            </td>
+            <td style="font-size: 17px;width: 100px;max-width:100px;text-align:left;padding-left:5px;">
+                <button disabled onclick="loadedPages.invoice.get();" style="font-size: 15px;width:100%;" class="btn  btn-success">OK</button>
+            </td>
+        </tr>
+    </table>
+    <table class="table-striped table-bordered">
+        <tr style="display:none;">
+            <td style="width:50%;">
+                <button disabled onclick="loadedPages.invoice.scan();" style="font-size: 15px;width:100%;" class="btn  btn-primary"><i class="fa fa-barcode"></i> Scan</button>
+            </td>
+            <td style="width:50%;">
+                <button disabled onclick="$('#catalog_container').toggle();$('#main').toggle();" style="font-size: 15px;width:100%;" class="btn  btn-primary">Show/hide catalog</button>
+            </td>
+        </tr>
+        <tr style="display:none;">
+            <td colspan="3">
+                <input type="text" confirmed="no" style="width:100%;" class="typeahead form-control" data-provide="typeahead" id="salesperson" placeholder="Sales Person">
+            </td>
+        </tr>
+        <tr style="display:none;">
+            <td colspan="3">
+                <input type="text" confirmed="no" data-provide="typeahead" id="showroom" style="width:100%;" class="form-control" id="showroom" placeholder="Showroom">
+            </td>
+        </tr>
+        <tr style="display:none;">
+            <td colspan="3">
+                <div class="row">
+                    <div class="col-xs-6" style="display:none;">
+                        <div class="form-group">
+                            <label>Invoice language</label>
+                            <input type="hidden" id="invoice_country_code" name="invoice_country_code" />
+                            <input id="invoice_country" type="text" class="form-control" />
+                        </div>
+                    </div>
+                    <div class="col-xs-12">
+                        <div class="form-group">
+                            <label>Currency</label>
+                            <select id="currency_removed" class="form-control">
+                                <option value="EUR" rate="1">Euro</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+            </td>
+        </tr>
+    </table>
+
+    <div id="catalog_container">
+        <iframe id="catalog" frameborder="0" src="/catalog?invoice=1" style="position:fixed;top:50px;overflow: hidden;width:100%;height: 100vh;"></iframe>
+    </div>
+</div>
+<div step stepid="2" style="display:none;">
+
+</div>
+<div step stepid="3" style="display:none;">
+
+</div>
+<div step stepid="4" style="display:none;">
+
+</div>

@@ -1,0 +1,53 @@
+
+<div style="height:3000px;position:fixed;top:50px;max-height: calc(100vh - 50px); overflow-y: auto;">
+
+  <div navigation login style="backgroun: #f7f7f7;">
+      <a style="height:75px;background: white;font-size:15px;text-transform: capitalize;" href="#">
+          <div style="width:100%;text-align:center;">
+              <span onclick="$('#login').attr('nextpage','homepage');$('#login').modal('show');">Login with your Royal coster pin code</span>
+              <br />
+              <span onclick="noPinCode();" style="font-size:13px;position:relative;top:0px;color:#BAB086;">NO PIN CODE? CLICK HERE</span>
+          </div>
+      </a>
+  </div>
+  <div navigation logout style="font-size:17px;display:none;height: 50px;background-color: #f7f7f7;display:flex;align-items: center;justify-content: center;">
+      <span style="color:black;text-transform: capitalize;">Welcome back, </span><span style="text-transform: capitalize;color:black;" id='ename1'></span>
+  </div>
+  <img onclick="loadPage('invoice');" style="width:100%;margin-bottom:5px;height:auto;" src="http://85.214.165.56:81/coster/www/images/home1.png" />
+  <img onclick="loadPage('invoice');setTimeout(function() {var iframeWin = document.getElementById('catalog').contentWindow;iframeWin.postMessage('setRings#','*');}, 1500);" style="width:100%;margin-bottom:5px;height:auto;" src="http://85.214.165.56:81/coster/www/images/home2.png" />
+  <img onclick="checkDiamonds();" style="width:100%;margin-bottom:5px;height:auto;" src="http://85.214.165.56:81/coster/www/images/home3.png" />
+  <img onclick="loadPage('invoice');setTimeout(function() {var iframeWin = document.getElementById('catalog').contentWindow;iframeWin.setWatches();}, 1500);" style="width:100%;margin-bottom:5px;height:auto;" src="http://85.214.165.56:81/coster/www/images/home4.png" />
+  <img onclick="window.open('https://api.whatsapp.com/send?phone=31644201409', '_system');" style="width:100%;margin-bottom:5px;height:auto;" src="http://85.214.165.56:81/coster/www/images/home5.png" />   
+
+</div>
+
+<script type="text/javascript">
+  function checkDiamonds() {
+      if (localStorage.sp === undefined) {
+        swal({
+          type: "error",
+          allowOutsideClick: false,
+          allowEscapeKey: false,
+          text: "You must be logged to see Diamonds"
+        }).then((res) => {
+          $('#login').attr('nextpage','homepage');
+          $('#login').modal('show');
+        })
+      } else {
+        loadPage("diamonds");
+      }
+  }
+  if (localStorage.sp === undefined) {
+    $("[logout]").hide();
+    $("[login]").show();
+  } else {
+    var sp = $.parseJSON(localStorage.sp);
+    $("#ename1").html(sp.Employee);
+    $("[logout]").show();
+    $("[login]").hide();
+  }
+  setTimeout(function() {
+    $(".app").hide(300);
+  }, 1000);
+
+</script>
