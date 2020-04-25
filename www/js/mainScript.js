@@ -56,7 +56,6 @@ function checkLogin() {
     }
 }
 $(document).ready(function() {
-  alert("ready!")
   $("#content").css({
     minHeight: window.innerHeight - 60,
     maxHeight: window.innerHeight - 60
@@ -118,9 +117,8 @@ $('#discountApproved').on('show.bs.modal', function () {
     }
 
   })
-alert("?????")
+
   api.call("getExcangeRates", function(res) {
-    alert(JSON.stringify(res))
     $.each(res, function() {
       $("<option value='" + this.CurrencyCode + "' rate='" + this.ExchangeRate + "'>" + this.Currency + "</option>").appendTo($("#currency"));
     })
