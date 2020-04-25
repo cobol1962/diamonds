@@ -54,7 +54,7 @@
         </tr>
     </table>
 
-    <div id="catalog_container">  
+    <div id="catalog_container">
         <iframe id="catalog" frameborder="0" src="http://85.214.165.56:81/catalog?invoice=1" style="position:fixed;top:50px;overflow: hidden;width:100%;height: 100vh;"></iframe>
     </div>
 </div>
@@ -67,3 +67,12 @@
 <div step stepid="4" style="display:none;">
 
 </div>
+<script type="text/javascript">
+  window.addEventListener("message", receiveMessage, false);
+  function receiveMessage(event) {
+    var a = event.data.split("#");
+    if (a[0] == "hideCatalog") {
+      $.LoadingOverlay("hide");
+    }
+  }
+</script>

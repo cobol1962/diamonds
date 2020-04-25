@@ -274,7 +274,7 @@ function locationHashChanged() {
           setTimeout(function() {
             firstCatalog = false;
             var iFrameWin = document.getElementById("catalog").contentWindow;
-            iFrameWin.reset();
+            iFrameWin.postMessage("reset#", "*");
           }, 3000)
         }
         if (k == "diamonds" && firstCatalog) {
