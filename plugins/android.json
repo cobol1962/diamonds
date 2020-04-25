@@ -12,6 +12,9 @@
     },
     "cordova-plugin-whitelist": {
       "PACKAGE_NAME": "com.royalcoster.catalog"
+    },
+    "cordova-plugin-inappbrowser": {
+      "PACKAGE_NAME": "com.royalcoster.catalog"
     }
   },
   "dependent_plugins": {}

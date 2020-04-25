@@ -10,6 +10,9 @@
         <param name="android-package" value="org.apache.cordova.whitelist.WhitelistPlugin" />
         <param name="onload" value="true" />
     </feature>
+    <feature name="InAppBrowser">
+        <param name="android-package" value="org.apache.cordova.inappbrowser.InAppBrowser" />
+    </feature>
     <name>Coster Diamonds</name>
     <description>
         Coster Sales App.
@@ -18,7 +21,6 @@
         Coster Diamonds team
     </author>
     <content src="index.html" />
-    <access origin="*" />
     <allow-navigation href="http://*" />
     <allow-intent href="http://*/*" />
     <allow-intent href="https://*/*" />
@@ -26,6 +28,7 @@
     <allow-intent href="sms:*" />
     <allow-intent href="mailto:*" />
     <allow-intent href="geo:*" />
+    <gap:plugin name="cordova-plugin-whitelist" source="npm" />
     <icon density="ldpi" src="www/res/icon/android/drawable-ldpi-icon.png" />
     <icon density="mdpi" src="www/res/icon/android/drawable-mdpi-icon.png" />
     <icon density="hdpi" src="www/res/icon/android/drawable-hdpi-icon.png" />
@@ -45,6 +48,9 @@
     <splash density="port-xxhdpi" src="www/res/screen/android/drawable-port-xxhdpi-screen.png" />
     <splash density="port-xxxhdpi" src="www/res/screen/android/drawable-port-xxxhdpi-screen.png" />
     <allow-intent href="market:*" />
+    <access origin="*" />
+    <allow-intent href="*" />
+    <allow-navigation href="*" />
     <preference name="loglevel" value="DEBUG" />
     <preference name="DisallowOverscroll" value="true" />
     <preference name="android-minSdkVersion" value="14" />

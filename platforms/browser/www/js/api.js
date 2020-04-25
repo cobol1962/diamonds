@@ -28,7 +28,7 @@ api = {
                   };
 
               apiAjax.url = "http://85.214.165.56:81/api/index.php?request=" + endpoint;
-              alert(apiAjax.url)
+        
 
               for (var prop in ajaxExtend) {
                 if (ajaxExtend.hasOwnProperty(prop)) {
