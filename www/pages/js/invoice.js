@@ -35,7 +35,7 @@ loadedPages.invoice = {
         var iframeWin = document.getElementById('catalog').contentWindow;
         var ww = setInterval(function() {
           try {
-            iframeWin.findID(loadedPages.invoice.search.itemid)
+            iframeWin.postMessage("findID#"  + loadedPages.invoice.search.itemid, "*");
             clearInterval(ww);
           } catch(err) {
 
@@ -246,7 +246,7 @@ loadedPages.invoice = {
      if (res[0] == undefined) {
        swal({
          type: 'error',
-         text: "No product with this id."          
+         text: "No product with this id."
        })
      } else {
 

@@ -1321,12 +1321,12 @@ function doSearch() {
 
     if (currentPage == "invoice") {
       var iframeWin = document.getElementById('catalog').contentWindow;
-      iframeWin.findID('*')
+      iframeWin.postMessage("findID#", "*")
     }
     if (currentPage == "diamonds") {
       try {
         var iframeWin = document.getElementById('diamonds').contentWindow;
-        iframeWin.findID('*')
+        iframeWin.postMessage("findID#", '*')
       } catch(err) {
 
       }
@@ -1348,7 +1348,7 @@ function doSearch() {
     if (res.group != "Diamonds") {
       if (currentPage == "invoice") {
         var iframeWin = document.getElementById('catalog').contentWindow;
-        iframeWin.findID(res.itemid)
+        iframeWin.postMessage("findID#" + res.itemid, "*")
       } else {
         loadPage('invoice', true,  false, {itemid: res.itemid })
       }
@@ -1356,7 +1356,7 @@ function doSearch() {
       if (currentPage == "diamonds") {
         try {
           var iframeWin = document.getElementById('diamonds').contentWindow;
-          iframeWin.findID(res.itemid)
+          iframeWin.postMessage("findID#" + res.itemid, "*")
         } catch(err) {
 
         }
