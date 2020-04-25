@@ -40,7 +40,10 @@ api = {
                 var res = {
                   status: "fail",
                   type: "Server error",
-                  endpoint: endpoint
+                  endpoint: endpoint,
+                  xr: JSON.stringify(jqXHR),
+                  td: JSON.stringify(textStatus),
+                  err: JSON.stringify(errorThrown)
                 }
                 cb(res);
               });
