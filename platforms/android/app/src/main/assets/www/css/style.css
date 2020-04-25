@@ -99,8 +99,8 @@ select.error, input.error {
 #content {
 /*  overflow: hidden !important;*/
   width:100%;
-  max-height: calc(100vh - 100px);
-  min-height: calc(100vh - 100px);
+  max-height: calc(100vh);
+  min-height: calc(100vh);
   overflow-y: auto;
   overflow-x: hidden;
   position:absolute;top: 50px;
