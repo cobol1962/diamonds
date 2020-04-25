@@ -593,7 +593,7 @@ font-size:14px;
 .typeahead {
     z-index: 1051;
 }
-#navbackdrop {
+#navbackdrop, #navbackdropCatalog {
   z-index:100000;
   position:fixed;
   top:0px;

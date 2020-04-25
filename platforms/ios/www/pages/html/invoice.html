@@ -12,7 +12,7 @@
     }
     function findID(id) {
 
-     if (id == "*") {
+     if (id == "") {
        yadcf.exResetFilters(oTable, [0]);
        selectedFilters();
          $("#itemidSelected").html("");
@@ -206,7 +206,8 @@
             padding-left: 20px;
             padding-right: 7px;
             margin-top: 70px !important;
-            overflow: auto;
+            overflow-x: hidden;
+            overflow-y: auto;
         }
     </style>
     <script type="text/javascript">
@@ -232,7 +233,7 @@
 
     <div main id="main">
 
-        <div class="row"  id="nn" style="min-width:100%;position:absolute;top:35px;">
+        <div class="row"  id="nn" style="min-width:100%;position:fixed;top:87px;z-index: 1000;">
             <div class="col-xs-2" style="display:flex;justify-content: center;padding:2px;">
                 <button onclick="uncheckOptions('maingroup_options');yadcf.exResetFilters(oTable, [4]);yadcf.exFilterColumn(oTable, [[4, ['Rings`']]]);selectedFilters('Rings');" class="btn-filter">Rings</button>
             </div>
@@ -282,14 +283,14 @@
             </tbody>
         </table>
     </div>
-    <div main style="width:100%;min-width:100%;padding-bottom:10px;margin:-1px auto;height:55px;background-color: white;position:fixed;top:35px;">
+    <div main style="width:100%;min-width:100%;padding-bottom:10px;margin:-1px auto;height:55px;z-index: 1000;background-color: white;position:fixed;top:35px;">
         <span style="font-family:'Merriweather';font-size:22px;position:absolute;top:12px;left:10px;">Browse our products</span>
         <div id="selectedFilters" style="position:relative;top:35px;left:13px;font-size:11px;padding-top: 5px;width:100%;min-width:100%;padding-bottom:5px;">
         </div>
         <img main id="fil" style="display:none;cursor:pointer;position:fixed;top:54px;right:18px;width:20px;"  onclick="toggleFilters();" src="/images/filtericon.png" />
 
     </div>
-    <div class="row row-eq-height" id="items_div" >
+    <div class="row row-eq-height" id="items_div" style="margin-top:25px;">
 
     </div>
     <div id="div_filter" style="display:none;text-align:center;font-family:'Open Sans'";>
@@ -761,7 +762,7 @@
 
         </form>
     </div>
-    <div id="navbackdrop" style="z-index:1;">
+    <div id="navbackdropCatalog" style="z-index:1;">
 
     </div>
 
@@ -798,7 +799,6 @@ function loadMore(next = true) {
 
 }
 
-      alert("ready");
       var app = document.URL.indexOf( 'http://' ) === -1 && document.URL.indexOf( 'https://' ) === -1;
       if (!app) {
       $("[nobrowser]").hide();
@@ -880,7 +880,7 @@ function loadMore(next = true) {
                    }
                    }
                  }
-                 $('<div class="row" id="navigation" style="margin-bottom: 210px;"><div class="col-md-6 col-xs-6"><button id="pb" class="btn-black">TOP</div><div class="col-md-6 col-xs-6"><button id="nb" class="btn-black">LOAD MORE</div></div>').appendTo($("#items_div"));
+                 $('<div class="row" id="navigation" style=""><div class="col-md-6 col-xs-6"><button id="pb" class="btn-black">TOP</div><div class="col-md-6 col-xs-6"><button id="nb" class="btn-black">LOAD MORE</div></div>').appendTo($("#items_div"));
               //  alert(ldv.html());
               $("#nb").bind("click", function() {
                 oTable.page('next').draw('page');
@@ -1641,7 +1641,7 @@ function collectFilters() {
     }
     function toggleFilters() {
 
-      $('#navbackdrop').toggle();
+      $('#navbackdropCatalog').toggle();
       $("#div_filter").toggle();
 
       if ($("#div_filter").is(":visible")) {

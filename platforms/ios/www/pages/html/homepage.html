@@ -14,13 +14,13 @@
       <span style="color:black;text-transform: capitalize;">Welcome back, </span><span style="text-transform: capitalize;color:black;" id='ename1'></span>
   </div>
   <img onclick="loadPage('invoice');" style="width:100%;margin-bottom:5px;height:auto;" src="http://85.214.165.56:81/coster/www/images/home1.png" />
-  <img onclick="loadPage('invoice');setTimeout(function() {var iframeWin = document.getElementById('catalog').contentWindow;iframeWin.postMessage('setRings#','*');}, 1500);" style="width:100%;margin-bottom:5px;height:auto;" src="http://85.214.165.56:81/coster/www/images/home2.png" />
+  <img onclick="loadPage('invoice');" style="width:100%;margin-bottom:5px;height:auto;" src="http://85.214.165.56:81/coster/www/images/home2.png" />
   <img onclick="checkDiamonds();" style="width:100%;margin-bottom:5px;height:auto;" src="http://85.214.165.56:81/coster/www/images/home3.png" />
-  <img onclick="loadPage('invoice');setTimeout(function() {var iframeWin = document.getElementById('catalog').contentWindow;iframeWin.setWatches();}, 1500);" style="width:100%;margin-bottom:5px;height:auto;" src="http://85.214.165.56:81/coster/www/images/home4.png" />
-  <img onclick="window.open('https://api.whatsapp.com/send?phone=31644201409', '_system');" style="width:100%;margin-bottom:5px;height:auto;" src="http://85.214.165.56:81/coster/www/images/home5.png" />   
+  <img onclick="loadPage('invoice');setTimeout(function() {setWatches();}, 1500);" style="width:100%;margin-bottom:5px;height:auto;" src="http://85.214.165.56:81/coster/www/images/home4.png" />
+  <img onclick="window.open('https://api.whatsapp.com/send?phone=31644201409', '_system');" style="width:100%;margin-bottom:5px;height:auto;" src="http://85.214.165.56:81/coster/www/images/home5.png" />
 
 </div>
-
+     
 <script type="text/javascript">
   function checkDiamonds() {
       if (localStorage.sp === undefined) {

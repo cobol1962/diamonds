@@ -1308,12 +1308,10 @@ function doSearch() {
   if ($("#search").val() == "") {
 
     if (currentPage == "invoice") {
-      var iframeWin = document.getElementById('catalog').contentWindow;
-      iframeWin.postMessage("findID#", "*")
+      findID("");
     }
     if (currentPage == "diamonds") {
       try {
-        var iframeWin = document.getElementById('diamonds').contentWindow;
         iframeWin.postMessage("findID#", '*')
       } catch(err) {
 
@@ -1335,8 +1333,8 @@ function doSearch() {
 
     if (res.group != "Diamonds") {
       if (currentPage == "invoice") {
-        var iframeWin = document.getElementById('catalog').contentWindow;
-        iframeWin.postMessage("findID#" + res.itemid, "*")
+
+        findID(res.itemid);
       } else {
         loadPage('invoice', true,  false, {itemid: res.itemid })
       }

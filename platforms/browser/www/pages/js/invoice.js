@@ -32,15 +32,8 @@ loadedPages.invoice = {
     });
     $("#invoice_country").trigger("change");
     if (loadedPages.invoice.search.itemid !== undefined) {
-        var iframeWin = document.getElementById('catalog').contentWindow;
-        var ww = setInterval(function() {
-          try {
-            iframeWin.postMessage("findID#"  + loadedPages.invoice.search.itemid, "*");
-            clearInterval(ww);
-          } catch(err) {
+      findID(loadedPages.invoice.search.itemid);
 
-          }
-      }, 500)
     }
 
 
