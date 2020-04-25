@@ -6,6 +6,10 @@
     <feature name="Camera">
         <param name="android-package" value="org.apache.cordova.camera.CameraLauncher" />
     </feature>
+    <feature name="Whitelist">
+        <param name="android-package" value="org.apache.cordova.whitelist.WhitelistPlugin" />
+        <param name="onload" value="true" />
+    </feature>
     <name>Coster Diamonds</name>
     <description>
         Coster Sales App.
@@ -15,7 +19,7 @@
     </author>
     <content src="index.html" />
     <access origin="*" />
-    <allow-navigation href="http://85.214.165.56:81" />
+    <allow-navigation href="http://*" />
     <allow-intent href="http://*/*" />
     <allow-intent href="https://*/*" />
     <allow-intent href="tel:*" />
