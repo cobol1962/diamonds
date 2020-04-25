@@ -456,7 +456,7 @@
 				INFOPLIST_FILE = "helloworld/helloworld-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.phonegap.helloworld;
+				PRODUCT_BUNDLE_IDENTIFIER = com.royalcoster.catalog;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -479,7 +479,7 @@
 				INFOPLIST_FILE = "helloworld/helloworld-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.phonegap.helloworld;
+				PRODUCT_BUNDLE_IDENTIFIER = com.royalcoster.catalog;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -524,7 +524,7 @@
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = NO;
 				WK_WEB_VIEW_ONLY = 0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.phonegap.helloworld;
+				PRODUCT_BUNDLE_IDENTIFIER = com.royalcoster.catalog;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 			};
 			name = Debug;
@@ -566,7 +566,7 @@
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = NO;
 				WK_WEB_VIEW_ONLY = 0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.phonegap.helloworld;
+				PRODUCT_BUNDLE_IDENTIFIER = com.royalcoster.catalog;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 			};
 			name = Release;

@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='utf-8'?>
-<widget id="com.phonegap.helloworld" version="1.0.0" xmlns="http://www.w3.org/ns/widgets" xmlns:gap="http://phonegap.com/ns/1.0">
+<widget id="com.royalcoster.catalog" version="1.0.0" xmlns="http://www.w3.org/ns/widgets" xmlns:gap="http://phonegap.com/ns/1.0">
     <feature name="LocalStorage">
         <param name="ios-package" value="CDVLocalStorage" />
     </feature>
@@ -53,12 +53,12 @@
     <feature name="Vibration">
         <param name="ios-package" value="CDVVibration" />
     </feature>
-    <name>helloworld</name>
+    <name>Coster Diamonds</name>
     <description>
-        Hello World sample application that responds to the deviceready event.
+        Coster Sales App.
     </description>
-    <author email="support@phonegap.com" href="http://phonegap.com">
-        PhoneGap Team
+    <author email="office@royalcoster.com" href="http://phonegap.com">
+        Coster Diamonds team
     </author>
     <content src="index.html" />
     <access origin="*" />
