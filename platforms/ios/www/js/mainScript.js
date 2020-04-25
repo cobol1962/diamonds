@@ -16,7 +16,7 @@ var spersons = [];
 var firstCatalog = true;
 var firstDiamond = true;
 var optionsLoader = {
-  image: "../images/diamond.gif",
+  image: "/images/diamond.gif",
   imageAnimation: false
 }
 function resetLocalStorage() {
@@ -270,20 +270,8 @@ function locationHashChanged() {
     if (pageUrls[k] == p) {
       if (fromFunc) {
         loadPage1(po.page, po.addTopages, po.backtocart, po.search);
-        if (k == "invoice" && firstCatalog) {
-          setTimeout(function() {
-            firstCatalog = false;
-            var iFrameWin = document.getElementById("catalog").contentWindow;
-            iFrameWin.postMessage("reset#", "*");
-          }, 3000)
-        }
-        if (k == "diamonds" && firstCatalog) {
-          setTimeout(function() {
-            firstDiamond = false;
-            var iFrameWin = document.getElementById("diamonds").contentWindow;
-            iFrameWin.reset();
-          }, 3000)
-        }
+
+
       } else {
         loadPage1(k);
       }
