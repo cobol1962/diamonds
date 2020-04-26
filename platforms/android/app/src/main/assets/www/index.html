@@ -499,7 +499,7 @@ function startScan() {
 }
 
 function DownloadToDevice(fileurl) {
-  alert(fileurl);
+  
   var blob = null;
   var xhr = new XMLHttpRequest();
   xhr.open("GET", fileurl);
@@ -524,7 +524,7 @@ function DownloadToDevice(fileurl) {
                     })
                 }, function(err){
                   // failed
-              //    console.log(err);
+              alert(err);
                 });
         });
       });

@@ -1960,7 +1960,7 @@ function collectFilters() {
     function downloadItem(obj) {
       var id = $(obj).closest("[item]").attr('item');
       var img = $("[itemid='" + id + "']").find("img");
-      var isrc = "http://85.214.165.56:81/catalog/" + img.attr("src");
+      var isrc =  img.attr("src");
      DownloadToDevice(isrc);
 
     }
