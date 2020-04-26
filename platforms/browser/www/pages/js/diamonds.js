@@ -19,11 +19,10 @@ loadedPages.diamonds = {
     setTimeout(function() {
       loadedPages.diamonds.triggerCurrencyChange();
       if (loadedPages.diamonds.search.itemid !== undefined) {
-          var iframeWin = document.getElementById('diamonds').contentWindow;
           var ww = setInterval(function() {
             try {
 
-              iframeWin.findID(loadedPages.diamonds.search.itemid)
+              findID(loadedPages.diamonds.search.itemid)
               clearInterval(ww);
             } catch(err) {
 
@@ -826,8 +825,7 @@ loadedPages.diamonds = {
 
    $.LoadingOverlay("hide");
    if (loadedPages.diamonds.search.itemid !== undefined) {
-     var iframeWin = document.getElementById('diamonds').contentWindow;
-     iframeWin.findID(loadedPages.diamonds.search.itemid);
+     findID(loadedPages.diamonds.search.itemid);
    }
  },
  goToTours: function() {
@@ -986,9 +984,8 @@ loadedPages.diamonds = {
  },
  triggerCurrencyChange: function() {
 
-   var iframeWin = document.getElementById("diamonds").contentWindow;
    try {
-   iframeWin.changeCurrency($("#currency").val());
+   changeCurrency($("#currency").val());
  } catch(err) {
 //   alert(err)
  }
