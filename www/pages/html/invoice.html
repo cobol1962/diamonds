@@ -1955,7 +1955,6 @@ function collectFilters() {
     function shareItem(obj) {
       var id = $(obj).closest("[item]").attr('item');
       var html = $("[itemid='" + id + "']")[0].outerHTML;
-      alert(html)
      share(html);
     }
     function downloadItem(obj) {

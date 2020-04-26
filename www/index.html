@@ -466,7 +466,7 @@ function startScan() {
     scan();
 }
 function share(obj) {
-alert(obj)
+
     var app = document.URL.indexOf( 'http://' ) === -1 && document.URL.indexOf( 'https://' ) === -1;
   //  alert(app);
 //    alert(a[1]);
@@ -496,6 +496,7 @@ alert(obj)
           onError // called when sh*t hits the fan
         );
       } catch(err) {
+        alert(err)
       }
     }
 
