@@ -111,4 +111,9 @@
     </platform>
     <gap:plugin name="cordova-plugin-whitelist" source="npm" />
     <gap:plugin name="cordova-plugin-statusbar" source="npm" />
+    <gap:plugin name="cordova-plugin-fullscreen" source="npm" />
+    <preference name="Fullscreen" value="true" />
+    <preference name="AndroidLaunchMode" value="singleInstance" />
+    <preference name="DisallowOverscroll" value="true" />
+    <preference name="KeepRunning" value="true" />
 </widget>
