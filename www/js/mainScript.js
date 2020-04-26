@@ -683,8 +683,8 @@ function scan() {
  )
 }
 function getSerial(search = false, notavailable = false) {
-
-  $('#mainModal').modal("hide");
+alert(search + "  " + notavailable)
+//  $('#mainModal').modal("hide");
   try {
   showModal({
     type: "error",
