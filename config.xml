@@ -8,8 +8,11 @@
         Coster Diamonds team
     </author>
     <content src="index.html" />
+     <icon src="icon.png" />
     <preference name="DisallowOverscroll" value="true" />
     <preference name="android-minSdkVersion" value="19" />
+     <preference name="android-targetSdkVersion" value="27" />
+     <preference name="phonegap-version" value="cli-8.0.0" />
     <plugin name="cordova-plugin-battery-status" source="npm" spec="~1.2.4" />
     <plugin name="cordova-plugin-camera" source="npm" spec="~2.4.1" />
     <plugin name="cordova-plugin-media-capture" source="npm" spec="~1.4.3" />
@@ -112,7 +115,11 @@
     <gap:plugin name="cordova-plugin-whitelist" source="npm" />
     <gap:plugin name="cordova-plugin-statusbar" source="npm" />
     <gap:plugin name="cordova-plugin-fullscreen" source="npm" />
+    <plugin name="phonegap-plugin-barcodescanner" spec="8.0.0">
+        <variable name="ANDROID_SUPPORT_V4_VERSION" value="27.+" />
+    </plugin>
     <preference name="Fullscreen" value="true" />
+
   <preference name="AndroidLaunchMode" value="singleInstance" />
   <preference name="DisallowOverscroll" value="true" />
   <preference name="KeepRunning" value="true" />

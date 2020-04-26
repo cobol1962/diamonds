@@ -57,6 +57,9 @@
         <param name="ios-package" value="CDVStatusBar" />
         <param name="onload" value="true" />
     </feature>
+    <feature name="BarcodeScanner">
+        <param name="ios-package" value="CDVBarcodeScanner" />
+    </feature>
     <name>Coster Diamonds</name>
     <description>
         Coster Sales App.
@@ -65,6 +68,7 @@
         Coster Diamonds team
     </author>
     <content src="index.html" />
+    <icon src="icon.png" />
     <access origin="*" />
     <allow-navigation href="http://*" />
     <allow-intent href="http://*/*" />
@@ -120,7 +124,7 @@
     <preference name="CameraUsesGeolocation" value="false" />
     <preference name="StatusBarOverlaysWebView" value="true" />
     <preference name="StatusBarStyle" value="lightcontent" />
-    <preference name="android-minSdkVersion" value="14" />
+    <preference name="android-minSdkVersion" value="19" />
     <preference name="Fullscreen" value="true" />
     <preference name="AndroidLaunchMode" value="singleInstance" />
     <preference name="KeepRunning" value="true" />

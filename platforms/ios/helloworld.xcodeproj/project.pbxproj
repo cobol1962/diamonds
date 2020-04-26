@@ -40,6 +40,9 @@
 		95CF068C95DE4CE0A4E9FB8A /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 40B4FB67445B4A2BBC7F2D38 /* CoreTelephony.framework */; };
 		4A56B135053D4B7A9555A2F4 /* CDVVibration.m in Sources */ = {isa = PBXBuildFile; fileRef = FC43CFF1149C4F728E6E3EAE /* CDVVibration.m */; };
 		A52CE7C06DA54BE29DE7488E /* CDVStatusBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 756319A672204476BFFBA8E4 /* CDVStatusBar.m */; };
+		19C63D331F9D460CB121FFEE /* CDVBarcodeScanner.mm in Resources */ = {isa = PBXBuildFile; fileRef = 30182E13F50F4B24A8BBDD44 /* CDVBarcodeScanner.mm */; };
+		5641D52A9F5842F4B4FC199F /* scannerOverlay.xib in Resources */ = {isa = PBXBuildFile; fileRef = FCA0F64E2B18495293BF04D7 /* scannerOverlay.xib */; };
+		F3FDAE703DF84FDBA5A5D237 /* CDVBarcodeScanner.bundle in Resources */ = {isa = PBXBuildFile; fileRef = A01D79A90D7A45F580CF38F8 /* CDVBarcodeScanner.bundle */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -131,6 +134,9 @@
 		23E320C1E93948AF9E8A7AD8 /* CDVVibration.h */ = {isa = PBXFileReference; name = "CDVVibration.h"; path = "cordova-plugin-vibration/CDVVibration.h"; sourceTree = "<group>"; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; explicitFileType = undefined; includeInIndex = 0; };
 		756319A672204476BFFBA8E4 /* CDVStatusBar.m */ = {isa = PBXFileReference; name = "CDVStatusBar.m"; path = "cordova-plugin-statusbar/CDVStatusBar.m"; sourceTree = "<group>"; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; explicitFileType = undefined; includeInIndex = 0; };
 		D1A36E5939504289BB512E84 /* CDVStatusBar.h */ = {isa = PBXFileReference; name = "CDVStatusBar.h"; path = "cordova-plugin-statusbar/CDVStatusBar.h"; sourceTree = "<group>"; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; explicitFileType = undefined; includeInIndex = 0; };
+		30182E13F50F4B24A8BBDD44 /* CDVBarcodeScanner.mm */ = {isa = PBXFileReference; name = "CDVBarcodeScanner.mm"; path = "phonegap-plugin-barcodescanner/CDVBarcodeScanner.mm"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		FCA0F64E2B18495293BF04D7 /* scannerOverlay.xib */ = {isa = PBXFileReference; name = "scannerOverlay.xib"; path = "scannerOverlay.xib"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = file.xib; explicitFileType = undefined; includeInIndex = 0; };
+		A01D79A90D7A45F580CF38F8 /* CDVBarcodeScanner.bundle */ = {isa = PBXFileReference; name = "CDVBarcodeScanner.bundle"; path = "CDVBarcodeScanner.bundle"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = wrapper.plug-in; explicitFileType = undefined; includeInIndex = 0; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -210,6 +216,8 @@
 				6AFF5BF81D6E424B00AB3073 /* CDVLaunchScreen.storyboard */,
 				79AF35880F4447B39F413558 /* CDVNotification.bundle */,
 				E427C56A227E4462925E8128 /* CDVCapture.bundle */,
+				FCA0F64E2B18495293BF04D7 /* scannerOverlay.xib */,
+				A01D79A90D7A45F580CF38F8 /* CDVBarcodeScanner.bundle */,
 			);
 			name = Resources;
 			path = "helloworld/Resources";
@@ -286,6 +294,7 @@
 				23E320C1E93948AF9E8A7AD8 /* CDVVibration.h */,
 				756319A672204476BFFBA8E4 /* CDVStatusBar.m */,
 				D1A36E5939504289BB512E84 /* CDVStatusBar.h */,
+				30182E13F50F4B24A8BBDD44 /* CDVBarcodeScanner.mm */,
 			);
 			name = Plugins;
 			path = "helloworld/Plugins";
@@ -381,6 +390,8 @@
 				6AFF5BF91D6E424B00AB3073 /* CDVLaunchScreen.storyboard in Resources */,
 				C9AFFBD9A8A34B61ADFED093 /* CDVNotification.bundle in Resources */,
 				F465291403ED4C378AB090D0 /* CDVCapture.bundle in Resources */,
+				5641D52A9F5842F4B4FC199F /* scannerOverlay.xib in Resources */,
+				F3FDAE703DF84FDBA5A5D237 /* CDVBarcodeScanner.bundle in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -429,6 +440,7 @@
 				560C1FC39EFE4FC2B9CCC827 /* CDVReachability.m in Sources */,
 				4A56B135053D4B7A9555A2F4 /* CDVVibration.m in Sources */,
 				A52CE7C06DA54BE29DE7488E /* CDVStatusBar.m in Sources */,
+				19C63D331F9D460CB121FFEE /* CDVBarcodeScanner.mm in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
