@@ -15,6 +15,9 @@
     },
     "cordova-plugin-inappbrowser": {
       "PACKAGE_NAME": "com.royalcoster.catalog"
+    },
+    "cordova-plugin-statusbar": {
+      "PACKAGE_NAME": "com.royalcoster.catalog"
     }
   },
   "dependent_plugins": {}
