@@ -57,8 +57,8 @@ function checkLogin() {
 }
 $(document).ready(function() {
   $("#content").css({
-    minHeight: window.innerHeight - 60,
-    maxHeight: window.innerHeight - 60
+    minHeight: $(window).height() - 60,
+    maxHeight: $(window).height() - 60
   })
   document.getElementById("search").addEventListener("keyup", function(event) {
   // Number 13 is the "Enter" key on the keyboard
