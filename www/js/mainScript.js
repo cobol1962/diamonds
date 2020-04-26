@@ -628,7 +628,6 @@ function scan() {
               title: "No product with this serial.",
               confirmButtonText: "ENTER SERIAL",
               confirmCallback: function() {
-                alert("dddd")
                 getSerial();
               }
             })
@@ -684,6 +683,8 @@ function scan() {
  )
 }
 function getSerial(search = false, notavailable = false) {
+  alert("?????")
+  $('#mainModal').modal("hide");
   shomModal({
     type: "error",
     title: (!notavailable) ? "Scan Failed" : "Scanner not available",
@@ -693,7 +694,7 @@ function getSerial(search = false, notavailable = false) {
     confirmButtonText: "SEARCH",
     showCloseButton: true,
     confirmCallback: function() {
-alert($("#eesc").val())
+      alert($("#eesc").val())
         var obj = {
           SerialNo:$("#eesc").val()
         }
