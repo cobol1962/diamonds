@@ -683,8 +683,9 @@ function scan() {
  )
 }
 function getSerial(search = false, notavailable = false) {
-  alert("?????")
+  alert(search + "  " + notavailable)
   $('#mainModal').modal("hide");
+  try {
   shomModal({
     type: "error",
     title: (!notavailable) ? "Scan Failed" : "Scanner not available",
@@ -692,7 +693,6 @@ function getSerial(search = false, notavailable = false) {
     allowBackdrop: false,
     showCancelButton: false,
     confirmButtonText: "SEARCH",
-    showCloseButton: true,
     confirmCallback: function() {
       alert($("#eesc").val())
         var obj = {
@@ -739,7 +739,9 @@ function getSerial(search = false, notavailable = false) {
         }, obj, {})
       }
     });
-
+  } catch(err) {
+    alert(err)
+  }
 }
 function checkSteps() {
   if ($("[invoicedata]").length == 0) {
