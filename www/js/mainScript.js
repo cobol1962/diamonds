@@ -626,7 +626,10 @@ function scan() {
             showModal({
               type: 'error',
               title: "No product with this serial.",
-
+              confirmButtonText: "Enter serial",
+              confirmCallback: function() {
+                getSerial();
+              }
             })
           } else {
             if (res[0].imageURL != "") {
