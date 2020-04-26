@@ -418,10 +418,11 @@ function hideCatalog() {
         alert("Sharing failed with message: " + msg);
       };
         $(document).ready(function() {
-            $(".app").css({
-              minHeight: screen.height,
-              maxHeight: screen.height,
-              height: screen.height
+          alert($(window).height() );
+            $("body").css({
+              minHeight: $(window).height() ,
+              maxHeight: $(window).height() ,
+              height: $(window).height()
             })
             checkLogin();
             var app = document.URL.indexOf( 'http://' ) === -1 && document.URL.indexOf( 'https://' ) === -1;
