@@ -650,7 +650,7 @@
                 </div>
                 <div class="modal-body">
                     <div nobrowser style="padding:5px;width:100%;text-align:center;">
-                      <img class='share' onclick="shareItem(this);" style='width:30px;margin-left:3px;margin-top:-3px;' src='http://85.214.165.56:81/coster/www/images/share.png' />
+              <!--        <img class='share' onclick="shareItem(this);" style='width:30px;margin-left:3px;margin-top:-3px;' src='http://85.214.165.56:81/coster/www/images/share.png' /> -->
                       <img  onclick="downloadItem(this);" style='width:26px;margin-left:3px;margin-top:-3px;' src='http://85.214.165.56:81/coster/www/images/download.png' />
 
                     </div>
@@ -1955,7 +1955,7 @@ function collectFilters() {
     function shareItem(obj) {
       var id = $(obj).closest("[item]").attr('item');
       var html = $("[itemid='" + id + "']")[0].outerHTML;
-      alert(html)
+
      share(html);
     }
     function downloadItem(obj) {
