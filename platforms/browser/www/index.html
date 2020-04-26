@@ -499,6 +499,7 @@ function startScan() {
 }
 
 function DownloadToDevice(fileurl) {
+  alert(fileurl);
   var blob = null;
   var xhr = new XMLHttpRequest();
   xhr.open("GET", fileurl);
@@ -516,14 +517,14 @@ function DownloadToDevice(fileurl) {
         dir.getFile(filename, {create:true}, function(file) {
                 file.createWriter(function(fileWriter) {
                     fileWriter.write(DataBlob);
-                    swal({
+                    showModal({
                       type: "success",
                       confirmButtonText: "Continue",
-                      text: "Image successfully saved."
+                      title: "Image successfully saved."
                     })
                 }, function(err){
                   // failed
-              //    console.log(err);
+              alert(err);
                 });
         });
       });
