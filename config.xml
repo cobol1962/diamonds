@@ -45,7 +45,7 @@
     <gap:plugin name="cordova-plugin-whitelist" source="npm" />
     <gap:plugin name="cordova-plugin-statusbar" source="npm" />
     <gap:plugin name="cordova-plugin-fullscreen" source="npm" />
-    <gap:plugin name="cordova-plugin-fullscreen" source="npm" />
+    <gap:plugin name="cordova-plugin-x-socialsharing" source="npm" />
     <plugin name="phonegap-plugin-barcodescanner" spec="8.0.0">
         <variable name="ANDROID_SUPPORT_V4_VERSION" value="27.+" />
     </plugin>
