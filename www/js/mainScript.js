@@ -683,10 +683,10 @@ function scan() {
  )
 }
 function getSerial(search = false, notavailable = false) {
-  alert(search + "  " + notavailable)
+
   $('#mainModal').modal("hide");
   try {
-  shomModal({
+  showModal({
     type: "error",
     title: (!notavailable) ? "Scan Failed" : "Scanner not available",
     content: "<span style='font-size: 17px;'>Please enter the serial ID bellow</span><br /><input class='form-control' id='eesc' type='text' />",
