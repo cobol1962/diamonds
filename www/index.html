@@ -472,6 +472,8 @@ function share(obj) {
 //    alert(a[1]);
     if (app) {
       var html = "";
+      var id = $("#" + $(obj).attr("item"));
+      alert(id)
       var el = $(obj);
       html = "<span>This is really something for you:</span><br />";
       html += "<span>" + el.find("[productname]").text() + "</span><br />";
@@ -479,7 +481,7 @@ function share(obj) {
         html += "<span>Available in:</span><br />";
         html += el.find("[colordescdiv]").html();
       }
-      html += "<div>" + el.find("[compname]").html() + "</div>";
+      html += "<div>" + $("#" + id).find("[compname]").html() + "</div>";
       html += "<div>" + el.find("[money]").html() + "</div>";
     //  html += "<br /><span>Visit " + "http://85.214.165.56:81/catalog?share=" + el.attr("itemid") + " to see details</span>";
       try {
