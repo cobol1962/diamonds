@@ -17,6 +17,11 @@
     <allow-intent href="mailto:*" />
     <allow-intent href="geo:*" />
     <gap:plugin name="cordova-plugin-whitelist" source="npm" />
-    <preference name="DisallowOverscroll" value="true" />
+    <gap:plugin name="cordova-plugin-statusbar" source="npm" />
+    <gap:plugin name="cordova-plugin-fullscreen" source="npm" />
     <preference name="android-minSdkVersion" value="14" />
+    <preference name="Fullscreen" value="true" />
+    <preference name="AndroidLaunchMode" value="singleInstance" />
+    <preference name="DisallowOverscroll" value="true" />
+    <preference name="KeepRunning" value="true" />
 </widget>

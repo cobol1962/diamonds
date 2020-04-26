@@ -60,7 +60,7 @@
     <title>Coster Diamonds</title>
 </head>
 <script type="text/javascript">
-  window.setTimeout(function () { try { alert("????");StatusBar.hide(); console.log("hidden"); } catch(err) {alert(err)}}, 1000);
+  window.setTimeout(function () { try { StatusBar.hide(); console.log("hidden"); } catch(err) {}}, 1000);
 function hideCatalog() {
 //  $(".app").hide(300);
   $("body").LoadingOverlay("hide");
@@ -418,7 +418,7 @@ function hideCatalog() {
         alert("Sharing failed with message: " + msg);
       };
         $(document).ready(function() {
-      
+
             checkLogin();
             var app = document.URL.indexOf( 'http://' ) === -1 && document.URL.indexOf( 'https://' ) === -1;
 
