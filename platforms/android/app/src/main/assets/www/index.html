@@ -421,7 +421,7 @@ function hideCatalog() {
 
             checkLogin();
             var app = document.URL.indexOf( 'http://' ) === -1 && document.URL.indexOf( 'https://' ) === -1;
-
+            alert(app)
             if (!app) {
               $("#scanButton").remove();
             }
