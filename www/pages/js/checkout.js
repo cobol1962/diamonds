@@ -1077,8 +1077,8 @@ loadedPages.checkout = {
                           allowBackdrop: false,
                           showCancelButton: false,
                           confirmCallback: function() {
-                          //  $("#4").show();
-                          //  $("#invoice").hide();
+                            $("#4").show();
+                            $("#invoice").hide();
                             if (mode != 1) {
                               window.open("http://85.214.165.56:81/api/invoices/" +  nm + "_" + "gb" + ".pdf", '_system');
                               $.LoadingOverlay("hide");
