@@ -597,7 +597,7 @@ function deleteRow(obj) {
 }
 var currentScanned = {};
 function scan() {
-  alert('scan')
+
   in_barcode_scan = true;
   var app = document.URL.indexOf( 'http://' ) === -1 && document.URL.indexOf( 'https://' ) === -1;
   if (!app) {
@@ -613,21 +613,20 @@ function scan() {
         var obj = {
           SerialNo: result.text
         }
-        alert(result.text)
+
         if ($("#invoiceBody").find("[serialno='" + result.text + "']").length > 0) {
-          swal({
+          showModal({
             type: "error",
-            text: "Items with Serial No " + result.text + " already in Bag",
-            showCloseButton: true
+            title: "Items with Serial No " + result.text + " already in Bag"
           })
           return false;
         }
         api.call("getScannedProduct", function(res) {
           if (res[0] == undefined) {
-            swal({
+            showModal({
               type: 'error',
-              text: "No product with this serial.",
-              showCloseButton: true
+              title: "No product with this serial.",
+
             })
           } else {
             if (res[0].imageURL != "") {
@@ -681,16 +680,16 @@ function scan() {
  )
 }
 function getSerial(search = false, notavailable = false) {
-  swal({
+  shomModal({
     type: "error",
     title: (!notavailable) ? "Scan Failed" : "Scanner not available",
-    html: "<span style='font-size: 17px;'>Please enter the serial ID bellow</span><br /><input class='form-control' id='eesc' type='text' />",
-    showCancelButton: true,
+    content: "<span style='font-size: 17px;'>Please enter the serial ID bellow</span><br /><input class='form-control' id='eesc' type='text' />",
+    allowBackdrop: false,
     showCancelButton: false,
     confirmButtonText: "SEARCH",
-    showCloseButton: true
-  }).then((result) => {
-    if (result.value) {
+    showCloseButton: true,
+    confirmCallback: function() {
+
         var obj = {
           SerialNo:$("#eesc").val()
         }
@@ -739,34 +738,30 @@ function getSerial(search = false, notavailable = false) {
 }
 function checkSteps() {
   if ($("[invoicedata]").length == 0) {
-    swal({
-      type: "warning",
-      text: "No items in invoice.",
-      showCloseButton: true
+    showModal({
+      type: "error",
+      title: "No items in invoice.",
+
     })
     return false;
   }
   if (localStorage.sp === undefined) {
-    swal({
-      type: "warning",
-      text: "You must log in to proceed checkout",
-      showCloseButton: true
-    }).then((result) => {
-      swal.close();
-      $("#login").modal("show");
-
+    showModal({
+      type: "error",
+      title: "You must log in to proceed checkout",
+      confirmCallback: function() {
+          $("#login").modal("show");
+        }
     })
     return false;
   }
   if (localStorage.tour === undefined) {
-    swal({
-      type: "warning",
-      text: "Select tour",
-      showCloseButton: true
-    }).then((result) => {
-      swal.close();
-     loadPage("tours");
-
+    showModal({
+      type: "error",
+      title: "Select tour",
+       confirmCallback: function()  {
+       loadPage("tours");
+     }
     })
 
   }
