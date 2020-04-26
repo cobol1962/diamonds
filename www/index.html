@@ -484,7 +484,7 @@ function share(obj) {
     //  html += "<br /><span>Visit " + "http://85.214.165.56:81/catalog?share=" + el.attr("itemid") + " to see details</span>";
       try {
         var lnk = "http://85.214.165.56:81/catalog/" + $(a[1]).find("img").attr("src");
-        $(a[1]).find("img").remove();
+        $(obj).find("img").remove();
       window.plugins.socialsharing.shareViaEmail(
           html, // can contain HTML tags, but support on Android is rather limited:  http://stackoverflow.com/questions/15136480/how-to-send-html-content-with-image-through-android-default-email-client
           'Coster Diamonds Special Offer',
