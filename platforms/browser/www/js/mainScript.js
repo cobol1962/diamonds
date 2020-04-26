@@ -16,7 +16,7 @@ var spersons = [];
 var firstCatalog = true;
 var firstDiamond = true;
 var optionsLoader = {
-  image: "http://85.214.165.56/coster/www/images/diamond.gif",
+  image: "http://85.214.165.56:81/coster/www/images/diamond.gif",
   imageAnimation: false
 }
 function resetLocalStorage() {

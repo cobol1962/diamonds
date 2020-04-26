@@ -7,7 +7,12 @@
     <author email="office@royalcoster.com" href="http://phonegap.com">
         Coster Diamonds team
     </author>
+     <icon src="icon.png" />
     <content src="index.html" />
+    <preference name="DisallowOverscroll" value="true" />
+    <preference name="android-minSdkVersion" value="19" />
+    <preference name="android-targetSdkVersion" value="27" />
+    <preference name="phonegap-version" value="cli-8.0.0" />
     <preference name="DisallowOverscroll" value="true" />
     <preference name="android-minSdkVersion" value="14" />
     <plugin name="cordova-plugin-battery-status" source="npm" spec="~1.2.4" />
@@ -109,6 +114,9 @@
         <allow-intent href="itms:*" />
         <allow-intent href="itms-apps:*" />
     </platform>
+    <gap:plugin name="phonegap-plugin-barcodescanner" source="npm">
+        <variable name="ANDROID_SUPPORT_V4_VERSION" value="27.+" />
+    />
     <gap:plugin name="cordova-plugin-whitelist" source="npm" />
     <gap:plugin name="cordova-plugin-statusbar" source="npm" />
     <gap:plugin name="cordova-plugin-fullscreen" source="npm" />
