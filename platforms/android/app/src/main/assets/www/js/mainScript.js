@@ -56,6 +56,7 @@ function checkLogin() {
     }
 }
 $(document).ready(function() {
+  
   $(".app").hide();
   $("#content").css({
     minHeight: $(window).height(),

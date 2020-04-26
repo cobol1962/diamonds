@@ -60,7 +60,7 @@
     <title>Coster Diamonds</title>
 </head>
 <script type="text/javascript">
-
+  window.setTimeout(function () { try { alert("????");StatusBar.hide(); console.log("hidden"); } catch(err) {alert(err)}}, 1000);
 function hideCatalog() {
 //  $(".app").hide(300);
   $("body").LoadingOverlay("hide");

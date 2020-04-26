@@ -8,17 +8,45 @@
   },
   "installed_plugins": {
     "cordova-plugin-battery-status": {
-      "PACKAGE_NAME": "com.phonegap.helloworld"
+      "PACKAGE_NAME": "com.royalcoster.catalog"
     },
-    "cordova-plugin-whitelist": {
+    "cordova-plugin-camera": {
+      "PACKAGE_NAME": "com.royalcoster.catalog"
+    },
+    "cordova-plugin-device": {
+      "PACKAGE_NAME": "com.royalcoster.catalog"
+    },
+    "cordova-plugin-dialogs": {
+      "PACKAGE_NAME": "com.royalcoster.catalog"
+    },
+    "cordova-plugin-geolocation": {
+      "PACKAGE_NAME": "com.royalcoster.catalog"
+    },
+    "cordova-plugin-globalization": {
       "PACKAGE_NAME": "com.royalcoster.catalog"
     },
     "cordova-plugin-inappbrowser": {
       "PACKAGE_NAME": "com.royalcoster.catalog"
     },
+    "cordova-plugin-media-capture": {
+      "PACKAGE_NAME": "com.royalcoster.catalog"
+    },
+    "cordova-plugin-network-information": {
+      "PACKAGE_NAME": "com.royalcoster.catalog"
+    },
     "cordova-plugin-statusbar": {
+      "PACKAGE_NAME": "com.royalcoster.catalog"
+    },
+    "cordova-plugin-vibration": {
+      "PACKAGE_NAME": "com.royalcoster.catalog"
+    },
+    "cordova-plugin-whitelist": {
       "PACKAGE_NAME": "com.royalcoster.catalog"
     }
   },
-  "dependent_plugins": {}
+  "dependent_plugins": {
+    "cordova-plugin-file": {
+      "PACKAGE_NAME": "com.royalcoster.catalog"
+    }
+  }
 }
