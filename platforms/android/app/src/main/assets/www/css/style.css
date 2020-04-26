@@ -23,7 +23,7 @@ html, body {
   background: url("../images/splashlogo.jpg") center 100px no-repeat;
   background-size: 65%;
   background-origin: padding-box;
-  background-color:#000917;
+  background-color:red;
 }
 
 /* Landscape layout (with min-width) */
@@ -98,7 +98,7 @@ select.error, input.error {
   overflow-y: auto;
   overflow-x: hidden;
   position:absolute;top: 50px;
-background: red;
+
 }
 .navbar {
   margin-bottom: 0px !important;
