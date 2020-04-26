@@ -1961,7 +1961,7 @@ function collectFilters() {
       var id = $(obj).closest("[item]").attr('item');
       var img = $("[itemid='" + id + "']").find("img");
       var isrc = "http://85.214.165.56:81/catalog/" + img.attr("src");
-      window.parent.postMessage("downloadImage#" + isrc , "*");
+     DownloadToDevice(isrc);
 
     }
     function fireClosest(obj) {
