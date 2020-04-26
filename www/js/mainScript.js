@@ -1318,7 +1318,7 @@ function doSearch() {
     }
     if (currentPage == "diamonds") {
       try {
-        iframeWin.postMessage("findID#", '*')
+        findID('')
       } catch(err) {
 
       }
@@ -1347,8 +1347,7 @@ function doSearch() {
     } else {
       if (currentPage == "diamonds") {
         try {
-          var iframeWin = document.getElementById('diamonds').contentWindow;
-          iframeWin.postMessage("findID#" + res.itemid, "*")
+          findID(res.itemid)
         } catch(err) {
 
         }

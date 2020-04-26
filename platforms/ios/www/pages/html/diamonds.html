@@ -995,7 +995,8 @@ function loadMore(next = true) {
       $('.all').trigger('click');
     }
     function findID(id) {
-     if (id == "*") {
+    
+     if (id == "") {
        yadcf.exResetFilters(oTable, [2]);
        $("itemidSelected").html("");
         selectedFilters();
