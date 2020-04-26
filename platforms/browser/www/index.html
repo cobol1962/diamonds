@@ -62,7 +62,7 @@
 <script type="text/javascript">
 
 function hideCatalog() {
-  $(".app").hide(300);
+//  $(".app").hide(300);
   $("body").LoadingOverlay("hide");
 
 }
@@ -418,13 +418,17 @@ function hideCatalog() {
         alert("Sharing failed with message: " + msg);
       };
         $(document).ready(function() {
-
+            $(".app").css({
+              minHeight: screen.height,
+              maxHeight: screen.height,
+              height: screen.height
+            })
             checkLogin();
             var app = document.URL.indexOf( 'http://' ) === -1 && document.URL.indexOf( 'https://' ) === -1;
-            alert(app)
-            /*if (!app) {
+
+            if (!app) {
               $("#scanButton").remove();
-            }*/
+            }
         });
         if (localStorage.sp !== undefined) {
           $("#ename").html($.parseJSON(localStorage.sp).Employee);
