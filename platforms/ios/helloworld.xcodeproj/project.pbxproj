@@ -43,6 +43,10 @@
 		19C63D331F9D460CB121FFEE /* CDVBarcodeScanner.mm in Resources */ = {isa = PBXBuildFile; fileRef = 30182E13F50F4B24A8BBDD44 /* CDVBarcodeScanner.mm */; };
 		5641D52A9F5842F4B4FC199F /* scannerOverlay.xib in Resources */ = {isa = PBXBuildFile; fileRef = FCA0F64E2B18495293BF04D7 /* scannerOverlay.xib */; };
 		F3FDAE703DF84FDBA5A5D237 /* CDVBarcodeScanner.bundle in Resources */ = {isa = PBXBuildFile; fileRef = A01D79A90D7A45F580CF38F8 /* CDVBarcodeScanner.bundle */; };
+		EB0C3E1BCF7646AE847CEB08 /* NSString+SSURLEncoding.m in Sources */ = {isa = PBXBuildFile; fileRef = F0A63231975843B58EB98064 /* NSString+SSURLEncoding.m */; };
+		AB2FA9A3799E4DF5A8444A83 /* SocialSharing.m in Sources */ = {isa = PBXBuildFile; fileRef = 42C1EA1078C34E7FB430DFF9 /* SocialSharing.m */; };
+		9F621D6F3477406D98F6E362 /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1E076D18B329459197962C00 /* Social.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
+		570C2D16BC424C0589455EB1 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 05C63C69DAF5456AB948CD36 /* MessageUI.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -137,6 +141,12 @@
 		30182E13F50F4B24A8BBDD44 /* CDVBarcodeScanner.mm */ = {isa = PBXFileReference; name = "CDVBarcodeScanner.mm"; path = "phonegap-plugin-barcodescanner/CDVBarcodeScanner.mm"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
 		FCA0F64E2B18495293BF04D7 /* scannerOverlay.xib */ = {isa = PBXFileReference; name = "scannerOverlay.xib"; path = "scannerOverlay.xib"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = file.xib; explicitFileType = undefined; includeInIndex = 0; };
 		A01D79A90D7A45F580CF38F8 /* CDVBarcodeScanner.bundle */ = {isa = PBXFileReference; name = "CDVBarcodeScanner.bundle"; path = "CDVBarcodeScanner.bundle"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = wrapper.plug-in; explicitFileType = undefined; includeInIndex = 0; };
+		F0A63231975843B58EB98064 /* NSString+SSURLEncoding.m */ = {isa = PBXFileReference; name = "NSString+SSURLEncoding.m"; path = "cordova-plugin-x-socialsharing/NSString+SSURLEncoding.m"; sourceTree = "<group>"; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; explicitFileType = undefined; includeInIndex = 0; };
+		42C1EA1078C34E7FB430DFF9 /* SocialSharing.m */ = {isa = PBXFileReference; name = "SocialSharing.m"; path = "cordova-plugin-x-socialsharing/SocialSharing.m"; sourceTree = "<group>"; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; explicitFileType = undefined; includeInIndex = 0; };
+		6B1A0E3DADB549CBB55C772E /* NSString+SSURLEncoding.h */ = {isa = PBXFileReference; name = "NSString+SSURLEncoding.h"; path = "cordova-plugin-x-socialsharing/NSString+SSURLEncoding.h"; sourceTree = "<group>"; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; explicitFileType = undefined; includeInIndex = 0; };
+		C58DCC9E6BEF4CCEBDA06A1B /* SocialSharing.h */ = {isa = PBXFileReference; name = "SocialSharing.h"; path = "cordova-plugin-x-socialsharing/SocialSharing.h"; sourceTree = "<group>"; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; explicitFileType = undefined; includeInIndex = 0; };
+		1E076D18B329459197962C00 /* Social.framework */ = {isa = PBXFileReference; name = "Social.framework"; path = "System/Library/Frameworks/Social.framework"; sourceTree = SDKROOT; fileEncoding = undefined; lastKnownFileType = wrapper.framework; explicitFileType = undefined; includeInIndex = 0; };
+		05C63C69DAF5456AB948CD36 /* MessageUI.framework */ = {isa = PBXFileReference; name = "MessageUI.framework"; path = "System/Library/Frameworks/MessageUI.framework"; sourceTree = SDKROOT; fileEncoding = undefined; lastKnownFileType = wrapper.framework; explicitFileType = undefined; includeInIndex = 0; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -152,6 +162,8 @@
 				5BFB61B2F2384E65A490F962 /* AudioToolbox.framework in Frameworks */,
 				CB12325958F540EBABF16FA2 /* SystemConfiguration.framework in Frameworks */,
 				95CF068C95DE4CE0A4E9FB8A /* CoreTelephony.framework in Frameworks */,
+				9F621D6F3477406D98F6E362 /* Social.framework in Frameworks */,
+				570C2D16BC424C0589455EB1 /* MessageUI.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -233,6 +245,8 @@
 				163F7B585E2549139B62A2D4 /* AudioToolbox.framework */,
 				23FAE74DD4284CBA903F6262 /* SystemConfiguration.framework */,
 				40B4FB67445B4A2BBC7F2D38 /* CoreTelephony.framework */,
+				1E076D18B329459197962C00 /* Social.framework */,
+				05C63C69DAF5456AB948CD36 /* MessageUI.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -295,6 +309,10 @@
 				756319A672204476BFFBA8E4 /* CDVStatusBar.m */,
 				D1A36E5939504289BB512E84 /* CDVStatusBar.h */,
 				30182E13F50F4B24A8BBDD44 /* CDVBarcodeScanner.mm */,
+				F0A63231975843B58EB98064 /* NSString+SSURLEncoding.m */,
+				42C1EA1078C34E7FB430DFF9 /* SocialSharing.m */,
+				6B1A0E3DADB549CBB55C772E /* NSString+SSURLEncoding.h */,
+				C58DCC9E6BEF4CCEBDA06A1B /* SocialSharing.h */,
 			);
 			name = Plugins;
 			path = "helloworld/Plugins";
@@ -441,6 +459,8 @@
 				4A56B135053D4B7A9555A2F4 /* CDVVibration.m in Sources */,
 				A52CE7C06DA54BE29DE7488E /* CDVStatusBar.m in Sources */,
 				19C63D331F9D460CB121FFEE /* CDVBarcodeScanner.mm in Resources */,
+				EB0C3E1BCF7646AE847CEB08 /* NSString+SSURLEncoding.m in Sources */,
+				AB2FA9A3799E4DF5A8444A83 /* SocialSharing.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

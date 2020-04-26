@@ -443,39 +443,7 @@ function hideCatalog() {
                 DownloadToDevice(a[1]);
               }
             }
-            if (a[0] == "share") {
-              var app = document.URL.indexOf( 'http://' ) === -1 && document.URL.indexOf( 'https://' ) === -1;
-            //  alert(app);
-          //    alert(a[1]);
-              if (app) {
-                var html = "";
-                var el = $(a[1]);
-                html = "<span>This is really something for you:</span><br />";
-                html += "<span>" + el.find("[productname]").text() + "</span><br />";
-                if (el.find("[colordescdiv]").html() != "") {
-                  html += "<span>Available in:</span><br />";
-                  html += el.find("[colordescdiv]").html();
-                }
-                html += "<div>" + el.find("[compname]").html() + "</div>";
-                html += "<div>" + el.find("[money]").html() + "</div>";
-              //  html += "<br /><span>Visit " + "http://85.214.165.56:81/catalog?share=" + el.attr("itemid") + " to see details</span>";
-                try {
-                  var lnk = "http://85.214.165.56:81/catalog/" + $(a[1]).find("img").attr("src");
-                  $(a[1]).find("img").remove();
-                window.plugins.socialsharing.shareViaEmail(
-                    html, // can contain HTML tags, but support on Android is rather limited:  http://stackoverflow.com/questions/15136480/how-to-send-html-content-with-image-through-android-default-email-client
-                    'Coster Diamonds Special Offer',
-                    null, // TO: must be null or an array
-                    null, // CC: must be null or an array
-                    null, // BCC: must be null or an array
-                    [lnk], // FILES: can be null, a string, or an array
-                    onSuccess, // called when sharing worked, but also when the user cancelled sharing via email. On iOS, the callbacks' boolean result parameter is true when sharing worked, false if cancelled. On Android, this parameter is always true so it can't be used). See section "Notes about the successCallback" below.
-                    onError // called when sh*t hits the fan
-                  );
-                } catch(err) {
-                }
-              }
-            }
+
             if (a[0] == "addToInvoice") {
                 addToInvoice($.parseJSON(a[1]));
             }
@@ -497,9 +465,43 @@ function addToInvoiceFromCatalog(id) {
 function startScan() {
     scan();
 }
+function share(obj) {
 
+    var app = document.URL.indexOf( 'http://' ) === -1 && document.URL.indexOf( 'https://' ) === -1;
+  //  alert(app);
+//    alert(a[1]);
+    if (app) {
+      var html = "";
+      var el = $(obj);
+      html = "<span>This is really something for you:</span><br />";
+      html += "<span>" + el.find("[productname]").text() + "</span><br />";
+      if (el.find("[colordescdiv]").html() != "") {
+        html += "<span>Available in:</span><br />";
+        html += el.find("[colordescdiv]").html();
+      }
+      html += "<div>" + el.find("[compname]").html() + "</div>";
+      html += "<div>" + el.find("[money]").html() + "</div>";
+    //  html += "<br /><span>Visit " + "http://85.214.165.56:81/catalog?share=" + el.attr("itemid") + " to see details</span>";
+      try {
+        var lnk = "http://85.214.165.56:81/catalog/" + $(a[1]).find("img").attr("src");
+        $(a[1]).find("img").remove();
+      window.plugins.socialsharing.shareViaEmail(
+          html, // can contain HTML tags, but support on Android is rather limited:  http://stackoverflow.com/questions/15136480/how-to-send-html-content-with-image-through-android-default-email-client
+          'Coster Diamonds Special Offer',
+          null, // TO: must be null or an array
+          null, // CC: must be null or an array
+          null, // BCC: must be null or an array
+          [lnk], // FILES: can be null, a string, or an array
+          onSuccess, // called when sharing worked, but also when the user cancelled sharing via email. On iOS, the callbacks' boolean result parameter is true when sharing worked, false if cancelled. On Android, this parameter is always true so it can't be used). See section "Notes about the successCallback" below.
+          onError // called when sh*t hits the fan
+        );
+      } catch(err) {
+      }
+    }
+
+}
 function DownloadToDevice(fileurl) {
-  
+
   var blob = null;
   var xhr = new XMLHttpRequest();
   xhr.open("GET", fileurl);
@@ -520,6 +522,7 @@ function DownloadToDevice(fileurl) {
                     showModal({
                       type: "success",
                       confirmButtonText: "Continue",
+                      showCancelButton: false,
                       title: "Image successfully saved."
                     })
                 }, function(err){

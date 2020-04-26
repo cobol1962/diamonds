@@ -45,6 +45,9 @@
     },
     "phonegap-plugin-barcodescanner": {
       "PACKAGE_NAME": "com.royalcoster.catalog"
+    },
+    "cordova-plugin-x-socialsharing": {
+      "PACKAGE_NAME": "com.royalcoster.catalog"
     }
   },
   "dependent_plugins": {
@@ -53,6 +56,9 @@
     },
     "cordova-plugin-file": {
       "PACKAGE_NAME": "com.phonegap.helloworld"
+    },
+    "es6-promise-plugin": {
+      "PACKAGE_NAME": "com.royalcoster.catalog"
     }
   }
 }
