@@ -597,6 +597,7 @@ function deleteRow(obj) {
 }
 var currentScanned = {};
 function scan() {
+  alert('scan')
   in_barcode_scan = true;
   var app = document.URL.indexOf( 'http://' ) === -1 && document.URL.indexOf( 'https://' ) === -1;
   if (!app) {
@@ -612,6 +613,7 @@ function scan() {
         var obj = {
           SerialNo: result.text
         }
+        alert(result.text)
         if ($("#invoiceBody").find("[serialno='" + result.text + "']").length > 0) {
           swal({
             type: "error",
