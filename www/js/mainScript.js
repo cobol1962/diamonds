@@ -626,8 +626,9 @@ function scan() {
             showModal({
               type: 'error',
               title: "No product with this serial.",
-              confirmButtonText: "Enter serial",
+              confirmButtonText: "ENTER SERIAL",
               confirmCallback: function() {
+                alert("dddd")
                 getSerial();
               }
             })
@@ -692,7 +693,7 @@ function getSerial(search = false, notavailable = false) {
     confirmButtonText: "SEARCH",
     showCloseButton: true,
     confirmCallback: function() {
-
+alert($("#eesc").val())
         var obj = {
           SerialNo:$("#eesc").val()
         }
