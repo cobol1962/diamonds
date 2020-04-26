@@ -626,10 +626,9 @@ function scan() {
             showModal({
               type: 'error',
               title: "No product with this serial.",
-              confirmButtonText: "ENTER SERIAL",
-              confirmCallback: function() {
-                getSerial();
-              }
+              showCancelButton: false,
+              confirmButtonText: "CONTINUE"
+
             })
           } else {
             if (res[0].imageURL != "") {
@@ -683,7 +682,7 @@ function scan() {
  )
 }
 function getSerial(search = false, notavailable = false) {
-alert(search + "  " + notavailable)
+
 //  $('#mainModal').modal("hide");
   try {
   showModal({
