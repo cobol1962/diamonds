@@ -89,6 +89,8 @@
     <allow-navigation href="*" />
     <preference name="loglevel" value="DEBUG" />
     <preference name="android-minSdkVersion" value="19" />
+    <preference name="android-targetSdkVersion" value="27" />
+    <preference name="phonegap-version" value="cli-8.0.0" />
     <preference name="Fullscreen" value="true" />
     <preference name="AndroidLaunchMode" value="singleInstance" />
     <preference name="DisallowOverscroll" value="true" />
