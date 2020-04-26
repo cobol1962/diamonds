@@ -7,14 +7,9 @@
     <author email="office@royalcoster.com" href="http://phonegap.com">
         Coster Diamonds team
     </author>
-     <icon src="icon.png" />
     <content src="index.html" />
     <preference name="DisallowOverscroll" value="true" />
     <preference name="android-minSdkVersion" value="19" />
-    <preference name="android-targetSdkVersion" value="27" />
-    <preference name="phonegap-version" value="cli-8.0.0" />
-    <preference name="DisallowOverscroll" value="true" />
-    <preference name="android-minSdkVersion" value="14" />
     <plugin name="cordova-plugin-battery-status" source="npm" spec="~1.2.4" />
     <plugin name="cordova-plugin-camera" source="npm" spec="~2.4.1" />
     <plugin name="cordova-plugin-media-capture" source="npm" spec="~1.4.3" />
@@ -114,12 +109,11 @@
         <allow-intent href="itms:*" />
         <allow-intent href="itms-apps:*" />
     </platform>
-  
     <gap:plugin name="cordova-plugin-whitelist" source="npm" />
     <gap:plugin name="cordova-plugin-statusbar" source="npm" />
     <gap:plugin name="cordova-plugin-fullscreen" source="npm" />
     <preference name="Fullscreen" value="true" />
-    <preference name="AndroidLaunchMode" value="singleInstance" />
-    <preference name="DisallowOverscroll" value="true" />
-    <preference name="KeepRunning" value="true" />
+  <preference name="AndroidLaunchMode" value="singleInstance" />
+  <preference name="DisallowOverscroll" value="true" />
+  <preference name="KeepRunning" value="true" />
 </widget>
