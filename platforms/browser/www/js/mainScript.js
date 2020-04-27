@@ -56,13 +56,21 @@ function checkLogin() {
     }
 }
 $(document).ready(function() {
- StatusBar.hide();
+  var app = document.URL.indexOf( 'http://' ) === -1 && document.URL.indexOf( 'https://' ) === -1;
+  if (app) {
+    StatusBar.hide();
+  }
   $(".app").hide();
+  var ad = 0;
+  if (app) {
+    ad = 50;
+  }
   $("#content").css({
     minHeight: $(window).height() - 60,
     height: $(window).height() - 60,
-    maxHeight: $(window).height() -60
+    maxHeight: $(window).height() - 60
   })
+
   document.getElementById("search").addEventListener("keyup", function(event) {
   // Number 13 is the "Enter" key on the keyboard
   if (event.keyCode === 13) {
@@ -289,6 +297,7 @@ window.onhashchange = locationHashChanged;
 function loadPage(page, addToPages = true, backtocart = false, search = {}) {
 //  window.parent.postMessage("setState#" + page, "*");
 //  window.history.replaceState({}, pageUrls[page], pageUrls[page]);
+  pages.push(page);
     po.page = page;
     po.addTopages = addToPages;
     po.backtocart = backtocart;
@@ -297,7 +306,7 @@ function loadPage(page, addToPages = true, backtocart = false, search = {}) {
     window.location.hash = pageUrls[page];
 }
 function loadPage1(page, addToPages = true, backtocart = false, search = {}) {
-  pages.push(page);
+
   if (!firstLoad && page != "homepage") {
     $("body").LoadingOverlay("show", optionsLoader);
   } else {
@@ -385,7 +394,10 @@ function logout() {
 }
 var pages = [];
 function onBackKeyDown() {
-  StatusBar.hide();
+  var app = document.URL.indexOf( 'http://' ) === -1 && document.URL.indexOf( 'https://' ) === -1;
+  if (app) {
+    StatusBar.hide();
+  }
    if (in_barcode_scan) {
      in_barcode_scan = false;
      return false;

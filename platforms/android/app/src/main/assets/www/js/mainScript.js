@@ -56,13 +56,21 @@ function checkLogin() {
     }
 }
 $(document).ready(function() {
- StatusBar.hide();
+  var app = document.URL.indexOf( 'http://' ) === -1 && document.URL.indexOf( 'https://' ) === -1;
+  if (app) {
+    StatusBar.hide();
+  }
   $(".app").hide();
+  var ad = 0;
+  if (app) {
+    ad = 50;
+  }
   $("#content").css({
     minHeight: $(window).height() - 60,
     height: $(window).height() - 60,
-    maxHeight: $(window).height() -60
+    maxHeight: $(window).height() - 60
   })
+  
   document.getElementById("search").addEventListener("keyup", function(event) {
   // Number 13 is the "Enter" key on the keyboard
   if (event.keyCode === 13) {
@@ -385,7 +393,10 @@ function logout() {
 }
 var pages = [];
 function onBackKeyDown() {
-  return false;
+  var app = document.URL.indexOf( 'http://' ) === -1 && document.URL.indexOf( 'https://' ) === -1;
+  if (app) {
+    StatusBar.hide();
+  }
    if (in_barcode_scan) {
      in_barcode_scan = false;
      return false;
