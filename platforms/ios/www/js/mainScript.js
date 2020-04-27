@@ -398,6 +398,7 @@ function onBackKeyDown() {
      in_barcode_scan = false;
      return false;
     }
+    alert(pages.length)
     if (pages.length == 1) {
       return false;
     }
@@ -410,6 +411,7 @@ function onBackKeyDown() {
         pp = k;
       }
     }
+    alert(pp)
     window.location.hash = pp;
 }
 function textToBase64Barcode(text){
