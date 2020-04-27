@@ -406,7 +406,7 @@ function onBackKeyDown() {
     }
       pages.splice(-1,1)
     alert(pages[pages.length - 1]);
-    loadPage1(pages[pages.length - 1]);
+    loadPage1(pages[pages.length - 1], false);
 }
 function textToBase64Barcode(text){
   var canvas = document.createElement("canvas");
