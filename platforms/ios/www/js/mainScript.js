@@ -56,7 +56,7 @@ function checkLogin() {
     }
 }
 $(document).ready(function() {
-  
+
   $(".app").hide();
   $("#content").css({
     minHeight: $(window).height() - 60,
@@ -297,6 +297,7 @@ function loadPage(page, addToPages = true, backtocart = false, search = {}) {
     window.location.hash = pageUrls[page];
 }
 function loadPage1(page, addToPages = true, backtocart = false, search = {}) {
+  pages.push(page);
   if (!firstLoad && page != "homepage") {
     $("body").LoadingOverlay("show", optionsLoader);
   } else {
@@ -382,13 +383,17 @@ function logout() {
   localStorage.clear();
   loadPage("login");
 }
+var pages = [];
 function onBackKeyDown() {
-
-  return false;
    if (in_barcode_scan) {
      in_barcode_scan = false;
      return false;
     }
+    if (pages.length == 0) {
+      return false;
+    }
+    pages.pop();
+    loadPage1(pages[pages.length - 1]);
 }
 function textToBase64Barcode(text){
   var canvas = document.createElement("canvas");
