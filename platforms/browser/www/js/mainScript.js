@@ -405,7 +405,7 @@ function onBackKeyDown() {
       return false;
     }
       pages.splice(-1,1)
-      alert(JSON.stringify(pages));
+    alert(pages[pages.length - 1]);
     loadPage1(pages[pages.length - 1]);
 }
 function textToBase64Barcode(text){
