@@ -544,7 +544,7 @@ function checkIsLogged(nextpage) {
     $("#login").modal("show");
     return false;
   } else {
-    loadPage(nextpage);
+    window.location.hash = nextpage;
   }
 }
 </script>

@@ -263,7 +263,7 @@ var pageUrls = {
   checkout: "ckeckout",
   homepage: "home",
   tours: "tours",
-  myinvoices: "invoices",
+  invoices: "invoices",
   mycustomers: "customers"
 }
 function locationHashChanged() {
