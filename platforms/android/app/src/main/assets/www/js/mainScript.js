@@ -407,7 +407,7 @@ function onBackKeyDown() {
     var p = pages[pages.length - 1];
     var pp = "";
     for (var k in pageUrls) {
-      if (pageUrls[k] == p) {
+      if (k == p) {
         pp = k;
       }
     }
