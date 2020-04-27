@@ -408,7 +408,14 @@ function onBackKeyDown() {
     }
 
     pages.splice(-1,1)
-    window.location.hash = pages[pages.length - 1];
+    var p = pages[pages.length - 1];
+    var pp = "";
+    for (var k in pageUrls) {
+      if (pageUrls[k] == p) {
+        pp = k;
+      }
+    }
+    window.location.hash = pp;
 }
 function textToBase64Barcode(text){
   var canvas = document.createElement("canvas");
