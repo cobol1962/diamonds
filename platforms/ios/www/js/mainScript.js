@@ -267,6 +267,7 @@ var pageUrls = {
   mycustomers: "customers"
 }
 function locationHashChanged() {
+  alert(location.hash);
   if (location.hash == "") {
     loadPage("homepage");
   }
@@ -401,12 +402,12 @@ function onBackKeyDown() {
      in_barcode_scan = false;
      return false;
     }
-    if (pages.length == 0) {
+    if (pages.length == 1) {
       return false;
     }
-      pages.splice(-1,1)
-  
-    loadPage1(pages[pages.length - 1], false);
+
+    pages.splice(-1,1)
+    window.location.hash = pages[pages.length - 1];
 }
 function textToBase64Barcode(text){
   var canvas = document.createElement("canvas");

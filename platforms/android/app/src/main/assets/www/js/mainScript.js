@@ -401,11 +401,11 @@ function onBackKeyDown() {
      in_barcode_scan = false;
      return false;
     }
-    if (pages.length == 0) {
+    if (pages.length == 1) {
       return false;
     }
-      pages.splice(-1,1)
-  
+
+    pages.splice(-1,1)
     loadPage1(pages[pages.length - 1], false);
 }
 function textToBase64Barcode(text){
