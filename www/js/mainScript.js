@@ -56,7 +56,7 @@ function checkLogin() {
     }
 }
 $(document).ready(function() {
-
+ StatusBar.hide();
   $(".app").hide();
   $("#content").css({
     minHeight: $(window).height() - 60,
@@ -385,7 +385,7 @@ function logout() {
 }
 var pages = [];
 function onBackKeyDown() {
-  return false;
+  StatusBar.hide();
    if (in_barcode_scan) {
      in_barcode_scan = false;
      return false;

@@ -56,7 +56,7 @@ function checkLogin() {
     }
 }
 $(document).ready(function() {
-
+ StatusBar.hide();
   $(".app").hide();
   $("#content").css({
     minHeight: $(window).height() - 60,
