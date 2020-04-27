@@ -267,7 +267,6 @@ var pageUrls = {
   mycustomers: "customers"
 }
 function locationHashChanged() {
-  alert(location.hash);
   if (location.hash == "") {
     loadPage("homepage");
   }
@@ -277,12 +276,8 @@ function locationHashChanged() {
     return;
   }
   var p = location.hash.substring(1);
-alert(p)
-
   for (var k in pageUrls) {
-    alert(pageUrls[k] + " == " + p);
     if (pageUrls[k] == p) {
-      alert(k);
       if (fromFunc) {
         loadPage1(po.page, po.addTopages, po.backtocart, po.search);
       } else {
@@ -720,7 +715,6 @@ function getSerial(search = false, notavailable = false) {
     showCancelButton: false,
     confirmButtonText: "SEARCH",
     confirmCallback: function() {
-      alert($("#eesc").val())
         var obj = {
           SerialNo:$("#eesc").val()
         }
