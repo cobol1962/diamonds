@@ -385,13 +385,14 @@ function logout() {
 }
 var pages = [];
 function onBackKeyDown() {
+  return false;
    if (in_barcode_scan) {
      in_barcode_scan = false;
      return false;
     }
     if (pages.length == 0) {
       return false;
-    } 
+    }
     pages.pop();
     loadPage1(pages[pages.length - 1]);
 }
