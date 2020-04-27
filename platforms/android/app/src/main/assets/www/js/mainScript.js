@@ -267,6 +267,7 @@ var pageUrls = {
   mycustomers: "customers"
 }
 function locationHashChanged() {
+  alert(location.hash);
   if (location.hash == "") {
     loadPage("homepage");
   }
@@ -279,10 +280,9 @@ function locationHashChanged() {
 
   for (var k in pageUrls) {
     if (pageUrls[k] == p) {
+      alert(k);
       if (fromFunc) {
         loadPage1(po.page, po.addTopages, po.backtocart, po.search);
-
-
       } else {
         loadPage1(k);
       }
@@ -406,7 +406,7 @@ function onBackKeyDown() {
     }
 
     pages.splice(-1,1)
-    loadPage1(pages[pages.length - 1], false);
+    window.location.hash = pages[pages.length - 1];
 }
 function textToBase64Barcode(text){
   var canvas = document.createElement("canvas");

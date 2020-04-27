@@ -280,10 +280,9 @@ function locationHashChanged() {
 
   for (var k in pageUrls) {
     if (pageUrls[k] == p) {
+      alert(k);
       if (fromFunc) {
         loadPage1(po.page, po.addTopages, po.backtocart, po.search);
-
-
       } else {
         loadPage1(k);
       }
