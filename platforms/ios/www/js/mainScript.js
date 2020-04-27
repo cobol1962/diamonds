@@ -53,7 +53,7 @@ function checkLogin() {
           $("#login").modal("show");
         }
         return false;
-    } 
+    }
 }
 $(document).ready(function() {
   var app = document.URL.indexOf( 'http://' ) === -1 && document.URL.indexOf( 'https://' ) === -1;
@@ -280,6 +280,7 @@ function locationHashChanged() {
 alert(p)
 
   for (var k in pageUrls) {
+    alert(pageUrls[k] + " == " + p);
     if (pageUrls[k] == p) {
       alert(k);
       if (fromFunc) {

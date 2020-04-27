@@ -280,6 +280,7 @@ function locationHashChanged() {
 alert(p)
 
   for (var k in pageUrls) {
+    alert(pageUrls[k] + " == " + p);
     if (pageUrls[k] == p) {
       alert(k);
       if (fromFunc) {
