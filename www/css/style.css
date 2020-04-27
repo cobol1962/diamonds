@@ -92,6 +92,9 @@ select.error, input.error {
     width:auto;
     text-align: left;
 }
+.select2-selection__rendered.showrooms {
+  background: red;
+}
 #content {
 /*  overflow: hidden !important;*/
   width:100%;
@@ -840,7 +843,7 @@ font-size:14px;
   background-color: #E8F0FD;
 }
 .dropdown-menu {
-max-height:120px;
+max-height:90px;
 overflow: auto;
 }
 #cartToPay {

@@ -202,7 +202,7 @@ function hideCatalog() {
     </div>
 
 
-    <div class="modal" id="login" tabindex="-1" role="dialog" style="position:relative;z-index: 30000;">
+    <div class="modal" id="login" tabindex="-1" role="dialog" style="">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header" style="border:none;padding:0;background-image:url(http://85.214.165.56:81/coster/www/images/crown.png);height:50px;background-size:30px 30px;background-repeat: no-repeat;background-position: center 5px;">
@@ -230,9 +230,9 @@ function hideCatalog() {
                         <p style="display:none;width:100%;margin-bottom:5px;margin-top:-5px;width:100%;text-align:center;font-size:11px;color:#B8B8B8;">Forget your Pin code or don't have one?</p>
 
                     </form>
-                    <button class="btn-black" onclick="$('#spf').submit();">LOG IN</button>
+                    <button class="btn-black" style="margin-bottom:40px;" onclick="$('#spf').submit();">LOG IN</button>
                 </div>
-                <div class="modal-footer">
+                <div class="modal-footer" style="display:none;">
 
                 </div>
             </div>
@@ -486,7 +486,7 @@ function share(obj) {
       try {
         var lnk =  $(obj).find("img").attr("src");
         $(obj).find("img").remove();
-      
+
       window.plugins.socialsharing.shareViaEmail(
           html, // can contain HTML tags, but support on Android is rather limited:  http://stackoverflow.com/questions/15136480/how-to-send-html-content-with-image-through-android-default-email-client
           'Coster Diamonds Special Offer',

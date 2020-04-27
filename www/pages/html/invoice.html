@@ -650,7 +650,7 @@
                 </div>
                 <div class="modal-body">
                     <div nobrowser style="padding:5px;width:100%;text-align:center;">
-              <!--        <img class='share' onclick="shareItem(this);" style='width:30px;margin-left:3px;margin-top:-3px;' src='http://85.214.165.56:81/coster/www/images/share.png' /> -->
+                      <img class='share' onclick="shareItem(this);" style='width:30px;margin-left:3px;margin-top:-3px;' src='http://85.214.165.56:81/coster/www/images/share.png' />
                       <img  onclick="downloadItem(this);" style='width:26px;margin-left:3px;margin-top:-3px;' src='http://85.214.165.56:81/coster/www/images/download.png' />
 
                     </div>
@@ -816,7 +816,9 @@ function loadMore(next = true) {
 
         $("#ati").show();
         $("#productDetail").on('show.bs.modal', function(){
-
+          setTimeout(function() {
+            $(".modal-content").scrollTop(0);
+          }, 2);
         });
         window.addEventListener("message", receiveMessage, false);
         var loadcount = 1;
@@ -1638,6 +1640,9 @@ function collectFilters() {
             maxHeight: $(window).height() - 140 - $("#selectedFilters").height()
           })
     }
+    $('#productDetail').on('shown.bs.modal', function () {
+      $('#myInput').trigger('focus')
+    })
     function toggleFilters() {
 
       $('#navbackdropCatalog').toggle();
