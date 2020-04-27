@@ -391,7 +391,7 @@ function onBackKeyDown() {
     }
     if (pages.length == 0) {
       return false;
-    }
+    } 
     pages.pop();
     loadPage1(pages[pages.length - 1]);
 }
