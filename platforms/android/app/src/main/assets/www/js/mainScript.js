@@ -297,7 +297,6 @@ window.onhashchange = locationHashChanged;
 function loadPage(page, addToPages = true, backtocart = false, search = {}) {
 //  window.parent.postMessage("setState#" + page, "*");
 //  window.history.replaceState({}, pageUrls[page], pageUrls[page]);
-  pages.push(page);
     po.page = page;
     po.addTopages = addToPages;
     po.backtocart = backtocart;

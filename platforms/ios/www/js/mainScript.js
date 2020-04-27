@@ -297,7 +297,6 @@ window.onhashchange = locationHashChanged;
 function loadPage(page, addToPages = true, backtocart = false, search = {}) {
 //  window.parent.postMessage("setState#" + page, "*");
 //  window.history.replaceState({}, pageUrls[page], pageUrls[page]);
-  pages.push(page);
     po.page = page;
     po.addTopages = addToPages;
     po.backtocart = backtocart;
@@ -405,7 +404,7 @@ function onBackKeyDown() {
     if (pages.length == 0) {
       return false;
     }
-      pages.pop();
+      pages.splice(-1,1)
       alert(JSON.stringify(pages));
     loadPage1(pages[pages.length - 1]);
 }
