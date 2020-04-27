@@ -53,7 +53,7 @@ function checkLogin() {
           $("#login").modal("show");
         }
         return false;
-    }
+    } 
 }
 $(document).ready(function() {
   var app = document.URL.indexOf( 'http://' ) === -1 && document.URL.indexOf( 'https://' ) === -1;
@@ -277,6 +277,7 @@ function locationHashChanged() {
     return;
   }
   var p = location.hash.substring(1);
+alert(p)
 
   for (var k in pageUrls) {
     if (pageUrls[k] == p) {

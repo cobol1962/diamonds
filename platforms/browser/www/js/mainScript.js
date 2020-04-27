@@ -277,6 +277,7 @@ function locationHashChanged() {
     return;
   }
   var p = location.hash.substring(1);
+alert(p)
 
   for (var k in pageUrls) {
     if (pageUrls[k] == p) {
