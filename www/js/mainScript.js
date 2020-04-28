@@ -76,6 +76,9 @@ if (app) {
   try {
   document.addEventListener('deviceready', function(){
     alert("ready")
+    cordova.getAppVersion.getVersionNumber().then(function (version) {
+    alert(version);
+    });
     cordova.getAppVersion.getAppName(function(name){
     // My App Name
       alert("App Name", name);
