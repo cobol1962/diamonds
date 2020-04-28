@@ -42,7 +42,7 @@ function ReconnectingWebSocket() {
 
     this.onmessage = function (e) {
 alert(e.data)
-      var obj = $.parseJSON(e.data);
+  //    var obj = $.parseJSON(e.data);
 
     };
 

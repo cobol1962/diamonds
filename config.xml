@@ -1,11 +1,10 @@
 <?xml version='1.0' encoding='utf-8'?>
-<widget id="com.royalcoster.catalog" version="1.0.0" android-versionCode="1" xmlns="http://www.w3.org/ns/widgets" xmlns:gap="http://phonegap.com/ns/1.0">
+<widget id="com.royalcoster.catalog" version="1.0.1" android-versionCode="1" xmlns="http://www.w3.org/ns/widgets" xmlns:gap="http://phonegap.com/ns/1.0">
     <name>Coster Diamonds</name>
     <description>
         Coster Sales App.
     </description>
-      <widget versionCode="1.0.0">
-    </widget>
+
     <author email="office@royalcoster.com" href="http://phonegap.com">
         Coster Diamonds team
     </author>
