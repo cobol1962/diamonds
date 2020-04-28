@@ -66,15 +66,19 @@ $(document).ready(function() {
   if (app) {
     ad = 50;
   }
-  var app = document.URL.indexOf( 'http://' ) === -1 && document.URL.indexOf( 'https://' ) === -1;
-  if (app) {
-    StatusBar.hide();
-  }
-  if (app) {
-    cordova.getAppVersion.getAppName(function(name){
-    // My App Name
-      alert("App Name", name);
-    });
+
+    var app = document.URL.indexOf( 'http://' ) === -1 && document.URL.indexOf( 'https://' ) === -1;
+
+    if (app) {
+      StatusBar.hide();
+    }
+if (app) {
+  try {
+      alert(app);
+      cordova.getAppVersion.getAppName(function(name){
+      // My App Name
+        alert("App Name", name);
+      });
 
   cordova.getAppVersion.getPackageName(function(pkgname){
       // com.companyname.appname
@@ -90,15 +94,15 @@ $(document).ready(function() {
         // 1.0.0
         alert("version number", versionNumber);
     });
-      try {
-        ws = new ReconnectingWebSocket();
-        setTimeout(function() {
-        //  ws.send("aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa")
-        }, 2000)
-      } catch(err) {
-        alert("????? ? + err)
-      }
-    }
+
+    ws = new ReconnectingWebSocket();
+    setTimeout(function() {
+    //  ws.send("aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa")
+    }, 2000)
+  } catch(err) {
+    alert(err)
+  }
+}
 
   $("#content").css({
     minHeight: $(window).height() - 60,
