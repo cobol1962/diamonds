@@ -47,6 +47,7 @@
 		AB2FA9A3799E4DF5A8444A83 /* SocialSharing.m in Sources */ = {isa = PBXBuildFile; fileRef = 42C1EA1078C34E7FB430DFF9 /* SocialSharing.m */; };
 		9F621D6F3477406D98F6E362 /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1E076D18B329459197962C00 /* Social.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		570C2D16BC424C0589455EB1 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 05C63C69DAF5456AB948CD36 /* MessageUI.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
+		A52C87E7C590429C8802F22F /* AppVersion.m in Sources */ = {isa = PBXBuildFile; fileRef = 6957D95FFA63495F8058ABA3 /* AppVersion.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -147,6 +148,8 @@
 		C58DCC9E6BEF4CCEBDA06A1B /* SocialSharing.h */ = {isa = PBXFileReference; name = "SocialSharing.h"; path = "cordova-plugin-x-socialsharing/SocialSharing.h"; sourceTree = "<group>"; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; explicitFileType = undefined; includeInIndex = 0; };
 		1E076D18B329459197962C00 /* Social.framework */ = {isa = PBXFileReference; name = "Social.framework"; path = "System/Library/Frameworks/Social.framework"; sourceTree = SDKROOT; fileEncoding = undefined; lastKnownFileType = wrapper.framework; explicitFileType = undefined; includeInIndex = 0; };
 		05C63C69DAF5456AB948CD36 /* MessageUI.framework */ = {isa = PBXFileReference; name = "MessageUI.framework"; path = "System/Library/Frameworks/MessageUI.framework"; sourceTree = SDKROOT; fileEncoding = undefined; lastKnownFileType = wrapper.framework; explicitFileType = undefined; includeInIndex = 0; };
+		6957D95FFA63495F8058ABA3 /* AppVersion.m */ = {isa = PBXFileReference; name = "AppVersion.m"; path = "cordova-plugin-app-version/AppVersion.m"; sourceTree = "<group>"; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; explicitFileType = undefined; includeInIndex = 0; };
+		941D67430E2440548512D1B8 /* AppVersion.h */ = {isa = PBXFileReference; name = "AppVersion.h"; path = "cordova-plugin-app-version/AppVersion.h"; sourceTree = "<group>"; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; explicitFileType = undefined; includeInIndex = 0; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -313,6 +316,8 @@
 				42C1EA1078C34E7FB430DFF9 /* SocialSharing.m */,
 				6B1A0E3DADB549CBB55C772E /* NSString+SSURLEncoding.h */,
 				C58DCC9E6BEF4CCEBDA06A1B /* SocialSharing.h */,
+				6957D95FFA63495F8058ABA3 /* AppVersion.m */,
+				941D67430E2440548512D1B8 /* AppVersion.h */,
 			);
 			name = Plugins;
 			path = "helloworld/Plugins";
@@ -461,6 +466,7 @@
 				19C63D331F9D460CB121FFEE /* CDVBarcodeScanner.mm in Resources */,
 				EB0C3E1BCF7646AE847CEB08 /* NSString+SSURLEncoding.m in Sources */,
 				AB2FA9A3799E4DF5A8444A83 /* SocialSharing.m in Sources */,
+				A52C87E7C590429C8802F22F /* AppVersion.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

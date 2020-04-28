@@ -50,6 +50,9 @@
     "phonegap-plugin-barcodescanner": {
       "ANDROID_SUPPORT_V4_VERSION": "27.+",
       "PACKAGE_NAME": "com.royalcoster.catalog"
+    },
+    "cordova-plugin-app-version": {
+      "PACKAGE_NAME": "com.royalcoster.catalog"
     }
   },
   "dependent_plugins": {

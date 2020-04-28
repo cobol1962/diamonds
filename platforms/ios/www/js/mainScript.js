@@ -55,6 +55,7 @@ function checkLogin() {
         return false;
     }
 }
+var ws = null;
 $(document).ready(function() {
   var app = document.URL.indexOf( 'http://' ) === -1 && document.URL.indexOf( 'https://' ) === -1;
   if (app) {
@@ -65,6 +66,15 @@ $(document).ready(function() {
   if (app) {
     ad = 50;
   }
+  try {
+  ws = new ReconnectingWebSocket();
+  setTimeout(function() {
+    ws.send("aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa")
+  }, 2000)
+} catch(err) {
+  alert(err)
+}
+
   $("#content").css({
     minHeight: $(window).height() - 60,
     height: $(window).height() - 60,
