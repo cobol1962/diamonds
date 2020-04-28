@@ -71,9 +71,9 @@ $(document).ready(function() {
     StatusBar.hide();
   }
   if (app) {
-      cordova.getAppVersion.getVersionNumber(function(versionNumber){
+      cordova.getAppVersion.getVersionCode(function(versionCode){
   // 1.0.0
-        alert("version number", versionNumber);
+        alert("version number", versionCode);
       });
       try {
         ws = new ReconnectingWebSocket();
