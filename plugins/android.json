@@ -43,12 +43,12 @@
     "cordova-plugin-whitelist": {
       "PACKAGE_NAME": "com.royalcoster.catalog"
     },
-    "phonegap-plugin-barcodescanner": {
-      "ANDROID_SUPPORT_V4_VERSION": "27.+",
-      "PACKAGE_NAME": "com.royalcoster.catalog"
-    },
     "cordova-plugin-x-socialsharing": {
       "ANDROID_SUPPORT_V4_VERSION": "24.1.1+",
+      "PACKAGE_NAME": "com.royalcoster.catalog"
+    },
+    "phonegap-plugin-barcodescanner": {
+      "ANDROID_SUPPORT_V4_VERSION": "27.+",
       "PACKAGE_NAME": "com.royalcoster.catalog"
     }
   },
