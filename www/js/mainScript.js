@@ -73,8 +73,8 @@ $(document).ready(function() {
   if (app) {
     cordova.getAppVersion.getAppName(function(name){
     // My App Name
-    alert("App Name", name);
-  });
+      alert("App Name", name);
+    });
 
   cordova.getAppVersion.getPackageName(function(pkgname){
       // com.companyname.appname
@@ -96,7 +96,7 @@ $(document).ready(function() {
         //  ws.send("aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa")
         }, 2000)
       } catch(err) {
-        alert(err)
+        alert("????? ? + err)
       }
     }
 

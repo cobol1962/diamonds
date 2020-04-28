@@ -41,7 +41,7 @@ function ReconnectingWebSocket() {
     };
 
     this.onmessage = function (e) {
-alert(e.data)
+//alert(e.data)
   //    var obj = $.parseJSON(e.data);
 
     };
