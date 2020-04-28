@@ -73,7 +73,7 @@ $(document).ready(function() {
   if (app) {
     cordova.getAppVersion.getAppName(function(name){
     // My App Name
-  alert("App Name", name);
+    alert("App Name", name);
   });
 
   cordova.getAppVersion.getPackageName(function(pkgname){
@@ -93,7 +93,7 @@ $(document).ready(function() {
       try {
         ws = new ReconnectingWebSocket();
         setTimeout(function() {
-          ws.send("aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa")
+        //  ws.send("aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa")
         }, 2000)
       } catch(err) {
         alert(err)
