@@ -139,7 +139,7 @@ function hideCatalog() {
                 </a>
             </li>
             <li navigation><a href="javascript:loadPage('invoice');">Browse catalog</a></li>
-            <li navigation><a href="javascript: $('#mainNavbar').removeClass('in');if (currentPage != 'invoice') {loadPage('invoice')};setTimeout(function() {var iframeWin = document.getElementById('catalog').contentWindow;iframeWin.postMessage('setWatches#','*');}, 2000);">Browse Coster watches</a></li>
+            <li navigation><a href="javascript: $('#mainNavbar').removeClass('in');if (currentPage != 'invoice') {loadPage('invoice')};setTimeout(function() { setWatches();}, 2000);">Browse Coster watches</a></li>
             <li navigation logout><a href="javascript:loadPage('diamonds');">Browse diamondlist</a></li>
             <li navigation><a href="javascript:loadPage('tours');">Browse tours</a></li>
             <li navigation salespersons><a href="javascript:checkIsLogged('customers');">Browse My Customer</a></li>

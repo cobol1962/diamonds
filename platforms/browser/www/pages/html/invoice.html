@@ -2,10 +2,10 @@
     function changeCurrency(v) {
 
       $("#currency").val(v);
-      oTable.draw();
+      catalogTable.draw();
     }
     function reset() {
-      var info = oTable.page.info();
+      var info = catalogTable.page.info();
       if(info.page != 0) {
         $('.all').trigger('click');
       }
@@ -13,7 +13,7 @@
     function findID(id) {
 
      if (id == "") {
-       yadcf.exResetFilters(oTable, [0]);
+       yadcf.exResetFilters(catalogTable, [0]);
        selectedFilters();
          $("#itemidSelected").html("");
        return;
@@ -21,18 +21,18 @@
 
       $('.all').trigger('click');
       $("#flitemid").val(id);
-      yadcf.exResetFilters(oTable, [0]);
-      yadcf.exFilterColumn(oTable, [[0, $("#flitemid").val()]]);
+      yadcf.exResetFilters(catalogTable, [0]);
+      yadcf.exFilterColumn(catalogTable, [[0, $("#flitemid").val()]]);
       $("#itemidSelected").html($("#flitemid").val());
       selectedFilters();
     }
     function setWatches() {
       $("#items_div").hide();
       var ww = setInterval(function() {
-        if (oTable !== undefined) {
+        if (catalogTable !== undefined) {
           clearInterval(ww);
-          yadcf.exResetAllFilters(oTable);
-          yadcf.exFilterColumn(oTable, [
+          yadcf.exResetAllFilters(catalogTable);
+          yadcf.exFilterColumn(catalogTable, [
               [4, ['Watches`']]
           ]);
           $("#mainGroupSelected").html("Watches");
@@ -79,7 +79,7 @@
 
         #mainNavbar {
             position: absolute;
-            right: 0px;
+            right: 0px
         }
 
         #navigationTable {
@@ -271,22 +271,22 @@
         <img main id="fil" style="display:none;cursor:pointer;position: absolute;right:7px;top:15px;width:20px;"  onclick="toggleFilters();" src="http://85.214.165.56:81/coster/www/images/filtericon.png" />
         <div class="row"  id="nn" style="margin:0;padding:5px;min-width:100%;position:relative;top:25px;">
             <div class="col-xs-2" style="display:flex;justify-content: center;padding:2px;">
-                <button onclick="uncheckOptions('maingroup_options');yadcf.exResetFilters(oTable, [4]);yadcf.exFilterColumn(oTable, [[4, ['Rings`']]]);selectedFilters('Rings');" class="btn-filter">Rings</button>
+                <button onclick="uncheckOptions('maingroup_options');yadcf.exResetFilters(catalogTable, [4]);yadcf.exFilterColumn(catalogTable, [[4, ['Rings`']]]);selectedFilters('Rings');" class="btn-filter">Rings</button>
             </div>
             <div class="col-xs-2" style="display:flex;justify-content: center;padding:2px;">
-                <button onclick="uncheckOptions('maingroup_options');yadcf.exResetFilters(oTable, [4]);yadcf.exFilterColumn(oTable, [[4, ['Earrings`']]]);selectedFilters('Earrings');" class="btn-filter">Earrings</button>
+                <button onclick="uncheckOptions('maingroup_options');yadcf.exResetFilters(catalogTable, [4]);yadcf.exFilterColumn(catalogTable, [[4, ['Earrings`']]]);selectedFilters('Earrings');" class="btn-filter">Earrings</button>
             </div>
             <div class="col-xs-2" style="display:flex;justify-content: center;padding:2px;">
-                <button onclick="uncheckOptions('maingroup_options');yadcf.exResetFilters(oTable, [4]);yadcf.exFilterColumn(oTable, [[4, ['Bracelets`']]]);selectedFilters('Bracelets');" class="btn-filter">Bracelets</button>
+                <button onclick="uncheckOptions('maingroup_options');yadcf.exResetFilters(catalogTable, [4]);yadcf.exFilterColumn(catalogTable, [[4, ['Bracelets`']]]);selectedFilters('Bracelets');" class="btn-filter">Bracelets</button>
             </div>
             <div class="col-xs-2" style="display:flex;justify-content: center;padding:2px;">
-                <button onclick="uncheckOptions('maingroup_options');yadcf.exResetFilters(oTable, [4]);yadcf.exFilterColumn(oTable, [[4, ['Pendants`']]]);selectedFilters('Pendants');" class="btn-filter">Pendants</button>
+                <button onclick="uncheckOptions('maingroup_options');yadcf.exResetFilters(catalogTable, [4]);yadcf.exFilterColumn(catalogTable, [[4, ['Pendants`']]]);selectedFilters('Pendants');" class="btn-filter">Pendants</button>
             </div>
             <div class="col-xs-2" style="display:flex;justify-content: center;padding:2px;">
-                <button onclick="uncheckOptions('maingroup_options');yadcf.exResetFilters(oTable, [4]);yadcf.exFilterColumn(oTable, [[4, ['Necklaces`']]]);selectedFilters('Necklaces');" class="btn-filter">Necklaces</button>
+                <button onclick="uncheckOptions('maingroup_options');yadcf.exResetFilters(catalogTable, [4]);yadcf.exFilterColumn(catalogTable, [[4, ['Necklaces`']]]);selectedFilters('Necklaces');" class="btn-filter">Necklaces</button>
             </div>
             <div class="col-xs-2" style="display:flex;justify-content: center;padding:2px;">
-                <button onclick="uncheckOptions('maingroup_options');yadcf.exResetFilters(oTable, [4]);yadcf.exFilterColumn(oTable, [[4, ['Watches`']]]);selectedFilters('Watches');" class="btn-filter">Watches</button>
+                <button onclick="uncheckOptions('maingroup_options');yadcf.exResetFilters(catalogTable, [4]);yadcf.exFilterColumn(catalogTable, [[4, ['Watches`']]]);selectedFilters('Watches');" class="btn-filter">Watches</button>
             </div>
         </div>
 
@@ -302,7 +302,7 @@
                 <td style="width:25px;"><img src="http://85.214.165.56:81/coster/www/images/x.png" style="float:left;width:15px;" onclick="toggleFilters();" /></td>
                 <td style="text-align:left;vertical-align:bottom;"><span style="font-size:14px;float:left;">FILTER AND SORT RESULTS<span></td>
                 <td><span onclick="$('.all').trigger('click');toggleFilters();selectedFilters();" style="float:left;font-size:14px;margin-top:0px;">Reset</span></td>
-                <td><span onclick="yadcf.exFilterExternallyTriggered(oTable);toggleFilters();selectedFilters();" style="float:right;font-size:14px;margin-top:0px;">Apply</span></td></tr></table>
+                <td><span onclick="yadcf.exFilterExternallyTriggered(catalogTable);toggleFilters();selectedFilters();" style="float:right;font-size:14px;margin-top:0px;">Apply</span></td></tr></table>
 
             </div>
       <!--      <div class="filters border" style="margin-top:20px;">
@@ -312,21 +312,21 @@
            <div class="filters border">
              <div style="padding-top:5px;padding-bottom:5px;margin-top:30px;">
               <span onclick="showFilters('itemid','Item ID');" style="float:left;">Item ID</span>
-              <span onclick="$('#flitemid').val('');$('#itemidSelected').html('');yadcf.exResetFilters(oTable, [0]);" class="all">All</span>
+              <span onclick="$('#flitemid').val('');$('#itemidSelected').html('');yadcf.exResetFilters(catalogTable, [0]);" class="all">All</span>
             </div>
             <span id="itemidSelected" style="float:left;font-size:10px;opacity:0.6;"></span>
           </div>
            <div class="filters border">
              <div style="padding-top:5px;padding-bottom:5px;">
               <span onclick="showFilters('maingroup','Category');" style="float:left;">Category</span>
-              <span onclick="uncheckOptions('maingroup_options');$('#mainGroupSelected').html('');yadcf.exResetFilters(oTable, [4]);yadcf.exFilterColumn(oTable, [[4, []]]);" class="all">All</span>
+              <span onclick="uncheckOptions('maingroup_options');$('#mainGroupSelected').html('');yadcf.exResetFilters(catalogTable, [4]);yadcf.exFilterColumn(catalogTable, [[4, []]]);" class="all">All</span>
             </div>
             <span id="mainGroupSelected" style="float:left;font-size:10px;opacity:0.6;"></span>
            </div>
            <div class="filters border">
             <div style="padding-top:5px;padding-bottom:5px;">
               <span onclick="showFilters('material','Material');" style="float:left;">Material</span>
-              <span onclick="uncheckOptions('material_options');$('#materialSelected').html('');yadcf.exResetFilters(oTable, [14]);" class="all">All</span>
+              <span onclick="uncheckOptions('material_options');$('#materialSelected').html('');yadcf.exResetFilters(catalogTable, [14]);" class="all">All</span>
             </div>
               <span id="materialSelected" style="float:left;font-size:10px;opacity:0.6;"></span>
            </div>
@@ -334,7 +334,7 @@
            <div class="filters border">
             <div style="padding-top:5px;padding-bottom:5px;">
               <span onclick="showFilters('brand','Brand');" style="float:left;">Brand</span>
-              <span onclick="uncheckOptions('brand_options');$('#brandSelected').html('');yadcf.exResetFilters(oTable, [8]);" class="all">All</span>
+              <span onclick="uncheckOptions('brand_options');$('#brandSelected').html('');yadcf.exResetFilters(catalogTable, [8]);" class="all">All</span>
             </div>
               <span id="brandSelected" style="float:left;font-size:10px;opacity:0.6;"></span>
            </div>
@@ -342,7 +342,7 @@
            <div class="filters border">
                <div style="padding-top:5px;padding-bottom:5px;">
                  <span onclick="showFilters('price','Price');" style="float:left;">Price</span>
-                 <span onclick="$('#prfrom').val('');$('#prto').val('');$('#priceSelected').html('');yadcf.exResetFilters(oTable, [5]);" class="all">All</span>
+                 <span onclick="$('#prfrom').val('');$('#prto').val('');$('#priceSelected').html('');yadcf.exResetFilters(catalogTable, [5]);" class="all">All</span>
                </div>
              <span id="priceSelected" style="float:left;font-size:10px;opacity:0.6;"></span>
            </div>
@@ -350,7 +350,7 @@
            <div class="filters border">
               <div style="padding-top:5px;padding-bottom:5px;">
                 <span onclick="showFilters('discount','Discount');" style="float:left;">Discount</span>
-                <span onclick="uncheckOptions('discount_options');$('#discountSelected').html('');yadcf.exResetFilters(oTable, [6]);" class="all">All</span>
+                <span onclick="uncheckOptions('discount_options');$('#discountSelected').html('');yadcf.exResetFilters(catalogTable, [6]);" class="all">All</span>
               </div>
               <span id="discountSelected" style="float:left;font-size:10px;opacity:0.6;"></span>
            </div>
@@ -358,7 +358,7 @@
            <div class="filters border" style="margin-top:30px;">
               <div style="padding-top:5px;padding-bottom:5px;">
               <span onclick="showFilters('types','Type');" style="float:left;">Type</span>
-              <span onclick="uncheckOptions('types_options');$('#typesSelected').html('');yadcf.exResetFilters(oTable, [10]);" class="all">All</span>
+              <span onclick="uncheckOptions('types_options');$('#typesSelected').html('');yadcf.exResetFilters(catalogTable, [10]);" class="all">All</span>
             </div>
               <span id="typesSelected" style="float:left;font-size:10px;opacity:0.6;"></span>
            </div>
@@ -366,7 +366,7 @@
           <div class="filters border">
              <div style="padding-top:5px;padding-bottom:5px;">
                <span onclick="showFilters('stones','Amount of stones');" style="float:left;">Amount of stones</span>
-              <span onclick="$('#stfrom').val('');$('#stto').val('');$('#stonesSelected').html('');yadcf.exResetFilters(oTable, [17]);" class="all">All</span>
+              <span onclick="$('#stfrom').val('');$('#stto').val('');$('#stonesSelected').html('');yadcf.exResetFilters(catalogTable, [17]);" class="all">All</span>
             </div>
             <span id="stonesSelected" style="float:left;font-size:10px;opacity:0.6;"></span>
           </div>
@@ -374,7 +374,7 @@
           <div class="filters border">
              <div style="padding-top:5px;padding-bottom:5px;">
                <span onclick="showFilters('weight','Weight');" style="float:left;">Carat</span>
-              <span onclick="$('#wgfrom').val('');$('#wgto').val('');$('#weightsSelected').html('');yadcf.exResetFilters(oTable, [18]);" class="all">All</span>
+              <span onclick="$('#wgfrom').val('');$('#wgto').val('');$('#weightsSelected').html('');yadcf.exResetFilters(catalogTable, [18]);" class="all">All</span>
             </div>
             <span id="weightsSelected" style="float:left;font-size:10px;opacity:0.6;"></span>
           </div>
@@ -382,7 +382,7 @@
           <div class="filters border">
             <div style="padding-top:5px;padding-bottom:5px;">
               <span onclick="showFilters('cut','Cut');" style="float:left;">Cut</span>
-              <span onclick="uncheckOptions('cut_options');$('#cutSelected').html('');yadcf.exResetFilters(oTable, [9]);" class="all">All</span>
+              <span onclick="uncheckOptions('cut_options');$('#cutSelected').html('');yadcf.exResetFilters(catalogTable, [9]);" class="all">All</span>
             </div>
             <span id="cutSelected" style="float:left;font-size:10px;opacity:0.6;"></span>
           </div>
@@ -390,7 +390,7 @@
           <div class="filters border">
              <div style="padding-top:5px;padding-bottom:5px;">
              <span onclick="showFilters('colour','Colour');" style="float:left;">Colour</span>
-             <span onclick="uncheckOptions('colour_options');$('#colourSelected').html('');yadcf.exResetFilters(oTable, [16]);" class="all">All</span>
+             <span onclick="uncheckOptions('colour_options');$('#colourSelected').html('');yadcf.exResetFilters(catalogTable, [16]);" class="all">All</span>
            </div>
             <span id="colourSelected" style="float:left;font-size:10px;opacity:0.6;"></span>
           </div>
@@ -398,12 +398,12 @@
           <div class="filters border">
              <div style="padding-top:5px;padding-bottom:5px;">
              <span onclick="showFilters('clarity','Clarity');" style="float:left;">Clarity</span>
-             <span onclick="uncheckOptions('clarity_options');$('#claritySelected').html('');yadcf.exResetFilters(oTable, [15]);" class="all">All</span>
+             <span onclick="uncheckOptions('clarity_options');$('#claritySelected').html('');yadcf.exResetFilters(catalogTable, [15]);" class="all">All</span>
            </div>
             <span id="claritySelected" style="float:left;font-size:10px;opacity:0.6;"></span>
           </div>
          </div>
-      <!--   <button onclick="yadcf.exFilterExternallyTriggered(oTable);toggleFilters();" class="btn-black" style="left:5%;position:absolute;bottom:20px;min-width:90%;width:90%;">CONFIRM</button> -->
+      <!--   <button onclick="yadcf.exFilterExternallyTriggered(catalogTable);toggleFilters();" class="btn-black" style="left:5%;position:absolute;bottom:20px;min-width:90%;width:90%;">CONFIRM</button> -->
        </div>
 
     </div>
@@ -650,7 +650,7 @@
                 </div>
                 <div class="modal-body">
                     <div nobrowser style="padding:5px;width:100%;text-align:center;">
-              <!--        <img class='share' onclick="shareItem(this);" style='width:30px;margin-left:3px;margin-top:-3px;' src='http://85.214.165.56:81/coster/www/images/share.png' />-->
+              <!--        <img class='share' onclick="shareItem(this);" style='width:30px;margin-left:3px;margin-top:-3px;' src='http://85.214.165.56:81/coster/www/images/share.png' /> -->
                       <img  onclick="downloadItem(this);" style='width:26px;margin-left:3px;margin-top:-3px;' src='http://85.214.165.56:81/coster/www/images/download.png' />
 
                     </div>
@@ -774,7 +774,7 @@
 function onScroll() {
   console.log("scroll")
     if (($("#items_div")[0].scrollTop + $("#items_div").height()) >= ($("#items_div")[0].scrollHeight - 50)) {
-        oTable.page('next').draw('page');
+        catalogTable.page('next').draw('page');
     }
 
 }
@@ -782,19 +782,19 @@ function loadMore(next = true) {
 
     $("#items_div").unbind('scroll');
 
-    var info = oTable.page.info();
+    var info = catalogTable.page.info();
 
     if (next) {
       if(info.page + 1 === info.pages) {
         return;
       }
-      oTable.page('next').draw('page');
+      catalogTable.page('next').draw('page');
     //  $('#items_div').scrollTop(100);
     } else {
       if(info.page  == 0) {
         return;
       }
-      oTable.page('previous').draw('page');
+      catalogTable.page('previous').draw('page');
 //        $('#items_div').scrollTop(250);
     }
 
@@ -823,7 +823,7 @@ function loadMore(next = true) {
         window.addEventListener("message", receiveMessage, false);
         var loadcount = 1;
 
-        oTable = $('#products').DataTable({
+        catalogTable = $('#products').DataTable({
             "info": false,
             "pagingType": "simple",
             "pageLength": 12,
@@ -841,7 +841,7 @@ function loadMore(next = true) {
                 })
                 return false;
               }
-              var info = oTable.page.info();
+              var info = catalogTable.page.info();
 
                 var ldv = null;
                 $.each($("#products").find("tbody").find("tr"), function(ind) {
@@ -882,11 +882,11 @@ function loadMore(next = true) {
                  $('<div class="row" id="navigation" style=""><div class="col-md-6 col-xs-6"><button id="pb" class="btn-black">TOP</div><div class="col-md-6 col-xs-6"><button id="nb" class="btn-black">LOAD MORE</div></div>').appendTo($("#items_div"));
               //  alert(ldv.html());
               $("#nb").bind("click", function() {
-                oTable.page('next').draw('page');
+                catalogTable.page('next').draw('page');
               })
               $("#pb").bind("click", function() {
                 $("#items_div").html("")
-                    oTable.page(0).draw('page');
+                    catalogTable.page(0).draw('page');
               })
             $.LoadingOverlay("hide");
                 $(window).scrollTop(0);
@@ -1156,7 +1156,7 @@ function loadMore(next = true) {
 
                         if (localStorage.currency !== undefined) {
                           if (localStorage.currency != $("#currency").val()) {
-                            oTable.draw();
+                            catalogTable.draw();
                           //  localStorage.currency = $("#currency").val();
                           }
                         }
@@ -1214,7 +1214,7 @@ function loadMore(next = true) {
 
               setTimeout(function() {
 
-                  yadcf.init(oTable, [{
+                  yadcf.init(catalogTable, [{
                               style_class: "form-control",
                               filter_container_id: "filter_serial",
                               filter_type: "text",
@@ -1343,7 +1343,7 @@ function loadMore(next = true) {
             }
         })
 
-        oTable.on('search.dt', function() {
+        catalogTable.on('search.dt', function() {
             $("#items_div").attr("sheight", $("#items_div").height());
             $("#items_div").html("");
 
@@ -1352,10 +1352,10 @@ function loadMore(next = true) {
 
 function collectFilters() {
   var shouldReset = true;
-  var vals = yadcf.exGetColumnFilterVal(oTable, 0);
+  var vals = yadcf.exGetColumnFilterVal(catalogTable, 0);
   $("#itemidSelected").html(vals);
 
-   var vals = yadcf.exGetColumnFilterVal(oTable, 14);
+   var vals = yadcf.exGetColumnFilterVal(catalogTable, 14);
    if (vals.length > 0) {
      var vv = [];
      $.each(vals, function() {
@@ -1372,7 +1372,7 @@ function collectFilters() {
        }
      })
    }
-   var vals = yadcf.exGetColumnFilterVal(oTable, 10);
+   var vals = yadcf.exGetColumnFilterVal(catalogTable, 10);
    if (vals.length > 0) {
      var vv = [];
      $.each(vals, function() {
@@ -1391,7 +1391,7 @@ function collectFilters() {
      })
    }
 
-   var vals = yadcf.exGetColumnFilterVal(oTable, 9);
+   var vals = yadcf.exGetColumnFilterVal(catalogTable, 9);
    if (vals.length > 0) {
      var vv = [];
      $.each(vals, function() {
@@ -1408,7 +1408,7 @@ function collectFilters() {
        }
      })
    }
-   var vals = yadcf.exGetColumnFilterVal(oTable, 8);
+   var vals = yadcf.exGetColumnFilterVal(catalogTable, 8);
    if (vals.length > 0) {
      var vv = [];
      $.each(vals, function() {
@@ -1426,7 +1426,7 @@ function collectFilters() {
      })
    }
 
-   var vals = yadcf.exGetColumnFilterVal(oTable, 16);
+   var vals = yadcf.exGetColumnFilterVal(catalogTable, 16);
    if (vals.length > 0) {
      var vv = [];
      $.each(vals, function() {
@@ -1444,7 +1444,7 @@ function collectFilters() {
      })
    }
 
-   var vals = yadcf.exGetColumnFilterVal(oTable, 15);
+   var vals = yadcf.exGetColumnFilterVal(catalogTable, 15);
    if (vals.length > 0) {
      var vv = [];
      $.each(vals, function() {
@@ -1462,14 +1462,14 @@ function collectFilters() {
      })
    }
 
-   var vals = yadcf.exGetColumnFilterVal(oTable, 5);
+   var vals = yadcf.exGetColumnFilterVal(catalogTable, 5);
    $("#prfrom").val(vals.from);
    $("#prto").val(vals.to);
    if (vals.from != "" || vals.to != "") {
      $("#priceSelected").html(vals.from + " - " + vals.to);
    }
 
-   var vals = yadcf.exGetColumnFilterVal(oTable, 17);
+   var vals = yadcf.exGetColumnFilterVal(catalogTable, 17);
    $("#stfrom").val(vals.from);
    $("#stto").val(vals.to);
    if (vals.from != "" || vals.to != "") {
@@ -1478,21 +1478,25 @@ function collectFilters() {
 
    }
 
-   var vals = yadcf.exGetColumnFilterVal(oTable, 18);
+   var vals = yadcf.exGetColumnFilterVal(catalogTable, 18);
    $("#wgfrom").val(vals.from);
    $("#wgto").val(vals.to);
    if (vals.from != "" || vals.to != "") {
      $("#weightsSelected").html(vals.from + " - " + vals.to);
    }
 
-   var vals = yadcf.exGetColumnFilterVal(oTable, 6);
+   var vals = yadcf.exGetColumnFilterVal(catalogTable, 6);
    if (vals != "") {
-     $("[value='" + vals + "']")[0].checked = true;
-     if (vals == "!discount=0") {
-       $("#discountSelected").html("No Discount");
-     } else {
-       $("#discountSelected").html("Discount");
-     }
+     try {
+         $("[value='" + vals + "']")[0].checked = true;
+         if (vals == "!discount=0") {
+           $("#discountSelected").html("No Discount");
+         } else {
+           $("#discountSelected").html("Discount");
+         }
+       } catch(err) {
+         
+       }
    }
 
    setTimeout(function() {
@@ -1512,15 +1516,15 @@ function collectFilters() {
             if (a[0] == "changeCurrency") {
 
                 $("#currency").val(a[1]);
-                oTable.draw();
+                catalogTable.draw();
             }
             if (a[0] == "setWatches") {
 
 
             }
             if (a[0] == "setRings") {
-                yadcf.exResetAllFilters(oTable);
-                yadcf.exFilterColumn(oTable, [
+                yadcf.exResetAllFilters(catalogTable);
+                yadcf.exFilterColumn(catalogTable, [
                     [4, ['Rings`']]
                 ]);
 
@@ -1528,8 +1532,8 @@ function collectFilters() {
         }
         /* $('#products').on('click', 'tbody tr', function() {
 
-            var node = oTable.row(this).node();
-            var data = oTable.row(this).data();
+            var node = catalogTable.row(this).node();
+            var data = catalogTable.row(this).data();
 
             $("#product_image").attr("src", $(node).find("img").eq(0).attr("src"));
             $("#title").html(data["productName"]);
@@ -1650,7 +1654,7 @@ function collectFilters() {
 
       if ($("#div_filter").is(":visible")) {
     //maingroup
-        var vals = yadcf.exGetColumnFilterVal(oTable,4);
+        var vals = yadcf.exGetColumnFilterVal(catalogTable,4);
         $.each($("#maingroup_options").find("[opt]"), function() {
           var txt = $(this).closest(".options_item").find("span").eq(0).attr("vl");
           if (vals.indexOf(txt) > -1) {
@@ -1684,7 +1688,7 @@ function collectFilters() {
     }
     function showFilters(group) {
       if (group == "maingroup") {
-        var vals = yadcf.exGetColumnFilterVal(oTable,4);
+        var vals = yadcf.exGetColumnFilterVal(catalogTable,4);
         $.each($("#maingroup_options").find("input"), function() {
           var txt = $(this).closest(".options_item").find("span").eq(0).attr("vl");
           if (vals.indexOf(txt) > -1) {
@@ -1694,7 +1698,7 @@ function collectFilters() {
         })
       }
       if (group == "discount") {
-          var vals = yadcf.exGetColumnFilterVal(oTable,6);
+          var vals = yadcf.exGetColumnFilterVal(catalogTable,6);
         //  alert(JSON.stringify(vals))
       }
       $("#div_filter").hide();
@@ -1733,12 +1737,12 @@ function collectFilters() {
       $("#mainGroupSelected").html(sctd.join(","));
       if (fire) {
 
-        yadcf.exResetFilters(oTable, [4]);
-        yadcf.exFilterColumn(oTable, [[4, sctd_ex]]);
+        yadcf.exResetFilters(catalogTable, [4]);
+        yadcf.exFilterColumn(catalogTable, [[4, sctd_ex]]);
         closeFilter("maingroup");
       }
   //    alert("???")
-  //    yadcf.exFilterColumn(oTable, [[4, ['Rings`']]]);
+  //    yadcf.exFilterColumn(catalogTable, [[4, ['Rings`']]]);
 
     }
 
@@ -1757,11 +1761,11 @@ function collectFilters() {
 
       $("#materialSelected").html(sctd.join(","));
       if (fire) {
-        yadcf.exResetFilters(oTable, [14]);
-        yadcf.exFilterColumn(oTable, [[14, sctd_ex]]);
+        yadcf.exResetFilters(catalogTable, [14]);
+        yadcf.exFilterColumn(catalogTable, [[14, sctd_ex]]);
           closeFilter("material");
       }
-  //    yadcf.exFilterColumn(oTable, [[4, ['Rings`']]]);
+  //    yadcf.exFilterColumn(catalogTable, [[4, ['Rings`']]]);
 
     }
 
@@ -1780,11 +1784,11 @@ function collectFilters() {
 
       $("#brandSelected").html(sctd.join(","));
       if (fire) {
-        yadcf.exResetFilters(oTable, [8]);
-        yadcf.exFilterColumn(oTable, [[8, sctd_ex]]);
+        yadcf.exResetFilters(catalogTable, [8]);
+        yadcf.exFilterColumn(catalogTable, [[8, sctd_ex]]);
         closeFilter("brand");
       }
-  //    yadcf.exFilterColumn(oTable, [[4, ['Rings`']]]);
+  //    yadcf.exFilterColumn(catalogTable, [[4, ['Rings`']]]);
 
     }
 
@@ -1802,11 +1806,11 @@ function collectFilters() {
 
       $("#typesSelected").html(sctd.join(","));
       if (fire) {
-        yadcf.exResetFilters(oTable, [10]);
-        yadcf.exFilterColumn(oTable, [[10, sctd_ex]]);
+        yadcf.exResetFilters(catalogTable, [10]);
+        yadcf.exFilterColumn(catalogTable, [[10, sctd_ex]]);
         closeFilter("types");
       }
-  //    yadcf.exFilterColumn(oTable, [[4, ['Rings`']]]);
+  //    yadcf.exFilterColumn(catalogTable, [[4, ['Rings`']]]);
 
     }
 
@@ -1824,11 +1828,11 @@ function collectFilters() {
 
       $("#cutSelected").html(sctd.join(","));
       if (fire) {
-        yadcf.exResetFilters(oTable, [9]);
-        yadcf.exFilterColumn(oTable, [[9, sctd_ex]]);
+        yadcf.exResetFilters(catalogTable, [9]);
+        yadcf.exFilterColumn(catalogTable, [[9, sctd_ex]]);
         closeFilter("cut");
       }
-  //    yadcf.exFilterColumn(oTable, [[4, ['Rings`']]]);
+  //    yadcf.exFilterColumn(catalogTable, [[4, ['Rings`']]]);
 
     }
 
@@ -1846,11 +1850,11 @@ function collectFilters() {
 
       $("#colourSelected").html(sctd.join(","));
       if (fire) {
-        yadcf.exResetFilters(oTable, [16]);
-        yadcf.exFilterColumn(oTable, [[16, sctd_ex]]);
+        yadcf.exResetFilters(catalogTable, [16]);
+        yadcf.exFilterColumn(catalogTable, [[16, sctd_ex]]);
         closeFilter("colour");
       }
-  //    yadcf.exFilterColumn(oTable, [[4, ['Rings`']]]);
+  //    yadcf.exFilterColumn(catalogTable, [[4, ['Rings`']]]);
 
     }
 
@@ -1868,11 +1872,11 @@ function collectFilters() {
 
       $("#claritySelected").html(sctd.join(","));
       if (fire) {
-        yadcf.exResetFilters(oTable, [15]);
-        yadcf.exFilterColumn(oTable, [[15, sctd_ex]]);
+        yadcf.exResetFilters(catalogTable, [15]);
+        yadcf.exFilterColumn(catalogTable, [[15, sctd_ex]]);
         closeFilter("clarity");
       }
-  //    yadcf.exFilterColumn(oTable, [[4, ['Rings`']]]);
+  //    yadcf.exFilterColumn(catalogTable, [[4, ['Rings`']]]);
 
     }
 
@@ -1883,8 +1887,8 @@ function collectFilters() {
         to: $("#prto").val()
       }
       if (fire) {
-        yadcf.exResetFilters(oTable, [5]);
-        yadcf.exFilterColumn(oTable, [[5, obj]]);
+        yadcf.exResetFilters(catalogTable, [5]);
+        yadcf.exFilterColumn(catalogTable, [[5, obj]]);
         closeFilter("price");
       }
       $("#priceSelected").html($("#prfrom").val() + " - " + $("#prto").val());
@@ -1893,8 +1897,8 @@ function collectFilters() {
 
     function fireItemID(fire = false) {
       if (fire) {
-        yadcf.exResetFilters(oTable, [0]);
-        yadcf.exFilterColumn(oTable, [[0, $("#flitemid").val()]]);
+        yadcf.exResetFilters(catalogTable, [0]);
+        yadcf.exFilterColumn(catalogTable, [[0, $("#flitemid").val()]]);
       }
       $("#itemidSelected").html($("#flitemid").val());
       closeFilter("itemid");
@@ -1905,8 +1909,8 @@ function collectFilters() {
         to: $("#stto").val()
       }
       if (fire) {
-        yadcf.exResetFilters(oTable, [17]);
-        yadcf.exFilterColumn(oTable, [[17, obj]]);
+        yadcf.exResetFilters(catalogTable, [17]);
+        yadcf.exFilterColumn(catalogTable, [[17, obj]]);
         closeFilter("stones");
       }
       $("#stonesSelected").html($("#stfrom").val() + " - " + $("#stto").val());
@@ -1919,8 +1923,8 @@ function collectFilters() {
         to: $("#wgto").val()
       }
       if (fire) {
-        yadcf.exResetFilters(oTable, [18]);
-        yadcf.exFilterColumn(oTable, [[18, obj]]);
+        yadcf.exResetFilters(catalogTable, [18]);
+        yadcf.exFilterColumn(catalogTable, [[18, obj]]);
         closeFilter("weight");
       }
       $("#weightsSelected").html($("#wgfrom").val() + " - " + $("#wgto").val());
@@ -1931,7 +1935,7 @@ function collectFilters() {
         this.checked = false;
       })
       $("#discountSelected").html("");
-      yadcf.exResetFilters(oTable, [6]);
+      yadcf.exResetFilters(catalogTable, [6]);
     }
     function fireDiscount(fire = false) {
       var vv = "";
@@ -1946,8 +1950,8 @@ function collectFilters() {
         return;
       }
      if (fire) {
-       yadcf.exResetFilters(oTable, [6]);
-       yadcf.exFilterColumn(oTable, [[6, vv]]);
+       yadcf.exResetFilters(catalogTable, [6]);
+       yadcf.exFilterColumn(catalogTable, [[6, vv]]);
        closeFilter("discount");
      }
       if (vv == "!discount=0") {

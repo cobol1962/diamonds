@@ -27,8 +27,9 @@ api = {
                     }
                   };
 
-              apiAjax.url = "http://85.214.165.56:81/api/index.php?request=" + endpoint;
-        
+            //  apiAjax.url = "http://85.214.165.56:81/api/index.php?request=" + endpoint;
+            apiAjax.url = "ttp://85.214.165.56:81/api/index.php?request=" + endpoint;
+
 
               for (var prop in ajaxExtend) {
                 if (ajaxExtend.hasOwnProperty(prop)) {

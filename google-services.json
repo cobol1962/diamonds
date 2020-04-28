@@ -1,0 +1,69 @@
+{
+  "project_info": {
+    "project_number": "672479124348",
+    "firebase_url": "https://costerapps-5d516.firebaseio.com",
+    "project_id": "costerapps-5d516",
+    "storage_bucket": "costerapps-5d516.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:672479124348:android:c9597c394579715c5f22f9",
+        "android_client_info": {
+          "package_name": "com.royalcoster.catalog"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "672479124348-f3vq7t8a24mdn231oujr87u5c6jhep92.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDhksrlUexSic8Gv5mYrjvv7v5plgyCX-A"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "672479124348-f3vq7t8a24mdn231oujr87u5c6jhep92.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:672479124348:android:a5c6e6424ba2bf105f22f9",
+        "android_client_info": {
+          "package_name": "com.royalcoster.salesapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "672479124348-f3vq7t8a24mdn231oujr87u5c6jhep92.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDhksrlUexSic8Gv5mYrjvv7v5plgyCX-A"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "672479124348-f3vq7t8a24mdn231oujr87u5c6jhep92.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

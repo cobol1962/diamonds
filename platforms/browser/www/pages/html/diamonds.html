@@ -220,7 +220,7 @@
             <td style="width:25px;"><img src="http://85.214.165.56:81/coster/www/images/x.png" style="float:left;width:15px;" onclick="toggleFilters();" /></td>
             <td style="text-align:left;vertical-align:bottom;"><span style="font-size:14px;float:left;">FILTER AND SORT RESULTS<span></td>
             <td><span onclick="$('.all').trigger('click');toggleFilters();selectedFilters();" style="float:left;font-size:14px;margin-top:0px;">Reset</span></td>
-            <td><span onclick="yadcf.exFilterExternallyTriggered(oTable);toggleFilters();selectedFilters();" style="float:right;font-size:14px;margin-top:0px;">Apply</span></td></tr></table>
+            <td><span id="apply" onclick="yadcf.exFilterExternallyTriggered(dTable);toggleFilters();selectedFilters();" style="float:right;font-size:14px;margin-top:0px;">Apply</span></td></tr></table>
 
         </div>
 
@@ -228,7 +228,7 @@
         <div class="filters border">
           <div style="padding-top:5px;padding-bottom:5px;margin-top:30px;">
            <span onclick="showFilters('itemid','Item ID');" style="float:left;">Item ID</span>
-           <span onclick="$('#flitemid').val('');$('#itemidSelected').html('');yadcf.exResetFilters(oTable, [2]);" class="all">All</span>
+           <span onclick="$('#flitemid').val('');$('#itemidSelected').html('');yadcf.exResetFilters(dTable, [2]);" class="all">All</span>
          </div>
          <span id="itemidSelected" style="float:left;font-size:10px;opacity:0.6;"></span>
        </div>
@@ -236,7 +236,7 @@
         <div class="filters border">
             <div style="padding-top:5px;padding-bottom:5px;">
               <span onclick="showFilters('price','Price');" style="float:left;">Price</span>
-              <span onclick="$('#prfrom').val('');$('#prto').val('');$('#priceSelected').html('');yadcf.exResetFilters(oTable, [8]);" class="all">All</span>
+              <span onclick="$('#prfrom').val('');$('#prto').val('');$('#priceSelected').html('');yadcf.exResetFilters(dTable, [8]);" class="all">All</span>
             </div>
           <span id="priceSelected" style="float:left;font-size:10px;opacity:0.6;"></span>
         </div>
@@ -244,7 +244,7 @@
         <div class="filters border">
            <div style="padding-top:5px;padding-bottom:5px;">
              <span onclick="showFilters('weight','Weight');" style="float:left;">Carat</span>
-            <span onclick="$('#wgfrom').val('');$('#wgto').val('');$('#weightsSelected').html('');yadcf.exResetFilters(oTable, [4]);" class="all">All</span>
+            <span onclick="$('#wgfrom').val('');$('#wgto').val('');$('#weightsSelected').html('');yadcf.exResetFilters(dTable, [4]);" class="all">All</span>
           </div>
           <span id="weightsSelected" style="float:left;font-size:10px;opacity:0.6;"></span>
         </div>
@@ -252,7 +252,7 @@
         <div class="filters border">
           <div style="padding-top:5px;padding-bottom:5px;">
             <span onclick="showFilters('cut','Cut');" style="float:left;">Cut</span>
-            <span onclick="uncheckOptions('cut_options');$('#cutSelected').html('');yadcf.exResetFilters(oTable, [7]);" class="all">All</span>
+            <span onclick="uncheckOptions('cut_options');$('#cutSelected').html('');yadcf.exResetFilters(dTable, [7]);" class="all">All</span>
           </div>
           <span id="cutSelected" style="float:left;font-size:10px;opacity:0.6;"></span>
         </div>
@@ -260,7 +260,7 @@
         <div class="filters border">
            <div style="padding-top:5px;padding-bottom:5px;">
            <span onclick="showFilters('clarity','Clarity');" style="float:left;">Clarity</span>
-           <span onclick="uncheckOptions('clarity_options');$('#claritySelected').html('');yadcf.exResetFilters(oTable, [6]);" class="all">All</span>
+           <span onclick="uncheckOptions('clarity_options');$('#claritySelected').html('');yadcf.exResetFilters(dTable, [6]);" class="all">All</span>
          </div>
           <span id="claritySelected" style="float:left;font-size:10px;opacity:0.6;"></span>
         </div>
@@ -269,12 +269,12 @@
         <div class="filters border">
            <div style="padding-top:5px;padding-bottom:5px;">
            <span onclick="showFilters('colour','Colour');" style="float:left;">Colour</span>
-           <span onclick="uncheckOptions('colour_options');$('#colourSelected').html('');yadcf.exResetFilters(oTable, [5]);" class="all">All</span>
+           <span onclick="uncheckOptions('colour_options');$('#colourSelected').html('');yadcf.exResetFilters(dTable, [5]);" class="all">All</span>
          </div>
           <span id="colourSelected" style="float:left;font-size:10px;opacity:0.6;"></span>
         </div>
 
-        <button onclick="yadcf.exFilterExternallyTriggered(oTable);toggleFilters();" class="btn-black" style="display:none;left:5%;position:absolute;bottom:20px;min-width:90%;width:90%;">CONFIRM</button>
+        <button onclick="yadcf.exFilterExternallyTriggered(dTable);toggleFilters();" class="btn-black" style="display:none;left:5%;position:absolute;bottom:20px;min-width:90%;width:90%;">CONFIRM</button>
 
      </div>
    </div>
@@ -410,10 +410,10 @@ function loadMore(next = true) {
     $("#items_div").unbind('scroll');
     clearTimeout(scrollTimeout);
     if (next) {
-      oTable.page('next').draw('page');
+      dTable.page('next').draw('page');
       $('#items_div').scrollTop(100);
     } else {
-      oTable.page('previous').draw('page');
+      dTable.page('previous').draw('page');
 //        $('#items_div').scrollTop(250);
     }
 
@@ -447,10 +447,9 @@ function loadMore(next = true) {
       });
       window.addEventListener("message", receiveMessage, false);
 
-      oTable = $('#products').DataTable({
+      dTable = $('#products').DataTable({
              dom: 'Bfrtip',
              "info": false,
-            "scrollX": true,
             "pageLength": 24,
              "processing": true,
              "serverSide": true,
@@ -476,7 +475,7 @@ function loadMore(next = true) {
                }
                $("#products_temp").find("tbody").find("tr").remove();
                $.each($("#products").find("tbody").find("tr"), function(ind) {
-                 var tr = oTable.row($(this));
+                 var tr = dTable.row($(this));
                  $(this).attr("data", JSON.stringify(tr.data()));
                   $(this).appendTo($("#products_temp").find("tbody"));
                 })
@@ -520,7 +519,7 @@ function loadMore(next = true) {
              ],
 
              "order": [[ 7, "asc" ], [9, "desc"]],
-             "stateSave":  true,
+             "stateSave":  false,
          })
 
          var cuts = [];
@@ -612,7 +611,7 @@ function loadMore(next = true) {
              })
              $("#currency").bind("change", function() {
 
-               oTable.draw();
+               dTable.draw();
              })
 
            }
@@ -629,7 +628,7 @@ function loadMore(next = true) {
        }
      }, 2000);
          setTimeout(function() {
-         yadcf.init(oTable, [
+         yadcf.init(dTable, [
          {
 
             filter_container_id: "filter_price",
@@ -688,7 +687,7 @@ function loadMore(next = true) {
              visibility: "visible"
            })
 
-          collectFilters();
+          collectFilters(true);
            $.each($(".options_item"), function() {
              var dv = $(this);
              dv.bind("click", function() {
@@ -708,7 +707,7 @@ function loadMore(next = true) {
            var a = event.data.split("#");
            if (a[0] == "changeCurrency") {
              $("#currency").val(a[1]);
-            oTable.draw();
+            dTable.draw();
            }
 
            if (a[0] == "findID") {
@@ -726,26 +725,26 @@ function loadMore(next = true) {
             $("#productDetail").modal("show");
           })
     });
-    function collectFilters() {
-      var vals = yadcf.exGetColumnFilterVal(oTable, 2);
+    function collectFilters(fire = false) {
+      var vals = yadcf.exGetColumnFilterVal(dTable, 2);
       $("#itemidSelected").html(vals);
 
 
-      var vals = yadcf.exGetColumnFilterVal(oTable, 8);
+      var vals = yadcf.exGetColumnFilterVal(dTable, 8);
       $("#prfrom").val(vals.from);
       $("#prto").val(vals.to);
       if (vals.from != "" || vals.to != "") {
         $("#priceSelected").html(vals.from + " - " + vals.to);
       }
 
-      var vals = yadcf.exGetColumnFilterVal(oTable, 4);
+      var vals = yadcf.exGetColumnFilterVal(dTable, 4);
       $("#wgfrom").val(vals.from);
       $("#wgto").val(vals.to);
       if (vals.from != "" || vals.to != "") {
         $("#weightsSelected").html(vals.from + " - " + vals.to);
       }
 
-      var vals = yadcf.exGetColumnFilterVal(oTable, 7);
+      var vals = yadcf.exGetColumnFilterVal(dTable, 7);
       if (vals.length > 0) {
         var vv = [];
         $.each(vals, function() {
@@ -760,7 +759,7 @@ function loadMore(next = true) {
         })
       }
 
-      var vals = yadcf.exGetColumnFilterVal(oTable, 6);
+      var vals = yadcf.exGetColumnFilterVal(dTable, 6);
       if (vals.length > 0) {
         var vv = [];
         $.each(vals, function() {
@@ -775,7 +774,7 @@ function loadMore(next = true) {
         })
       }
 
-      var vals = yadcf.exGetColumnFilterVal(oTable, 5);
+      var vals = yadcf.exGetColumnFilterVal(dTable, 5);
 
       if (vals.length > 0) {
         var vv = [];
@@ -790,14 +789,18 @@ function loadMore(next = true) {
           }
         })
       }
+
       setTimeout(function() {
         toggleFilters();
-        toggleFilters();
+      
+        if (fire) {
+          $("#apply").trigger("click");
+        }
      }, 500);
     }
     function checkAddToInvoice(itemid) {
       setTimeout(function() {
-            //  var row = oTable.row('#' + $("#productDetail").attr("itemid"));
+            //  var row = dTable.row('#' + $("#productDetail").attr("itemid"));
               var row = $("#products_temp").find("#" + $("#productDetail").attr("itemid"));
               var data = $.parseJSON(row.attr("data"));
 
@@ -852,7 +855,7 @@ function loadMore(next = true) {
     }
     function showFilters(group) {
       if (group == "maingroup") {
-        var vals = yadcf.exGetColumnFilterVal(oTable,4);
+        var vals = yadcf.exGetColumnFilterVal(dTable,4);
         $.each($("#maingroup_options").find("input"), function() {
           var txt = $(this).closest(".options_item").find("span").eq(0).attr("vl");
           if (vals.indexOf(txt) > -1) {
@@ -862,7 +865,7 @@ function loadMore(next = true) {
         })
       }
       if (group == "discount") {
-          var vals = yadcf.exGetColumnFilterVal(oTable,6);
+          var vals = yadcf.exGetColumnFilterVal(dTable,6);
         //  alert(JSON.stringify(vals))
       }
       $("#div_filter").hide();
@@ -887,8 +890,8 @@ function loadMore(next = true) {
     }
     function fireItemID(fire = false) {
       if (fire) {
-        yadcf.exResetFilters(oTable, [2]);
-        yadcf.exFilterColumn(oTable, [[2, $("#flitemid").val()]]);
+        yadcf.exResetFilters(dTable, [2]);
+        yadcf.exFilterColumn(dTable, [[2, $("#flitemid").val()]]);
         closeFilter("itemid");
       }
       $("#itemidSelected").html($("#flitemid").val());
@@ -900,8 +903,8 @@ function loadMore(next = true) {
         to: $("#prto").val()
       }
       if (fire) {
-        yadcf.exResetFilters(oTable, [8]);
-        yadcf.exFilterColumn(oTable, [[8, obj]]);
+        yadcf.exResetFilters(dTable, [8]);
+        yadcf.exFilterColumn(dTable, [[8, obj]]);
         closeFilter("price");
       }
       $("#priceSelected").html($("#prfrom").val() + " - " + $("#prto").val());
@@ -921,11 +924,11 @@ function loadMore(next = true) {
 
       $("#colourSelected").html(sctd.join(","));
       if (fire) {
-        yadcf.exResetFilters(oTable, [5]);
-        yadcf.exFilterColumn(oTable, [[5, sctd_ex]]);
+        yadcf.exResetFilters(dTable, [5]);
+        yadcf.exFilterColumn(dTable, [[5, sctd_ex]]);
         closeFilter("colour");
       }
-  //    yadcf.exFilterColumn(oTable, [[4, ['Rings`']]]);
+  //    yadcf.exFilterColumn(dTable, [[4, ['Rings`']]]);
     //  closeFilter("colour");
     }
     function fireWeight(fire = false) {
@@ -934,8 +937,8 @@ function loadMore(next = true) {
         to: $("#wgto").val()
       }
       if (fire) {
-        yadcf.exResetFilters(oTable, [4]);
-        yadcf.exFilterColumn(oTable, [[4, obj]]);
+        yadcf.exResetFilters(dTable, [4]);
+        yadcf.exFilterColumn(dTable, [[4, obj]]);
         closeFilter("weight");
       }
       $("#weightsSelected").html($("#wgfrom").val() + " - " + $("#wgto").val());
@@ -956,11 +959,11 @@ function loadMore(next = true) {
 
       $("#cutSelected").html(sctd.join(","));
       if (fire) {
-        yadcf.exResetFilters(oTable, [7]);
-        yadcf.exFilterColumn(oTable, [[7, sctd_ex]]);
+        yadcf.exResetFilters(dTable, [7]);
+        yadcf.exFilterColumn(dTable, [[7, sctd_ex]]);
         closeFilter("cut");
       }
-  //    yadcf.exFilterColumn(oTable, [[4, ['Rings`']]]);
+  //    yadcf.exFilterColumn(dTable, [[4, ['Rings`']]]);
     //
     }
     function fireClarity(fire = false) {
@@ -977,11 +980,11 @@ function loadMore(next = true) {
 
       $("#claritySelected").html(sctd.join(","));
       if (fire) {
-        yadcf.exResetFilters(oTable, [6]);
-        yadcf.exFilterColumn(oTable, [[6, sctd_ex]]);
+        yadcf.exResetFilters(dTable, [6]);
+        yadcf.exFilterColumn(dTable, [[6, sctd_ex]]);
         closeFilter("clarity");
       }
-  //    yadcf.exFilterColumn(oTable, [[4, ['Rings`']]]);
+  //    yadcf.exFilterColumn(dTable, [[4, ['Rings`']]]);
       //
     }
     function fireClosest(obj) {
@@ -989,23 +992,23 @@ function loadMore(next = true) {
     }
     function changeCurrency(v) {
       $("#currency").val(v);
-      oTable.draw();
+      dTable.draw();
     }
     function reset() {
       $('.all').trigger('click');
     }
     function findID(id) {
-    
+
      if (id == "") {
-       yadcf.exResetFilters(oTable, [2]);
+       yadcf.exResetFilters(dTable, [2]);
        $("itemidSelected").html("");
         selectedFilters();
        return;
      }
       $('.all').trigger('click');
       $("#flitemid").val(id);
-      yadcf.exResetFilters(oTable, [2]);
-      yadcf.exFilterColumn(oTable, [[2, $("#flitemid").val()]]);
+      yadcf.exResetFilters(dTable, [2]);
+      yadcf.exFilterColumn(dTable, [[2, $("#flitemid").val()]]);
       $("#itemidSelected").html($("#flitemid").val());
        selectedFilters();
     }
