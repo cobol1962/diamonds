@@ -4,6 +4,8 @@
     <description>
         Coster Sales App.
     </description>
+      <widget versionCode="1.0.0">
+    </widget>
     <author email="office@royalcoster.com" href="http://phonegap.com">
         Coster Diamonds team
     </author>
