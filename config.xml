@@ -11,7 +11,7 @@
      <icon src="icon.png" />
     <preference name="DisallowOverscroll" value="true" />
     <preference name="android-minSdkVersion" value="19" />
-     <preference name="android-targetSdkVersion" value="28" />
+     <preference name="android-targetSdkVersion" value="27" />
      <preference name="phonegap-version" value="cli-8.0.0" />
     <plugin name="cordova-plugin-battery-status" source="npm" spec="~1.2.4" />
     <plugin name="cordova-plugin-camera" source="npm" spec="~2.4.1" />
