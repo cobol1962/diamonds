@@ -43,7 +43,9 @@
         <allow-intent href="itms-apps:*" />
     </platform>
     <plugin name="cordova-plugin-fcm" source="npm" />
-  
+    <platform name="android">
+      <resource-file src="google-services.json" target="app/google-services.json" />
+    </platform>
     <gap:plugin name="cordova-plugin-whitelist" source="npm" />
     <gap:plugin name="cordova-plugin-statusbar" source="npm" />
     <gap:plugin name="cordova-plugin-fullscreen" source="npm" />
