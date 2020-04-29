@@ -784,7 +784,7 @@ function getSerial(search = false, notavailable = false) {
       }
     });
   } catch(err) {
-    
+
   }
 }
 function checkSteps() {
@@ -873,7 +873,6 @@ $( "#spf" ).validate({
         localStorage.salePersonName = $("#salespersonname").val();
         if (app && localStorage.sp !== undefined) {
             cordova.getAppVersion.getVersionNumber().then(function (version) {
-              alert(version);
               ws = new ReconnectingWebSocket(version);
             });
         } else {
