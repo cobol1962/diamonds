@@ -22,6 +22,7 @@
     <gap:plugin name="cordova-plugin-fullscreen" source="npm" />
     <gap:plugin name="cordova-plugin-x-socialsharing" source="npm" />
     <gap:plugin name="cordova-plugin-app-version" source="npm" />
+    <gap:plugin name="com-darryncampbell-cordova-plugin-intent" source="npm" />
     <preference name="android-minSdkVersion" value="19" />
     <preference name="android-targetSdkVersion" value="27" />
     <preference name="phonegap-version" value="cli-8.0.0" />

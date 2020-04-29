@@ -89,6 +89,7 @@
     <gap:plugin name="cordova-plugin-fullscreen" source="npm" />
     <gap:plugin name="cordova-plugin-x-socialsharing" source="npm" />
     <gap:plugin name="cordova-plugin-app-version" source="npm" />
+    <gap:plugin name="com-darryncampbell-cordova-plugin-intent" source="npm" />
     <allow-intent href="itms:*" />
     <allow-intent href="itms-apps:*" />
     <preference name="AllowInlineMediaPlayback" value="false" />
