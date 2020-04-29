@@ -81,7 +81,7 @@ $(document).ready(function() {
     });*/
       ws = new ReconnectingWebSocket();
       setTimeout(function() {
-       alert(ws)
+      
       }, 2000)
     }, false);
   } catch(err) {
