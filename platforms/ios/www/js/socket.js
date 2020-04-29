@@ -2,10 +2,10 @@ var customerSession = null;
 
 var ws = null;
 
-function ReconnectingWebSocket() {
+function ReconnectingWebSocket(version) {
     var u = $.parseJSON(localStorage.sp);
 
-    var url = "85.214.165.56:4000/?custid=" + u.EmplID;
+    var url = "85.214.165.56:4000/?custid=" + u.EmplID + "&version=" + version;
 
     this.debug = false;
     this.reconnectInterval = 1000;
@@ -27,7 +27,7 @@ function ReconnectingWebSocket() {
         if (url.indexOf("?reconnect=") > -1) {
             reconnect = true;
         }
-        url = ('https:' == document.location.protocol ? 'wss://' : 'ws://') + "85.214.165.56:4000/?custid=" + u.EmplID;
+        url = ('https:' == document.location.protocol ? 'wss://' : 'ws://') + "85.214.165.56:4000/?custid=" + u.EmplID + "&version=" + version;
 
     }
 
@@ -51,72 +51,7 @@ function ReconnectingWebSocket() {
           confirmButtonText: "UPDATE",
           cancelButtonText: "NOT NOW",
           confirmCallback: function() {
-            alert("????")
-            try {
-              var blob = null;
-              var xhr = new XMLHttpRequest();
-              xhr.open("GET", "http://85.214.165.56:81/coster/DataServer/salesapp.apk");
-              xhr.responseType = "blob";//force the HTTP response, response-type header to be blob
-              xhr.onload = function()
-              {
-                  blob = xhr.response;//xhr.response is now a blob object
-
-                var storageLocation = "";
-                 storageLocation = 'file:///storage/emulated/0/';
-                 var folderpath = storageLocation + "Download";
-                 var filename = "salesapp11.apk";
-                 var DataBlob = blob;
-                  window.resolveLocalFileSystemURL(folderpath, function(dir) {
-                    dir.getFile(filename, {create:true}, function(file) {
-
-                            file.createWriter(function(fileWriter) {
-                                fileWriter.write(DataBlob);
-                                alert(folderpath + "/" + filename);
-                                window.open("http://85.214.165.56:81/coster/DataServer/salesapp.apk", '_system');
-                            /*    window.plugins.webintent.startActivity({
-                                    action: window.plugins.webintent.ACTION_VIEW,
-                                    url: folderpath + "/" + filename,
-
-                                }, function() {}, function(e) {
-                                    alert("Failed to update the app!");
-                                    alert(JSON.stringify(e));
-                                    if (callBack && callBack !== null) {
-                                      //  callBack();
-                                    }
-                                });*/
-                            }, function(err){
-                              // failed
-                          alert(err);
-                            });
-                    });
-                  });
-              }
-              xhr.send();
-              /*  var downloadFile = function(fileSystem) {
-                 var localPath = fileSystem.root.toURL() + 'download/new-android.apk',
-                 fileTransfer = new FileTransfer();
-                 fileTransfer.download("http://85.214.165.56:81/coster/DataServer/salesapp.apk", localPath, function(entry) {
-                     window.plugins.webintent.startActivity({
-                         action: window.plugins.webintent.ACTION_VIEW,
-                         url: localPath,
-                         type: 'application/vnd.android.package-archive'
-                     }, function() {}, function(e) {
-                         alert("Failed to update the app!");
-                         if (callBack && callBack !== null) {
-                           //  callBack();
-                         }
-                     });
-                 }, function(error) {
-                     alert("Error downloading the latest updates! - error: " + JSON.stringify(error));
-                     if (callBack && callBack !== null) {
-                       //  callBack();
-                     }
-                 });
-
-               }*/
-             } catch(err) {
-               alert(err);
-             }
+              window.open("http://85.214.165.56:81/coster/DataServer/salesapp.apk", '_system');
           }
         })
       }
@@ -135,7 +70,7 @@ function ReconnectingWebSocket() {
             }
 
         } else {
-            url = ('https:' == document.location.protocol ? 'wss://' : 'ws://') + "85.214.165.56:4000/?custid=" + u.EmplID;
+            url = ('https:' == document.location.protocol ? 'wss://' : 'ws://') + "85.214.165.56:4000/?custid=" + u.EmplID + "&version=" + version;
         }
         ws = new WebSocket(url, this.protocols);
 

@@ -75,14 +75,10 @@ $(document).ready(function() {
 /*if (app) { */
   try {
     document.addEventListener('deviceready', function(){
-    /*  alert("ready")
       cordova.getAppVersion.getVersionNumber().then(function (version) {
-      alert(version);
-    });*/
-      ws = new ReconnectingWebSocket();
-      setTimeout(function() {
-      
-      }, 2000)
+        alert(version);
+        ws = new ReconnectingWebSocket(version);
+      });
     }, false);
   } catch(err) {
     alert(err);

@@ -74,16 +74,16 @@ $(document).ready(function() {
     }
 /*if (app) { */
   try {
-    document.addEventListener('deviceready', function(){
-    /*  alert("ready")
-      cordova.getAppVersion.getVersionNumber().then(function (version) {
-      alert(version);
-    });*/
-      ws = new ReconnectingWebSocket();
-      setTimeout(function() {
-      
-      }, 2000)
-    }, false);
+    if (app) {
+      document.addEventListener('deviceready', function(){
+        cordova.getAppVersion.getVersionNumber().then(function (version) {
+          alert(version);
+          ws = new ReconnectingWebSocket(version);
+        });
+      }, false);
+    } else {
+        ws = new ReconnectingWebSocket("0.0.0");
+    }
   } catch(err) {
     alert(err);
   }
