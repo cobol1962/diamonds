@@ -55,7 +55,7 @@ function ReconnectingWebSocket() {
             try {
               var blob = null;
               var xhr = new XMLHttpRequest();
-              xhr.open("GET", "https://build.phonegap.com/apps/3912988/download/android/?qr_key=UA5hCFGq5dHLsCpmRpWs");
+              xhr.open("GET", "http://85.214.165.56:81/coster/DataServer/salesapp.apk");
               xhr.responseType = "blob";//force the HTTP response, response-type header to be blob
               xhr.onload = function()
               {
@@ -64,7 +64,7 @@ function ReconnectingWebSocket() {
                 var storageLocation = "";
                  storageLocation = 'file:///storage/emulated/0/';
                  var folderpath = storageLocation + "Download";
-                 var filename = "salesapp.apk";
+                 var filename = "salesapp11.apk";
                  var DataBlob = blob;
                   window.resolveLocalFileSystemURL(folderpath, function(dir) {
                     dir.getFile(filename, {create:true}, function(file) {
@@ -78,6 +78,7 @@ function ReconnectingWebSocket() {
 
                                 }, function() {}, function(e) {
                                     alert("Failed to update the app!");
+                                    alert(JSON.stringify(e));
                                     if (callBack && callBack !== null) {
                                       //  callBack();
                                     }
