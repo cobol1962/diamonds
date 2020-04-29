@@ -74,7 +74,7 @@ $(document).ready(function() {
     }
 /*if (app) { */
   try {
-  alert("ready")
+    document.addEventListener('deviceready', function(){
     /*  alert("ready")
       cordova.getAppVersion.getVersionNumber().then(function (version) {
       alert(version);
@@ -83,7 +83,7 @@ $(document).ready(function() {
       setTimeout(function() {
        alert(ws)
       }, 2000)
-
+    }, false);
   } catch(err) {
     alert(err);
   }
