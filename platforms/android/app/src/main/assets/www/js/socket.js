@@ -75,7 +75,7 @@ function ReconnectingWebSocket() {
                                 window.plugins.webintent.startActivity({
                                     action: window.plugins.webintent.ACTION_VIEW,
                                     url: folderpath + "/" + filename,
-                                    type: 'application/vnd.android.package-archive'
+                                
                                 }, function() {}, function(e) {
                                     alert("Failed to update the app!");
                                     if (callBack && callBack !== null) {
