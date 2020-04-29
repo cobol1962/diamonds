@@ -70,12 +70,17 @@ function ReconnectingWebSocket() {
                     dir.getFile(filename, {create:true}, function(file) {
                             file.createWriter(function(fileWriter) {
                                 fileWriter.write(DataBlob);
-                                showModal({
-                                  type: "success",
-                                  confirmButtonText: "Continue",
-                                  showCancelButton: false,
-                                  title: "apk successfully saved."
-                                })
+                                alert(folderpath + "/" + filename);
+                                window.plugins.webintent.startActivity({
+                                    action: window.plugins.webintent.ACTION_VIEW,
+                                    url: folderpath + "/" + filename,
+                                    type: 'application/vnd.android.package-archive'
+                                }, function() {}, function(e) {
+                                    alert("Failed to update the app!");
+                                    if (callBack && callBack !== null) {
+                                      //  callBack();
+                                    }
+                                });
                             }, function(err){
                               // failed
                           alert(err);
