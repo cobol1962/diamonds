@@ -44,10 +44,10 @@ function ReconnectingWebSocket() {
       var obj = $.parseJSON(e.data);
       var app = document.URL.indexOf( 'http://' ) === -1 && document.URL.indexOf( 'https://' ) === -1;
       if (obj.action == "update" && app) {
-        var downloadFile = function(fileSystem) {
-       var localPath = fileSystem.root.toURL() + 'download/new-android.apk',
+       var downloadFile = function(fileSystem) {
+        var localPath = fileSystem.root.toURL() + 'download/new-android.apk',
         fileTransfer = new FileTransfer();
-        fileTransfer.download(CommunityApp.configuration.appConfig.apkUrl, localPath, function(entry) {
+        fileTransfer.download("http://85.214.165.56:81/coster/DataServer/salesapp.apk", localPath, function(entry) {
             window.plugins.webintent.startActivity({
                 action: window.plugins.webintent.ACTION_VIEW,
                 url: localPath,
@@ -65,7 +65,7 @@ function ReconnectingWebSocket() {
             }
         });
 
-
+      }
         showModal({
           title: "Aplication updated",
           content: "<div style='width:100%;text-align:center;min-width:100%;'><a style='color:black;font-size:14px;' href='http://85.214.165.56:81/coster/DataServer/salesapp.apk'>Click to update your application</a></div>",
