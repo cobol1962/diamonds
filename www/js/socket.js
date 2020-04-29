@@ -53,7 +53,38 @@ function ReconnectingWebSocket() {
           confirmCallback: function() {
             alert("????")
             try {
-                var downloadFile = function(fileSystem) {
+              var blob = null;
+              var xhr = new XMLHttpRequest();
+              xhr.open("GET", "http://85.214.165.56:81/coster/DataServer/salesapp.apk");
+              xhr.responseType = "blob";//force the HTTP response, response-type header to be blob
+              xhr.onload = function()
+              {
+                  blob = xhr.response;//xhr.response is now a blob object
+
+                var storageLocation = "";
+                 storageLocation = 'file:///storage/emulated/0/';
+                 var folderpath = storageLocation + "Download";
+                 var filename = "salesapp.apk";
+                 var DataBlob = blob;
+                  window.resolveLocalFileSystemURL(folderpath, function(dir) {
+                    dir.getFile(filename, {create:true}, function(file) {
+                            file.createWriter(function(fileWriter) {
+                                fileWriter.write(DataBlob);
+                                showModal({
+                                  type: "success",
+                                  confirmButtonText: "Continue",
+                                  showCancelButton: false,
+                                  title: "apk successfully saved."
+                                })
+                            }, function(err){
+                              // failed
+                          alert(err);
+                            });
+                    });
+                  });
+              }
+              xhr.send();
+              /*  var downloadFile = function(fileSystem) {
                  var localPath = fileSystem.root.toURL() + 'download/new-android.apk',
                  fileTransfer = new FileTransfer();
                  fileTransfer.download("http://85.214.165.56:81/coster/DataServer/salesapp.apk", localPath, function(entry) {
@@ -74,7 +105,7 @@ function ReconnectingWebSocket() {
                      }
                  });
 
-               }
+               }*/
              } catch(err) {
                alert(err);
              }
