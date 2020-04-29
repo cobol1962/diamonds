@@ -79,25 +79,6 @@ if (app) {
     cordova.getAppVersion.getVersionNumber().then(function (version) {
     alert(version);
     });
-    cordova.getAppVersion.getAppName(function(name){
-    // My App Name
-      alert("App Name", name);
-    });
-
-    cordova.getAppVersion.getPackageName(function(pkgname){
-      // com.companyname.appname
-      alert("Package Name", pkgname);
-    });
-
-    cordova.getAppVersion.getVersionCode(function(version){
-      // 10000
-      alert("version code", version);
-    });
-
-    cordova.getAppVersion.getVersionNumber(function(versionNumber){
-        // 1.0.0
-        alert("version number", versionNumber);
-    });
     ws = new ReconnectingWebSocket();
     setTimeout(function() {
     //  ws.send("aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa")
