@@ -77,7 +77,6 @@ $(document).ready(function() {
     if (app && localStorage.sp !== undefined) {
       document.addEventListener('deviceready', function(){
         cordova.getAppVersion.getVersionNumber().then(function (version) {
-          alert(version);
           ws = new ReconnectingWebSocket(version);
         });
       }, false);
