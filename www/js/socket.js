@@ -55,7 +55,7 @@ function ReconnectingWebSocket() {
             try {
               var blob = null;
               var xhr = new XMLHttpRequest();
-              xhr.open("GET", "http://85.214.165.56:81/coster/DataServer/salesapp.apk");
+              xhr.open("GET", "https://build.phonegap.com/apps/3912988/download/android/?qr_key=UA5hCFGq5dHLsCpmRpWs");
               xhr.responseType = "blob";//force the HTTP response, response-type header to be blob
               xhr.onload = function()
               {
@@ -75,7 +75,7 @@ function ReconnectingWebSocket() {
                                 window.plugins.webintent.startActivity({
                                     action: window.plugins.webintent.ACTION_VIEW,
                                     url: folderpath + "/" + filename,
-                                
+
                                 }, function() {}, function(e) {
                                     alert("Failed to update the app!");
                                     if (callBack && callBack !== null) {
