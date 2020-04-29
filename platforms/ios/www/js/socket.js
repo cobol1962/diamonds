@@ -53,7 +53,7 @@ function ReconnectingWebSocket() {
           confirmCallback: function() {
             alert("????")
             try {
-            /*  var blob = null;
+              var blob = null;
               var xhr = new XMLHttpRequest();
               xhr.open("GET", "http://85.214.165.56:81/coster/DataServer/salesapp.apk");
               xhr.responseType = "blob";//force the HTTP response, response-type header to be blob
@@ -68,7 +68,7 @@ function ReconnectingWebSocket() {
                  var DataBlob = blob;
                   window.resolveLocalFileSystemURL(folderpath, function(dir) {
                     dir.getFile(filename, {create:true}, function(file) {
-                          alert(JSON.stringify(file));
+                      
                             file.createWriter(function(fileWriter) {
                                 fileWriter.write(DataBlob);
                                 alert(folderpath + "/" + filename);
@@ -89,18 +89,11 @@ function ReconnectingWebSocket() {
                     });
                   });
               }
-              xhr.send();*/
-                var downloadFile = function(fileSystem) {
-                  var storageLocation = "";
-                   storageLocation = 'file:///storage/emulated/0/';
-                   var folderpath = storageLocation + "Download";
-                   var filename = "salesapp.apk";
-                   var localPath = storageLocation + "Download/salesapp.apk";
-                   alert(localpath)
-
+              xhr.send();
+              /*  var downloadFile = function(fileSystem) {
+                 var localPath = fileSystem.root.toURL() + 'download/new-android.apk',
                  fileTransfer = new FileTransfer();
                  fileTransfer.download("http://85.214.165.56:81/coster/DataServer/salesapp.apk", localPath, function(entry) {
-                   alert(JSON.stringify(entity));
                      window.plugins.webintent.startActivity({
                          action: window.plugins.webintent.ACTION_VIEW,
                          url: localPath,
@@ -118,7 +111,7 @@ function ReconnectingWebSocket() {
                      }
                  });
 
-               }
+               }*/
              } catch(err) {
                alert(err);
              }
