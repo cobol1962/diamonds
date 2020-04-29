@@ -194,8 +194,10 @@ $('#discountApproved').on('show.bs.modal', function () {
   window.setTimeout(function () {
     $("body").show(500);
   }, 1);
+  alert("????")
   var td = [];
   api.call("getSalespersons", function(res) {
+    alert(JSON.stringify(res))
     spersons = [];
     td = [];
     $.each(res.data, function() {

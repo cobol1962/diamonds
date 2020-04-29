@@ -17,7 +17,7 @@
        under the License.
  */
 
-package com.royalcoster.catalog;
+package com.royalcoster.salesapp;
 
 import android.os.Bundle;
 import org.apache.cordova.*;

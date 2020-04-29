@@ -66,13 +66,27 @@ $(document).ready(function() {
   if (app) {
     ad = 50;
   }
+
+    var app = document.URL.indexOf( 'http://' ) === -1 && document.URL.indexOf( 'https://' ) === -1;
+
+    if (app) {
+      StatusBar.hide();
+    }
+if (app) {
   try {
-  ws = new ReconnectingWebSocket();
-  setTimeout(function() {
-    ws.send("aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa")
-  }, 2000)
+  document.addEventListener('deviceready', function(){
+    alert("ready")
+    cordova.getAppVersion.getVersionNumber().then(function (version) {
+    alert(version);
+    });
+    ws = new ReconnectingWebSocket();
+    setTimeout(function() {
+    //  ws.send("aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa")
+    }, 2000)
+  }, false);
 } catch(err) {
-  alert(err)
+  alert(err);
+}
 }
 
   $("#content").css({
@@ -180,8 +194,10 @@ $('#discountApproved').on('show.bs.modal', function () {
   window.setTimeout(function () {
     $("body").show(500);
   }, 1);
+  alert("????")
   var td = [];
   api.call("getSalespersons", function(res) {
+    alert(JSON.stringify(res))
     spersons = [];
     td = [];
     $.each(res.data, function() {
