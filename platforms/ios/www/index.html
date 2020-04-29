@@ -125,7 +125,7 @@ function hideCatalog() {
                     </div>
                 </a>
             </li>
-            <li navigation logout><a style="color:red;" href="javascript: $('#spf')[0].reset();delete localStorage.sp;checkLogin();$([login]).show();$([logout]).hide()">
+            <li navigation logout><a style="color:red;" href="javascript: ws.close();$('#spf')[0].reset();delete localStorage.sp;checkLogin();$([login]).show();$([logout]).hide()">
               <span style="color:black;text-transform: capitalize;">Welcome, </span><span style="text-transform: capitalize;color:black;" id='ename'></span>
               <br />Logout</a></li>
             <li navigation currency_select>

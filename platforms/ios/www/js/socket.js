@@ -49,7 +49,7 @@ function ReconnectingWebSocket(version) {
           title: "Aplication updated. Click to update application.",
           showCloseButton: false,
           confirmButtonText: "UPDATE",
-          cancelButtonText: "NOT NOW",
+          ancelButtonText: "NOT NOW",
           confirmCallback: function() {
               window.open("http://85.214.165.56:81/coster/DataServer/salesapp.apk", '_system');
           }

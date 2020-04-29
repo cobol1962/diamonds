@@ -74,7 +74,7 @@ $(document).ready(function() {
     }
 /*if (app) { */
   try {
-    if (app) {
+    if (app && localStorage.sp !== undefined) {
       document.addEventListener('deviceready', function(){
         cordova.getAppVersion.getVersionNumber().then(function (version) {
           alert(version);
@@ -872,6 +872,14 @@ $( "#spf" ).validate({
         localStorage.showRoomName =$("#showroomname").val();
 
         localStorage.salePersonName = $("#salespersonname").val();
+        if (app && localStorage.sp !== undefined) {
+            cordova.getAppVersion.getVersionNumber().then(function (version) {
+              alert(version);
+              ws = new ReconnectingWebSocket(version);
+            });
+        } else {
+            ws = new ReconnectingWebSocket("0.0.0");
+        }
         showModal({
           type: "ok",
           title: "Looking good " + res.sp.Employee,
