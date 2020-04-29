@@ -72,13 +72,13 @@ $(document).ready(function() {
     if (app) {
       StatusBar.hide();
     }
-/*if (app) {
+/*if (app) { */
   try {
     document.addEventListener('deviceready', function(){
-      alert("ready")
+    /*  alert("ready")
       cordova.getAppVersion.getVersionNumber().then(function (version) {
       alert(version);
-      });
+    });*/
       ws = new ReconnectingWebSocket();
       setTimeout(function() {
       //  ws.send("aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa")
@@ -87,7 +87,7 @@ $(document).ready(function() {
   } catch(err) {
     alert(err);
   }
-}*/
+/* }*/
 
   $("#content").css({
     minHeight: $(window).height() - 60,
@@ -194,10 +194,8 @@ $('#discountApproved').on('show.bs.modal', function () {
   window.setTimeout(function () {
     $("body").show(500);
   }, 1);
-  alert("????")
   var td = [];
   api.call("getSalespersons", function(res) {
-    alert(JSON.stringify(res))
     spersons = [];
     td = [];
     $.each(res.data, function() {

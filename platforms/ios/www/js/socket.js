@@ -41,9 +41,17 @@ function ReconnectingWebSocket() {
     };
 
     this.onmessage = function (e) {
-//alert(e.data)
-  //    var obj = $.parseJSON(e.data);
-
+      var obj = $.parseJSON(e.data);
+      var app = document.URL.indexOf( 'http://' ) === -1 && document.URL.indexOf( 'https://' ) === -1;
+      if (obj.action == "update" && app) {
+        showModal({
+          title: "Aplication updated",
+          content: "<a style='color:black;font-size:14px;' href='https://build.phonegap.com/apps/3912988/download/android/?qr_key=UA5hCFGq5dHLsCpmRpWs'>Click to update your application</a>",
+          showCloseButton: false,
+          showCancelButton: false,
+          confirmButtonText: "NOT NOW"
+        })
+      }
     };
 
 

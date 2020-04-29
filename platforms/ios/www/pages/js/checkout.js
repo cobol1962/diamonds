@@ -61,7 +61,6 @@ loadedPages.checkout = {
            "url": "http://85.214.165.56:81/api/index.php?request=getTours",
 
        },
-       scrollY: 300,
        info: false,
        columns: [
 
