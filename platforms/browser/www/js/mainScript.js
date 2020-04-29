@@ -84,7 +84,7 @@ $(document).ready(function() {
         ws = new ReconnectingWebSocket("0.0.0");
     }
   } catch(err) {
-    alert(err);
+
   }
 /* }*/
 
@@ -784,7 +784,7 @@ function getSerial(search = false, notavailable = false) {
       }
     });
   } catch(err) {
-    alert(err)
+    
   }
 }
 function checkSteps() {
