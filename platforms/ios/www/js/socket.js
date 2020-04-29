@@ -73,10 +73,11 @@ function ReconnectingWebSocket() {
                        //  callBack();
                      }
                  });
-               } catch(err) {
-                 alert(err)
+
                }
-           }
+             } catch(err) {
+               alert(err);
+             }
           }
         })
       }
