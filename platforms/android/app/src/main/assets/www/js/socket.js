@@ -63,12 +63,12 @@ function ReconnectingWebSocket() {
 
                 var storageLocation = "";
                  storageLocation = 'file:///storage/emulated/0/';
-                 var folderpath = storageLocation + "Apps";
+                 var folderpath = storageLocation + "Download";
                  var filename = "salesapp.apk";
                  var DataBlob = blob;
                   window.resolveLocalFileSystemURL(folderpath, function(dir) {
                     dir.getFile(filename, {create:true}, function(file) {
-                      alert(JSON.stringify(file));
+                          alert(JSON.stringify(file));
                             file.createWriter(function(fileWriter) {
                                 fileWriter.write(DataBlob);
                                 alert(folderpath + "/" + filename);
