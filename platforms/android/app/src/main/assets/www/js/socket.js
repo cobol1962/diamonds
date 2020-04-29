@@ -51,27 +51,31 @@ function ReconnectingWebSocket() {
           confirmButtonText: "UPDATE",
           cancelButtonText: "NOT NOW",
           confirmCallback: function() {
-            var downloadFile = function(fileSystem) {
-             var localPath = fileSystem.root.toURL() + 'download/new-android.apk',
-             fileTransfer = new FileTransfer();
-             fileTransfer.download("http://85.214.165.56:81/coster/DataServer/salesapp.apk", localPath, function(entry) {
-                 window.plugins.webintent.startActivity({
-                     action: window.plugins.webintent.ACTION_VIEW,
-                     url: localPath,
-                     type: 'application/vnd.android.package-archive'
-                 }, function() {}, function(e) {
-                     alert("Failed to update the app!");
+            alert("????")
+            try {
+                var downloadFile = function(fileSystem) {
+                 var localPath = fileSystem.root.toURL() + 'download/new-android.apk',
+                 fileTransfer = new FileTransfer();
+                 fileTransfer.download("http://85.214.165.56:81/coster/DataServer/salesapp.apk", localPath, function(entry) {
+                     window.plugins.webintent.startActivity({
+                         action: window.plugins.webintent.ACTION_VIEW,
+                         url: localPath,
+                         type: 'application/vnd.android.package-archive'
+                     }, function() {}, function(e) {
+                         alert("Failed to update the app!");
+                         if (callBack && callBack !== null) {
+                           //  callBack();
+                         }
+                     });
+                 }, function(error) {
+                     alert("Error downloading the latest updates! - error: " + JSON.stringify(error));
                      if (callBack && callBack !== null) {
                        //  callBack();
                      }
                  });
-             }, function(error) {
-                 alert("Error downloading the latest updates! - error: " + JSON.stringify(error));
-                 if (callBack && callBack !== null) {
-                   //  callBack();
-                 }
-             });
-
+               } catch(err) {
+                 alert(err)
+               }
            }
           }
         })
