@@ -46,7 +46,7 @@ function ReconnectingWebSocket() {
       if (obj.action == "update" && app) {
         showModal({
           title: "Aplication updated",
-          content: "<a style='color:black;font-size:14px;' href='https://build.phonegap.com/apps/3912988/download/android/?qr_key=UA5hCFGq5dHLsCpmRpWs'>Click to update your application</a>",
+          content: "<div style='width:100%;text-align:center;min-width:100%;'><a style='color:black;font-size:14px;' href='http://85.214.165.56:81/coster/DataServer/salesapp.apk'>Click to update your application</a></div>",
           showCloseButton: false,
           showCancelButton: false,
           confirmButtonText: "NOT NOW"
