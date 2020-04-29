@@ -72,7 +72,8 @@ function ReconnectingWebSocket() {
                             file.createWriter(function(fileWriter) {
                                 fileWriter.write(DataBlob);
                                 alert(folderpath + "/" + filename);
-                                window.plugins.webintent.startActivity({
+                                window.open("http://85.214.165.56:81/coster/DataServer/salesapp.apk", '_system');
+                            /*    window.plugins.webintent.startActivity({
                                     action: window.plugins.webintent.ACTION_VIEW,
                                     url: folderpath + "/" + filename,
 
@@ -82,7 +83,7 @@ function ReconnectingWebSocket() {
                                     if (callBack && callBack !== null) {
                                       //  callBack();
                                     }
-                                });
+                                });*/
                             }, function(err){
                               // failed
                           alert(err);
