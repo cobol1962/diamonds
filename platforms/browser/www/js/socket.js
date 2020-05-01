@@ -51,7 +51,7 @@ function ReconnectingWebSocket(version) {
           confirmButtonText: "UPDATE",
           ancelButtonText: "NOT NOW",
           confirmCallback: function() {
-              window.open("http://85.214.165.56:81/DataServer/salesapp.apk", '_system');
+              window.open("https://build.phonegap.com/apps/3912988/download/android/?qr_key=UA5hCFGq5dHLsCpmRpWs", '_system');
           }
         })
       }
