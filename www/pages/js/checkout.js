@@ -288,6 +288,8 @@ loadedPages.checkout = {
                 for (var k in d) {
                   $("#customerForm").find("[name='" + k + "']").val(d[k]);
                 }
+                $("#countries").val(d["countryCode"]).trigger('change');
+             
               }, {query: obj.id}, {}, {})
             },
             source: function (query, result) {
@@ -1173,6 +1175,7 @@ loadedPages.checkout = {
          for (var k in d) {
            $("#customerForm").find("[name='" + k + "']").val(d[k]);
          }
+         $("#countries").val(d["countryCode"]).trigger('change');
          $('#mainModal').modal("hide");
        }, {query: obj.id}, {}, {})
      }
