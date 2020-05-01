@@ -68,22 +68,23 @@
         <input type="hidden" id="tourNo" name="tourNo" value="1" />
         <input type="hidden" id="cshowroom" value="1" />
         <input type="hidden" id="salesPerson" value="1" />
+        <div class="form-group">
+          <label>Type any part of customer data: name, email, address, country, telephone...in any order</label>
+            <input id="searchCustomer" type="text" placeholder="" class="form-control" />
+        </div>
+        <div class="form-group">
+            <input placeholder="Name" id="name" type="text" name="name" class="form-control" />
+        </div>
 
-        <div class="form-group">
-            <input placeholder="First Name" id="firstName" type="text" name="firstName" class="form-control" />
-        </div>
-        <div class="form-group">
-            <input id="lastName" placeholder="Last Name" type="text" name="lastName" class="form-control" />
-        </div>
         <div class="form-group">
 
             <input placeholder="Hotel" id="hotel" type="text" name="hotel" class="form-control" />
         </div>
         <div class="form-group">
-            <input placeholder="Email" id="email" type="text" name="email" class="form-control" />
+            <input onchange="loadedPages.checkout.checkEmail();" placeholder="Email" id="email" type="text" name="email" class="form-control" />
         </div>
         <div class="form-group">
-          <select id="countries" class="form-control" style="margin-left:10px;min-width:100%;margin-right:10px;">
+          <select id="countries" name="countries" class="form-control" style="margin-left:10px;min-width:100%;margin-right:10px;">
             <option></option>
           </select>
             <label id="cstc" style="display:none;"></label>
@@ -412,5 +413,9 @@
     #tours td,
     #tours th {
         font-size: 14px;
+    }
+    .typeahead.dropdown-menu {
+      position: relative !important;
+      top: 5px !important;
     }
 </style>

@@ -111,6 +111,13 @@ loadedPages.checkout = {
         }
         data.push(obj);
       })
+
+      $('#countries').on('select2:select', function (e) {
+          $("#customerForm").validate().element('#countries');
+      });
+      $('#countries').on('select2:clear', function (e) {
+        $("#customerForm").validate().element('#countries');
+      });
       $("#country").select2({
         data: data,
         placeholder: "Select country",
@@ -173,22 +180,41 @@ loadedPages.checkout = {
           customerInfoData[this.getAttribute("name")] = this.value;
         })
       })
+      $.validator.addMethod("countrySelected", function(value, element) {
+        var data = $('#countries').select2('data');
+        return (data[0].id != "");
+      }, "This field is mandatory");
+
       $( "#customerForm" ).validate({
           rules: {
-
+            email: {
+              required: true,
+              email: true
+            },
+            countries: {
+              countrySelected: true
+            },
+            name: {
+              required: true
+            }
           },
           submitHandler: function(form) {
               var obj = {};
               $.each($("#customerForm").find("[name]"), function() {
                 obj[$(this).attr("name")] = $(this).val();
               })
+              delete obj["countries"];
 
+              obj["country"] = $("#countries").select2("data")[0].text;
+              obj["countryCode"] = $("#countries").select2("data")[0].id;
               if ($("#cstc").is(":visible")) {
                 obj["country"] = $("#cstc").html().split(":")[1].trim();
+                obj["countryCode"] = $.parseJSON(localStorage.customerCountry).id;
               } else {
                 obj["country"] = $("#countries").select2("data")[0].text;
+                obj["countryCode"] = $("#countries").select2("data")[0].id;
               }
-              console.log(obj)
+
               if ($("#customerid").val() == -1) {
                 if ($("#email").val() != "") {
                     api.call("insertCustomer", function(res) {
@@ -239,13 +265,8 @@ loadedPages.checkout = {
                 api.call("updateCustomer", function(res) {
 
                   if (res.status == "ok") {
-                    swal({
-                      type: "success",
-                      text: ((res.action == "update") ? "Customer data succesfully updated." : "Since customer data are incompleted now, customer removed.")
-                    }).then((res) => {
-                      $("#2").hide();
-                      $("#3").show();
-                    })
+                    $("#2").hide();
+                    $("#3").show();
 
                   } else {
                     swal({
@@ -256,6 +277,32 @@ loadedPages.checkout = {
                 }, obj, {})
               }
           }
+        });
+        $('#searchCustomer').typeahead({
+            autoSelect: true,
+            maxLength: 5,
+            afterSelect: function(obj) {
+              api.call("getCustomerByid", function(res) {
+                $("#customerid").val(obj.id);
+                var d = res[0];
+                for (var k in d) {
+                  $("#customerForm").find("[name='" + k + "']").val(d[k]);
+                }
+              }, {query: obj.id}, {}, {})
+            },
+            source: function (query, result) {
+                $.ajax({
+                    url: "http://85.214.165.56:81/api/index.php?request=searchCustomers",
+		               data: 'query=' + query,
+                    dataType: "json",
+                    type: "POST",
+                    success: function (data) {
+				                result($.map(data, function (item) {
+				                   return item;
+                        }));
+                    }
+                });
+            }
         });
         loadedPages.checkout.setPayments();
   },
@@ -1099,8 +1146,34 @@ loadedPages.checkout = {
              return false;
            }
          }, obj, {},{});
+     },
+     checkEmail: function() {
+       api.call("checkCustomerEmail", function(res) {
+         if (res.length > 0) {
+           var html = "<table style='width:100%;'>";
+           $.each(res, function() {
+             html += "<tr id='" + this.customerid + "' onclick='loadedPages.checkout.getCustomer(this);'><td>" + this.customer + "</td></tr>";
+           })
+           html += "</table>";
+           showModal({
+             title: "Customer(s) bellow found with same email. Click one to get data or confirm new customer.",
+             content: html,
+             showCancelButton: false,
+             confirmButtonText: "CONFIRM NEW CUSTOMER"
+           })
+         }
 
+       }, { email: $("#email").val() }, {}, {})
+     },
+     getCustomer: function(obj) {
 
-
-  }
+       api.call("getCustomerByid", function(res) {
+         $("#customerid").val(obj.id);
+         var d = res[0];
+         for (var k in d) {
+           $("#customerForm").find("[name='" + k + "']").val(d[k]);
+         }
+         $('#mainModal').modal("hide");
+       }, {query: obj.id}, {}, {})
+     }
 }

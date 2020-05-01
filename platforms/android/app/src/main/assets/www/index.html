@@ -410,7 +410,14 @@ function hideCatalog() {
     <script type="text/javascript" src="js/plugins.js"></script>
     <script type="text/javascript" src="js/moment.js"></script>
       <script type="text/javascript" src="js/socket.js"></script>
-  <script type="text/javascript" src="js/data-access.js"></script>
+      <script async src="https://www.googletagmanager.com/gtag/js?id=G-1B9XGM82BQ"></script>
+      <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'G-1B9XGM82BQ');
+      </script>
     <script type="text/javascript">
     var onSuccess = function(result) {
     //    alert("Share completed? " + result.completed); // On Android apps mostly return false even while it's true
