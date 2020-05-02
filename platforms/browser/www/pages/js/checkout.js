@@ -289,7 +289,7 @@ loadedPages.checkout = {
                   $("#customerForm").find("[name='" + k + "']").val(d[k]);
                 }
                 $("#countries").val(d["countryCode"]).trigger('change');
-             
+
               }, {query: obj.id}, {}, {})
             },
             source: function (query, result) {
@@ -604,8 +604,9 @@ loadedPages.checkout = {
       $("<span>Due to company regulations we require a copy of the customer's identitification details.</span>").appendTo($("#cache"));
     }
     $("<span>Tour no. " +  tour.ProjId, + ", " + moment(new Date(tour.AVisitDateTime)).format("DD.MM.YYYY HH:mm") + "</span>").appendTo($("#tour"));
-    if ($("#firstName").val() != "" || $("#lastName").val() != "") {
-      $("[firstname]").html($("#firstName").val() + " " + $("#lastName").val());
+
+    if ($("#name").val() != "") {
+      $("[firstname]").html($("#name").val());
       $("[firstname]").parent().show();
     } else {
       $("[firstname]").parent().hide();
