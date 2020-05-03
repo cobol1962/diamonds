@@ -57,14 +57,15 @@
 
     <link rel="stylesheet" type="text/css" href="css/font-awesome.css" />
     <link rel="stylesheet" type="text/css" href="css/countrySelect.css" />
-    <link rel="stylesheet"  type="text/css" href="css/jquery-ui.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.css" integrity="sha256-rByPlHULObEjJ6XQxW/flG2r+22R5dKiAoef+aXWfik=" crossorigin="anonymous" />
+
     <link rel="stylesheet" type="text/css" href="DataTables/datatables.min.css" />
 
     <link rel="stylesheet" type="text/css" href="css/croppie.css" />
     <link rel="stylesheet" type="text/css" href="css/select2.css" />
-      <link rel="stylesheet" type="text/css" href="css/sweetalert2.css" />
       <link rel="stylesheet" type="text/css" href="css/style.css" />
     <link rel="stylesheet" type="text/css" href="css/pretty-checkbox.css" />
+
     <title>Coster Diamonds</title>
 </head>
 <script type="text/javascript">
@@ -389,7 +390,7 @@ function hideCatalog() {
     <script type="text/javascript" src="cordova.js"></script>
       <script type="text/javascript" src="js/index.js"></script>
   <script type="text/javascript" src="js/SocialSharing.js"></script>
-
+   <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
     <script type="text/javascript" src="js/exif.js"></script>
     <script type="text/javascript" src="js/bootstrap.js"></script>
     <script type="text/javascript" src="js/api.js"></script>
@@ -400,7 +401,7 @@ function hideCatalog() {
     <script type="text/javascript" src="js/jquery.dataTables.yadcf.js"></script>
     <script type="text/javascript" src="js/jquery.validate.js"></script>
     <script type="text/javascript" src="js/countrySelect.js"></script>
-    <script type="text/javascript" src="js/jquery.ui.js"></script>
+
     <script type="text/javascript" src="DataTables/datatables.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/gasparesganga-jquery-loading-overlay@2.1.6/dist/loadingoverlay.min.js"></script>
 
@@ -548,13 +549,15 @@ function DownloadToDevice(fileurl) {
 }
 function checkIsLogged(nextpage) {
 
-  if (localStorage.sp === undefined) {
-    $("#login").attr("nextpage", nextpage);
-    $("#login").modal("show");
-    return false;
-  } else {
-    window.location.hash = nextpage;
-  }
+  setTimeout(function() {
+    if (localStorage.sp === undefined) {
+      $("#login").attr("nextpage", nextpage);
+      $("#login").modal("show");
+      return false;
+    } else {
+      window.location.hash = nextpage;
+    }
+  }, 1000)
 }
 </script>
 </body>

@@ -1,30 +1,28 @@
 <div style="max-width:100%;overflow-x:auto;">
 <table id="invoices" class="display" style="width:100%;">
   <thead>
-    <tr id="filter_row">
-      <th id="t_0"></th>
-      <th id="t_1"></th>
-      <th id="t_2"></th>
-
-      <th id="t_4"></th>
-      <th id="t_5"></th>
-      <th id="t_6"></th>
-      <th id="t_7"></th>
-      <th id="t_8"></th>
-    </tr>
+  
     <tr>
       <th>Date</th>
       <th>No</th>
-
+        <th>Customer</th>
       <th>Tour</th>
+      <th>Touroperater</th>
       <th>Showroom</th>
+
       <th>Sales Persom</th>
       <th>Total</th>
       <th>Discount</th>
       <th action>Action</th>
+      <th style="display:none;">Status</th>
     </tr>
   </thead>
   <tbody>
   </tbody>
 </table>
 </div>
+<style>
+  #invoices td:nth-of-type(11n) {
+    display:none;
+  }
+</style>
