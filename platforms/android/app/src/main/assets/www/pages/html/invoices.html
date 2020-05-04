@@ -1,7 +1,20 @@
 <div style="max-width:100%;overflow-x:auto;">
 <table id="invoices" class="display" style="width:100%;">
   <thead>
-  
+    <tr>
+      <th id="t_0"></th>
+      <th></th>
+      <th id="t_1"></th>
+      <th  id="t_2"></th>
+      <th id="t_3"></th>
+      <th></th>
+
+      <th></th>
+      <th></th>
+      <th></th>
+      <th action></th>
+      <th style="display:none;">Status</th>
+    </tr>
     <tr>
       <th>Date</th>
       <th>No</th>
@@ -22,7 +35,18 @@
 </table>
 </div>
 <style>
+  .dataTables_filter {
+    display:none;
+  }
   #invoices td:nth-of-type(11n) {
     display:none;
+  }
+  .yadcf-filter-wrapper:after {
+    visibility: hidden;
+    display: block;
+    font-size: 0;
+    content: " ";
+    clear: both;
+    height: 0;
   }
 </style>

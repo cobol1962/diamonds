@@ -200,6 +200,8 @@ loadedPages.checkout = {
           },
           submitHandler: function(form) {
               var obj = {};
+              var tour = $.parseJSON(localStorage.tour);
+              $("#tourNo").val(tour.ProjId);
               $.each($("#customerForm").find("[name]"), function() {
                 obj[$(this).attr("name")] = $(this).val();
               })

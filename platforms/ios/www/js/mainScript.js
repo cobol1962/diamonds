@@ -287,7 +287,7 @@ var pageUrls = {
   homepage: "home",
   tours: "tours",
   invoices: "invoices",
-  mycustomers: "customers"
+  customers: "customers"
 }
 function locationHashChanged() {
   if (location.hash == "") {

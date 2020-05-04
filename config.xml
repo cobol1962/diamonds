@@ -3,7 +3,7 @@
     xmlns:gap   = "http://phonegap.com/ns/1.0"
     id          = "com.royalcoster.salesapp"
     versionCode = "10"
-    version     = "1.0.7" >
+    version     = "1.0.8" >
     <name>Coster Diamonds</name>
     <description>
         Coster Sales App.

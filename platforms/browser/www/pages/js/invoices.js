@@ -39,15 +39,17 @@ loadedPages.invoices = {
             { "data": "status"}
 
          ],
+
          dom: 'Bfrtip',
            buttons: [
 
            ],
            "drawCallback": function() {
+
              $.each($("#invoices").find("tr"), function() {
-               if ($(this).find("td").eq(9).html() == "0") {
+               if ($(this).find("td").eq(10).html() == "0") {
                  $(this).css({
-                   color: "red"
+                   opacity: 0.6
                  })
                }
              })
@@ -58,22 +60,26 @@ loadedPages.invoices = {
          filter_type: "range_date",
          date_format: 'yyyy-mm-dd',
          moment_date_format: 'YYYY-MM-DD',
-         filter_delay: 500
+         filter_delay: 500,
+          filter_container_id: "t_0"
        },
        {
          column_number: 2,
          filter_type: "auto_complete",
-         text_data_delimiter: ","
+         text_data_delimiter: ",",
+           filter_container_id: "t_1"
        },
        {
-         column_number: 2,
+         column_number: 3,
          filter_type: "auto_complete",
-         text_data_delimiter: ","
+         text_data_delimiter: ",",
+           filter_container_id: "t_2"
        },
        {
         column_number: 4,
          filter_type: "multi_select",
-        select_type: 'select2'
+        select_type: 'select2',
+          filter_container_id: "t_3"
 
     }
   ]);
