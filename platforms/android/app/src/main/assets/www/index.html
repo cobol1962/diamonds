@@ -24,13 +24,6 @@
 
 <head
 
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-
-    gtag('config', 'G-1B9XGM82BQ');
-  </script>
     <meta charset="utf-8" />
     <meta name="format-detection" content="telephone=no" />
     <meta name="msapplication-tap-highlight" content="no" />
@@ -48,6 +41,12 @@
  default-src * data: gap: https://ssl.gstatic.com http://85.214.165.56:81 'unsafe-eval'
   'unsafe-inline'; media-src *; img-src * http://85.214.165.56:81/catalog/images http://85.214.165.56:81 http://85.214.165.56:5000 data: content:;">
      <!-- This is a wide open CSP declaration. To lock this down for production, see below. -->
+     <script type="text/javascript">
+       window.dataLayer = window.dataLayer || [];
+       function gtag(){dataLayer.push(arguments);}
+       gtag('js', new Date());
+       gtag('config', 'G-1B9XGM82BQ');
+     </script>
   <script src="js/jquery.js"></script>
     <link href="https://fonts.googleapis.com/css?family=Merriweather&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Open+Sans&display=swap" rel="stylesheet">
