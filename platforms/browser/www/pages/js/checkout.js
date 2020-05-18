@@ -23,7 +23,6 @@ loadedPages.checkout = {
     $("#itemsinfo").html(Object.keys(shoppingCartContent).length + ii + parseFloat(localStorage.payNoRefund).toLocaleString("nl-NL",{ style: 'currency', currency: "EUR" }))
     setTimeout(function() {
       for (var key in customerInfoData) {
-
         $("#customerForm").find("[name='" + key + "']").val(customerInfoData[key]);
       }
     }, 2000);
@@ -979,8 +978,7 @@ loadedPages.checkout = {
     var node = document.getElementById('invoice');
     $.LoadingOverlay("show", optionsLoader);
   //  var invoiceID = ((  localStorage.invoiceID === undefined) ? "" : localStorage.invoiceID);
-  var invoiceID = "";
-    if (true) {
+    if (invoiceID == "") {
       var nm = "invoice_" + (new Date()).getTime();
       localStorage.documentName = nm;
     } else {
@@ -1016,18 +1014,15 @@ loadedPages.checkout = {
          }
          documentName = nm;
        } else {
-
          var obj = {
            invoiceid: invoiceID,
            customerid: $("#customerid").val(),
            showroom: localStorage.showRoomName,
            salesPerson: $.parseJSON(localStorage.sp)["Employee"],
-           tourNo:  tour.Projid,
+           tourNo:  tour.ProjId,
            total:  parseFloat(localStorage.grandTotal),
            discount: localStorage.invoiceDiscount,
            discountAmount:  parseFloat(localStorage.discountAmount),
-           discountApproved: localStorage.dapproved,
-           discountApprovedName: localStorage.dapprovedname,
            salePersonId: $.parseJSON(localStorage.sp)["EmplID"],
            dueAmount: tobepaid,
            pdf:  nm + "_" + "gb" + ".pdf",
@@ -1041,7 +1036,9 @@ loadedPages.checkout = {
            vatRefund: parseFloat(localStorage.torefund) - parseFloat(localStorage.admincharge),
            directRefund: localStorage.directRefund,
            adminCharge: parseFloat(localStorage.admincharge)
+
          }
+
        }
        if (obj.vatRefund == "") {
          obj.vatRefund == "0";

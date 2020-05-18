@@ -25,6 +25,7 @@ function resetLocalStorage() {
       delete localStorage[key];
     }
   }
+  
   shoppingCartContent = [];
   payments = [];
   $("#toggleShoppigCart").addClass("empty");
@@ -50,6 +51,10 @@ function checkLogin() {
         } else {
           $("#login").attr("nextpage", "homepage");
           $("#login").find(".close").remove();
+          $('#login').modal({
+            backdrop: 'static',
+            keyboard: false
+          })
           $("#login").modal("show");
         }
         return false;
