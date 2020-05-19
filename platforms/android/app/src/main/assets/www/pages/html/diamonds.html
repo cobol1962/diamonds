@@ -438,9 +438,9 @@ $("#products_temp").find("thead").hide();
   var app = document.URL.indexOf( 'http://' ) === -1 && document.URL.indexOf( 'https://' ) === -1;
 
   $("#items_div").css({
-      height: $(window).height() - (app ? 0 : 85),
-      minHeight: $(window).height() - (app ? 0 : 85),
-      maxHeight: $(window).height() - (app ? 0 : 85)
+      height: $(window).height() - (app ? 100 : 105),
+      minHeight: $(window).height() - (app ? 100 : 105),
+      maxHeight: $(window).height() - (app ? 100 : 105)
   })
   var ithg = $("#items_div").height();
 /*  $("#items_div").bind('scroll', function() {
