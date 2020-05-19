@@ -183,13 +183,14 @@ loadedPages.checkout = {
         var data = $('#countries').select2('data');
         return (data[0].id != "");
       }, "This field is mandatory");
-
+      $(".form-group").css({
+        marginBottom: 25
+      })
+      $(".form-control").css({
+        minHeight: 40
+      })
       $( "#customerForm" ).validate({
           rules: {
-            email: {
-              required: true,
-              email: true
-            },
             countries: {
               countrySelected: true
             },
@@ -217,7 +218,7 @@ loadedPages.checkout = {
               }
 
               if ($("#customerid").val() == -1) {
-                if ($("#email").val() != "") {
+
                     api.call("insertCustomer", function(res) {
                       if (res.status == "ok") {
                         $("#customer_div").addClass("checked");
@@ -235,32 +236,7 @@ loadedPages.checkout = {
                         })
                       }
                     }, obj, {})
-                  } else {
-                    showModal({
-                      title: "Invoice will be created with anonimus customer data.",
-                      showCancelButton: false,
-                      cancelButtonText: "CONTINUE",
-                      confirmCallback: function() {
-                        $("#customer_div").addClass("checked");
-                        $("#customerForm").attr("confirmed", "yes");
-                        $("#2").hide();
-                        $("#3").show();
-                      }
-                    })
-                    /*swal({
-                      type: "warning",
-                      showCancelButton: true,
-                      text: "Invoice will be created with anonimus customer data."
-                    }).then((result) => {
-                      if (result.value) {
-                        $("#customer_div").addClass("checked");
-                        $("#customerForm").attr("confirmed", "yes");
-                        $("#2").hide();
-                        $("#3").show();
-                      }
-                    })*/
 
-                  }
               } else {
                 obj["customerid"] = $("#customerid").val();
                 api.call("updateCustomer", function(res) {
@@ -814,6 +790,7 @@ loadedPages.checkout = {
     $("[parts]").hide();
     $("#invoice").show();
     var tour = $.parseJSON(localStorage.tour);
+    $("#cinf").html("");
     $("#customerInfo").clone().appendTo($("#cinf"));
     $("#tnmbr").html(tour.ProjId);
     var sp = $.parseJSON(localStorage.sp);
