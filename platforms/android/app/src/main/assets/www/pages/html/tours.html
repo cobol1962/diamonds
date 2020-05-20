@@ -1,0 +1,89 @@
+<div style="margin:-1px auto;height:55px;background-color: white;position:relative;">
+  <span style="font-size:32px;position:absolute;left:10px;">Tours</span>
+    <img style="cursor:pointer;position:absolute;top:20px;right:18px;width:20px;" data-toggle="modal" data-target="#filters" src="http://85.214.165.56:81/coster/www/images/filtericon.png" />
+</div>
+<div style="max-width:100%;overflow-x:auto;">
+<table id="tours" class="display nowrap" style="width:95%;max-width:95%;margin-top:-32px;">
+  <thead>
+
+    <tr>
+      <th>Date</th>
+      <th>TourNo</th>
+        <th>PAX</th>
+      <th>Tour Operator</th>
+      <th style="display:none;">Tour Operator</th>
+
+    </tr>
+  </thead>
+  <tbody>
+  </tbody>
+</table>
+<button id='confirmTour' style="margin-top:5px;float:right;" onclick="loadedPages.tours.checkOpenCart();" style="display:none;" class="btn-black">Confirm selected tour</button>
+</div>
+<div class="modal" tabindex="-1" role="dialog" id="filters">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title"><strong id="title">Filters</strong></h5>
+      </div>
+      <div class="modal-body" id="filters_body">
+
+      </div>
+      <div class="modal-footer" >
+        <button type="button" class="btn btn-primary" style="margin-top:10px;" data-dismiss="modal">Set</button>
+      </div>
+    </div>
+  </div>
+</div>
+<div id="filters_temp" style="visibility:hidden;">
+  <form>
+    <div class="filter-div" style="float:left;">
+      <strong>Date</strong>
+      <div id="filter_date" ></div>
+    </div>
+    <div class="filter-div" style="float:left;">
+      <strong>Nationality</strong>
+      <div id="filter_nationality" ></div>
+    </div>
+    <div class="filter-div" style="float:left;">
+      <strong>Tour Operator</strong>
+      <div id="filter_operator" ></div>
+    </div>
+  </form>
+</div>
+<style>
+  .yadcf-filter-wrapper {
+    width: 100%;
+  }
+  .yadcf-filter-reset-button  {
+    display:none !important;
+  }
+  .filter-div {
+    width: 100%;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid black;
+  }
+  .select2-selection.select2-selection--multiple {
+    max-width:50% !important;
+  }
+  #tours_filter {
+    display: none;
+  }
+  #tours_wrapper {
+    margin-top:30px;
+  }
+    #tours td:nth-of-type(5) {
+      display:none !important;
+    }
+    #tours td:nth-of-type(4) {
+      max-width:100% !important;
+      width:100% !important;
+      word-wrap: break-word;
+   word-break: break-word;
+   white-space: normal;
+    }
+    #tours td,#tours th {
+      font-size:14px;
+    }
+  </style>

@@ -1,0 +1,66 @@
+{
+  "prepare_queue": {
+    "installed": [],
+    "uninstalled": []
+  },
+  "config_munge": {
+    "files": {}
+  },
+  "installed_plugins": {
+    "cordova-plugin-app-version": {
+      "PACKAGE_NAME": "com.royalcoster.salesapp"
+    },
+    "cordova-plugin-battery-status": {
+      "PACKAGE_NAME": "com.royalcoster.salesapp"
+    },
+    "cordova-plugin-camera": {
+      "PACKAGE_NAME": "com.royalcoster.salesapp"
+    },
+    "cordova-plugin-device": {
+      "PACKAGE_NAME": "com.royalcoster.salesapp"
+    },
+    "cordova-plugin-dialogs": {
+      "PACKAGE_NAME": "com.royalcoster.salesapp"
+    },
+    "cordova-plugin-geolocation": {
+      "PACKAGE_NAME": "com.royalcoster.salesapp"
+    },
+    "cordova-plugin-globalization": {
+      "PACKAGE_NAME": "com.royalcoster.salesapp"
+    },
+    "cordova-plugin-inappbrowser": {
+      "PACKAGE_NAME": "com.royalcoster.salesapp"
+    },
+    "cordova-plugin-media-capture": {
+      "PACKAGE_NAME": "com.royalcoster.salesapp"
+    },
+    "cordova-plugin-network-information": {
+      "PACKAGE_NAME": "com.royalcoster.salesapp"
+    },
+    "cordova-plugin-statusbar": {
+      "PACKAGE_NAME": "com.royalcoster.salesapp"
+    },
+    "cordova-plugin-vibration": {
+      "PACKAGE_NAME": "com.royalcoster.salesapp"
+    },
+    "cordova-plugin-whitelist": {
+      "PACKAGE_NAME": "com.royalcoster.salesapp"
+    },
+    "cordova-plugin-x-socialsharing": {
+      "ANDROID_SUPPORT_V4_VERSION": "24.1.1+",
+      "PACKAGE_NAME": "com.royalcoster.salesapp"
+    },
+    "phonegap-plugin-barcodescanner": {
+      "ANDROID_SUPPORT_V4_VERSION": "27.+",
+      "PACKAGE_NAME": "com.royalcoster.salesapp"
+    }
+  },
+  "dependent_plugins": {
+    "cordova-plugin-file": {
+      "PACKAGE_NAME": "com.royalcoster.salesapp"
+    },
+    "es6-promise-plugin": {
+      "PACKAGE_NAME": "com.royalcoster.salesapp"
+    }
+  }
+}
