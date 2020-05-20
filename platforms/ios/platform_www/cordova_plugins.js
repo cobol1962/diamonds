@@ -431,6 +431,7 @@ cordova.define('cordova/plugin_list', function(require, exports, module) {
     "phonegap-plugin-barcodescanner": "8.1.0",
     "es6-promise-plugin": "4.2.2",
     "cordova-plugin-x-socialsharing": "5.6.5",
-    "cordova-plugin-app-version": "0.1.9"
+    "cordova-plugin-app-version": "0.1.9",
+    "cordova-android-support-gradle-release": "3.0.1"
   };
 });

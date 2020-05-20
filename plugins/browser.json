@@ -51,6 +51,9 @@
     },
     "cordova-plugin-app-version": {
       "PACKAGE_NAME": "com.royalcoster.catalog"
+    },
+    "cordova-android-support-gradle-release": {
+      "PACKAGE_NAME": "com.royalcoster.salesapp"
     }
   },
   "dependent_plugins": {

@@ -35,7 +35,10 @@
         "PHOTO_LIBRARY_ADD_USAGE_DESCRIPTION": "This app requires photo library access to function properly.",
         "PHOTO_LIBRARY_USAGE_DESCRIPTION": "This app requires photo library access to function properly."
       },
-      "cordova-plugin-app-version": {}
+      "cordova-plugin-app-version": {},
+      "cordova-android-support-gradle-release": {
+        "ANDROID_SUPPORT_VERSION": "27.+"
+      }
     },
     "platforms": [
       "ios",
@@ -45,6 +48,7 @@
   },
   "dependencies": {
     "cordova-android": "^8.1.0",
+    "cordova-android-support-gradle-release": "^3.0.1",
     "cordova-browser": "^6.0.0",
     "cordova-ios": "^5.1.1",
     "cordova-plugin-app-version": "^0.1.9",
