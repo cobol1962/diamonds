@@ -655,6 +655,7 @@
 
                     </div>
                     <div id="modalImage" style="padding:5px;width:100%;text-align:center;"></div>
+                    <div id="pDetails" style="margin:0px auto;padding:5px;width:100%;text-align:center;"></div>
                     <table id="item_serails" class="table" style="width:100%;">
                         <thead class="thead-dark">
                             <th style="display:none;">Serial No</th>
@@ -960,7 +961,7 @@ function loadMore(next = true) {
                             var src = "http://85.214.165.56:81/coster/www/images/crown.png";
                         }
 
-                        html = "<div itemid='" + row["ItemID"] + "' style='font-size:12px;min-width:100%;text-align:center;'>";
+                        html = "<div itemname='" + row["productName"] + "' itemid='" + row["ItemID"] + "' style='font-size:12px;min-width:100%;text-align:center;'>";
                         html += "<img style='max-width: 100%;max-height:150px; height: auto;' src='" + src + "' /></img>";
                         html += "</div>";
                         html += "<div style='width:100%;min-width:100%;'><span productname style='margin-top:15px;font-weight:bold;font-size:12px;'>" + row["productName"] + "";
@@ -1495,7 +1496,7 @@ function collectFilters() {
            $("#discountSelected").html("Discount");
          }
        } catch(err) {
-         
+
        }
    }
 
@@ -1549,6 +1550,9 @@ function collectFilters() {
             itemid: $(obj).attr("itemid")
         }
         $("#productDetail").attr("item", $(obj).attr("itemid"));
+        var inm = $(obj).find("[itemname]").attr("itemname");
+    
+        var pd = $(obj).find("[colordescdiv]").clone();
 
         api.call("getItemById", function(res) {
             var itemid = $(obj).attr("itemid");
@@ -1558,7 +1562,6 @@ function collectFilters() {
             img.removeAttr("style");
             $("#modalImage").find("img").remove();
             img.css({
-
                 height: "auto",
                 maxHeight: 200
             })
@@ -1567,6 +1570,13 @@ function collectFilters() {
             var obj = {
                 itemid: data.ItemID
             }
+            $("#pDetails").html("");
+            pd.css({
+              display: "block",
+
+            })
+            $("<strong style='font-size:15px;'>" + inm + "</strong>").appendTo($("#pDetails"));
+            pd.appendTo($("#pDetails"));
             $('#item_serials_body').find("tr").unbind('click');
             $("#item_serials_body").find("tr").remove();
             api.call("getSerials", function(res) {
