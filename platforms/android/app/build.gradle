@@ -42,7 +42,7 @@ allprojects {
 task wrapper(type: Wrapper) {
     gradleVersion = '4.10.3'
 }
-
+android.enableAapt2=false
 // Configuration properties. Set these via environment variables, build-extras.gradle, or gradle.properties.
 // Refer to: http://www.gradle.org/docs/current/userguide/tutorial_this_and_that.html
 ext {
@@ -113,9 +113,9 @@ if (hasBuildExtras2) {
 
 // Set property defaults after extension .gradle files.
 ext.cdvCompileSdkVersion = cdvCompileSdkVersion == null ? (
-    defaultCompileSdkVersion == null 
+    defaultCompileSdkVersion == null
         ? privateHelpers.getProjectTarget()
-        : defaultCompileSdkVersion 
+        : defaultCompileSdkVersion
 ) : Integer.parseInt('' + cdvCompileSdkVersion);
 
 if (ext.cdvBuildToolsVersion == null) {
